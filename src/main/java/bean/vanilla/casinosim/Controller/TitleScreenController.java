@@ -29,9 +29,11 @@ public class TitleScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         card = new Card(Card.eSuit.SPADES, "4", Color.BLUE);
+        card.Scale(0.4);
         pane.getChildren().add(card);
 
         die = new Dice();
+        die.Scale(0.6);
         pane.getChildren().add(die);
     }
 }
