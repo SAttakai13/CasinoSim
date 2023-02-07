@@ -3,7 +3,7 @@ package bean.vanilla.casinosim.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class HelloController {
+public class TitleScreenController {
     @FXML
     private Label welcomeText;
 
