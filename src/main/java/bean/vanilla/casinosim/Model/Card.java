@@ -67,8 +67,6 @@ public class Card extends ImageView {
         backImagePath = imageDirectoryPath + "cardBack_"+cardBackColorName+"5.png";
 
         BuildCard();
-
-        Scale(0.4);
     }
 
     private void BuildCard() {
