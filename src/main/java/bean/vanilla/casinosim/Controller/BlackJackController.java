@@ -1,5 +1,6 @@
 package bean.vanilla.casinosim.Controller;
 
+import bean.vanilla.casinosim.CasinoApplication;
 import bean.vanilla.casinosim.Model.Deck;
 import bean.vanilla.casinosim.Model.Player;
 import javafx.event.ActionEvent;
@@ -175,7 +176,7 @@ public class BlackJackController implements Initializable {
     }
 
     public void BackToTitle(ActionEvent actionEvent) {
-        HelloApplication.setRoot("BlackJackTitleScreen");
+        CasinoApplication.setRoot("BlackJackTitleScreen");
     }
 
     public void SetBets() {
