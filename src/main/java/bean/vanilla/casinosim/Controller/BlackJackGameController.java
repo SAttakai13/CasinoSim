@@ -1,4 +1,4 @@
 package bean.vanilla.casinosim.Controller;
 
-public class BlackJackController {
+public class BlackJackGameController {
 }
