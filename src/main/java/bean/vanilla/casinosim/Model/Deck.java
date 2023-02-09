@@ -48,11 +48,17 @@ public class Deck {
         Collections.shuffle(cards);
     }
 
-    public Card GetTopCard() {
-        return cards.get(0);
-    }
+    //public Card GetTopCard() { return cards.get(0); }
+
     public void DealCard(Player player) {
-        //player.playerHand.AddToHand(cards.get(0));
+        if (cards == null || cards.size() == 0) return;
+        player.playerHand.AddToHand(cards.get(0));
         cards.remove(0);
+    }
+
+    public void TakeCardFromPlayer(Player player, Card card) {
+        if (cards == null) return;
+        player.playerHand.removeOneFromHand(card);
+        cards.add(card);
     }
 }

@@ -143,6 +143,11 @@ public class Card extends ImageView {
                 }
             },
             (long) (duration / 2.0));
+
+    }
+
+    public boolean IsCardFlipped() {
+        return cardFlipped;
     }
 
 
@@ -155,8 +160,21 @@ public class Card extends ImageView {
     public String GetCardSuitName() { return suit.toString().toUpperCase().substring(0,1) + suit.toString().toLowerCase().substring(1); }
 
 
+    public void SetPosition(double x, double y) {
+        setLayoutX(x);
+        setLayoutY(y);
+    }
     public void Scale(double scale) {
         this.setFitWidth(trueWidth * scale);
+    }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Card) {
+            return suit == ((Card)obj).suit && cardCharacter == ((Card)obj).cardCharacter && cardBackColor == ((Card)obj).cardBackColor;
+        }
+        return super.equals(obj);
     }
 
     @Override

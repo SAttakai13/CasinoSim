@@ -93,6 +93,13 @@ public class Dice extends ImageView {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Dice) {
+            return number == ((Dice)obj).number;
+        }
+        return super.equals(obj);
+    }
+    @Override
     public String toString() {
         return "| "+number+" |";
     }

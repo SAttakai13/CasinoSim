@@ -1,26 +1,24 @@
 package bean.vanilla.casinosim.Model;
 
 public class Balance {
-    private double StartingBalance;
+    private double Balance;
 
-    public Balance(double startingBalance) {
-        this.StartingBalance = startingBalance;
+    public Balance(double startingBalance) { this.Balance = startingBalance; }
+
+    public double GetBalance() {
+        return Balance;
     }
 
-    public double getStartingBalance() {
-        return StartingBalance;
+    public void SetBalance(double balance) {
+        Balance = balance;
     }
 
-    public void setStartingBalance(double startingBalance) {
-        StartingBalance = startingBalance;
-    }
-
-    public double addToBalance(double MoneyWon){
-        return StartingBalance += MoneyWon;
+    public double AddToBalance(double MoneyWon){
+        return Balance += MoneyWon;
     }
 
     public double LostPartBalance(double MoneyLost) {
-        return StartingBalance -= MoneyLost;
+        return Balance -= MoneyLost;
     }
 
 }

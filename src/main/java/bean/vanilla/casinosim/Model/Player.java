@@ -13,6 +13,6 @@ public class Player {
     }
 
     public String GetName() { return name; }
-    //public Balance GetBalance() { return balance; }
+    public Balance GetBalance() { return balance; }
 
 }
