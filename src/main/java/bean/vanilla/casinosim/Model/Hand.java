@@ -3,12 +3,17 @@ package bean.vanilla.casinosim.Model;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderStroke;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+
+import java.util.ArrayList;
 
 public class Hand extends StackPane {
-
     //public ArrayList<Card> cards;
 
+    Pane handPane = new Pane();
 
     public Hand() {
         /*cards = new ArrayList<>();*/
@@ -22,9 +27,11 @@ public class Hand extends StackPane {
     };
 
     public void addToHand(Card card) {
-        card.setPadding(new Insets(getChildren().size()*10, 0, 0, getChildren().size()*40));
-        card.setLayoutY(0);
-        getChildren().add(card);
+        handPane.getChildren().add(card);
+
+        handPane.setPadding(new Insets(getChildren().size()*10, 0, 0, getChildren().size()*40));
+        handPane.setLayoutY(0);
+        getChildren().add(handPane);
     }
 
     public void resetHand(){
