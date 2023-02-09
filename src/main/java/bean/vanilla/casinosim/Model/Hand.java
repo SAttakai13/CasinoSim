@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class Hand extends StackPane {
     //public ArrayList<Card> cards;
 
+    Pane HandPane = new Pane();
 
     public Hand() {
         /*cards = new ArrayList<>();*/
@@ -26,9 +27,12 @@ public class Hand extends StackPane {
     };
 
     public void addToHand(Card card) {
-        card.setPadding(new Insets(getChildren().size()*10, 0, 0, getChildren().size()*40));
-        card.setLayoutY(0);
-        getChildren().add(card);
+        HandPane.getChildren().add(card);
+        HandPane.setPadding(new Insets(getChildren().size()*10, 0, 0, getChildren().size()*40));
+        //card.setPadding(new Insets(getChildren().size()*10, 0, 0, getChildren().size()*40));
+        //card.setLayoutY(0);
+        HandPane.setLayoutY(0);
+        getChildren().add(HandPane);
     }
 
     public void resetHand(){
