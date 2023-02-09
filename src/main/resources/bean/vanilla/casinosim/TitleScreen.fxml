@@ -1,16 +1,227 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<?import javafx.scene.control.Button?>
-<VBox fx:id="pane" alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="bean.vanilla.casinosim.Controller.TitleScreenController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="942.0" fitWidth="1251.0" layoutX="-39.0" layoutY="-30.0" pickOnBounds="true" smooth="false">
+            <image>
+                <Image url="@../../Users/Caleb%20Thompson/Downloads/casino_background.jpg" />
+            </image>
+        </ImageView>
+        <GridPane alignment="CENTER" layoutX="89.0" layoutY="248.0" prefHeight="565.0" prefWidth="1169.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <effect>
+                        <DropShadow offsetX="5.0" offsetY="5.0" />
+                    </effect>
+                </ImageView>
+                <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0">
+                    <image>
+                        <Image url="@../CasinoAssets/Craps/Dice1.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                    <image>
+                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <effect>
+                        <DropShadow offsetX="5.0" offsetY="5.0" />
+                    </effect>
+                </ImageView>
+                <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                    <image>
+                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <effect>
+                        <DropShadow offsetX="5.0" offsetY="5.0" />
+                    </effect>
+                </ImageView>
+                <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <image>
+                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <effect>
+                        <DropShadow offsetX="5.0" offsetY="5.0" />
+                    </effect>
+                </ImageView>
+                <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                    <image>
+                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                    <effect>
+                        <DropShadow offsetX="5.0" offsetY="5.0" />
+                    </effect>
+                </ImageView>
+                <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <image>
+                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                    </image>
+                    <effect>
+                        <DropShadow offsetX="5.0" offsetY="5.0" />
+                    </effect>
+                </ImageView>
+                <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0" GridPane.rowIndex="1">
+                    <image>
+                        <Image url="@../CasinoAssets/Craps/Dice2.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0" GridPane.rowIndex="2">
+                    <image>
+                        <Image url="@../CasinoAssets/Craps/Dice3.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0" GridPane.columnIndex="1">
+                    <image>
+                        <Image url="@../CasinoAssets/Craps/Dice4.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <image>
+                        <Image url="@../CasinoAssets/Craps/Dice5.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <image>
+                        <Image url="@../CasinoAssets/Craps/Dice6.png" />
+                    </image>
+                </ImageView>
+                <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Blackjack" translateX="140.0">
+                    <font>
+                        <Font name="Cambria" size="45.0" />
+                    </font>
+                </Text>
+                <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="5-Hand Poker" translateX="100.0" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Cambria" size="45.0" />
+                    </font>
+                </Text>
+                <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Craps" translateX="160.0" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="Cambria" size="45.0" />
+                    </font>
+                </Text>
+                <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Roulette" translateX="140.0" GridPane.columnIndex="1">
+                    <font>
+                        <Font name="Cambria" size="45.0" />
+                    </font>
+                </Text>
+                <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Slots" translateX="170.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Cambria" size="45.0" />
+                    </font>
+                </Text>
+                <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Solitaire" translateX="140.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="Cambria" size="45.0" />
+                    </font>
+                </Text>
+                <ImageView fitHeight="113.0" fitWidth="416.0" pickOnBounds="true" preserveRatio="true" rotate="15.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                    <image>
+                        <Image url="@../CasinoAssets/Overall%20UI/ComingSoonStamp.png" />
+                    </image>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </ImageView>
+            </children>
+        </GridPane>
+        <Text layoutX="116.0" layoutY="157.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Vanilla Bean Casino" wrappingWidth="925.78125">
+            <font>
+                <Font name="Gabriola" size="150.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <ImageView fitHeight="58.0" fitWidth="291.0" layoutX="152.0" layoutY="819.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </ImageView>
+        <ImageView fitHeight="58.0" fitWidth="291.0" layoutX="742.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </ImageView>
+        <ImageView fitHeight="21.0" fitWidth="25.0" layoutX="172.0" layoutY="837.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Roulette/CircleBlack.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Text layoutX="237.0" layoutY="861.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Credits">
+            <font>
+                <Font name="Cambria" size="35.0" />
+            </font>
+        </Text>
+        <Text layoutX="843.0" layoutY="856.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Quit">
+            <font>
+                <Font name="Cambria" size="35.0" />
+            </font>
+        </Text>
+        <ImageView fitHeight="21.0" fitWidth="25.0" layoutX="765.0" layoutY="834.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Roulette/CircleBlack.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+    </children>
+</Pane>
