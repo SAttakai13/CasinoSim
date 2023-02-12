@@ -11,35 +11,42 @@ import javafx.scene.paint.Color;
 import java.util.ArrayList;
 
 public class Hand extends StackPane {
-    //public ArrayList<Card> cards;
 
-    Pane HandPane = new Pane();
+    private double trueWidth = 300.0;
+    private double trueHeight = 350.0;
+
+    private boolean isHidden = false;
+    private double cardScale = 1.0;
 
     public Hand() {
-        /*cards = new ArrayList<>();*/
-        //this.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
-
+        setMaxWidth(trueWidth * cardScale);
+        setMaxHeight(trueHeight * cardScale);
         this.setAlignment(Pos.TOP_CENTER);
+        SetIsHidden(false);
+        this.setPadding(new Insets(0, 0, 0, 20));
     }
     public void removeOneFromHand(Card value){
         getChildren().remove(value);
-        this.setLayoutY(0);
     };
 
-    public void addToHand(Card card) {
-        HandPane.getChildren().add(card);
-        HandPane.setPadding(new Insets(getChildren().size()*10, 0, 0, getChildren().size()*40));
-        //card.setPadding(new Insets(getChildren().size()*10, 0, 0, getChildren().size()*40));
-        //card.setLayoutY(0);
-        HandPane.setLayoutY(0);
-        getChildren().add(HandPane);
+    public void AddToHand(Card card) {
+        card.Scale(cardScale);
+        if (isHidden) card.FlipCard(0);
+
+        this.setPadding(new Insets(0, 0, 0, this.getPadding().getLeft() - 20));
+        StackPane cardPane = new StackPane();
+        cardPane.setPadding(new Insets(getChildren().size()*8, 0, 0, getChildren().size()*40));
+        cardPane.setMaxWidth(10);
+        cardPane.setMaxHeight(10);
+        cardPane.getChildren().add(card);
+        getChildren().add(cardPane);
     }
 
     public void resetHand(){
         getChildren().clear();
     }
 
-    public int Points() {
+    public int BlackJackPoints() {
         int totalValue = 0;
         int aceCount = 0;
 
@@ -73,6 +80,58 @@ public class Hand extends StackPane {
     }
 
 
+    public boolean IsHidden() { return isHidden; }
+    public void SetIsHidden(boolean isHidden) { SetIsHidden(isHidden, 0); }
+    public void SetIsHidden(boolean isHidden, double duration) {
+        if (this.isHidden == isHidden) return;
+        this.isHidden = isHidden;
+
+        for (Node pane : getChildren()) {
+            if (pane instanceof StackPane) {
+                if (((StackPane) pane).getChildren().size() >= 1) {
+                    Node card = ((StackPane) pane).getChildren().get(0);
+                    if (card instanceof Card) {
+                        if (this.isHidden != ((Card) card).IsCardFlipped())
+                            ((Card)card).FlipCard(duration);
+                    }
+                }
+            }
+        }
+    }
+    public void ToggleIsHidden() { ToggleIsHidden(0); }
+    public void ToggleIsHidden(double duration) {
+        SetIsHidden(!isHidden, duration);
+    }
+
+    public void FlipCard(int index) {
+        if (index < 0 || index >= getChildren().size())
+            return;
+
+        Node pane = getChildren().get(index);
+        if (pane instanceof StackPane) {
+            if (((StackPane) pane).getChildren().size() >= 1) {
+                Node card = ((StackPane) pane).getChildren().get(0);
+                if (card instanceof Card) {
+                    ((Card) card).FlipCard(0);
+                }
+            }
+        }
+    }
+
+
+    public void SetPosition(double x, double y) {
+        setLayoutX(x);
+        setLayoutY(y);
+    }
+    public void Scale(double scale) {
+        cardScale = scale;
+        setMaxWidth(trueWidth * cardScale);
+        setMaxHeight(trueHeight * cardScale);
+        for (Node card : getChildren()) {
+            if (card instanceof Card)
+                ((Card)card).Scale(cardScale);
+        }
+    }
 
 
 }
