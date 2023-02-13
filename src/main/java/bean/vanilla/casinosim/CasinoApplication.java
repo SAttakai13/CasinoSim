@@ -14,7 +14,7 @@ public class CasinoApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(CasinoApplication.class.getResource("TitleScreen.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(CasinoApplication.class.getResource("BlackJackGameScreen.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Casino Games!");
         stage.setScene(scene);
