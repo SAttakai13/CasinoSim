@@ -5,6 +5,7 @@ import bean.vanilla.casinosim.Model.Deck;
 import bean.vanilla.casinosim.Model.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 
@@ -42,6 +43,21 @@ public class BlackJackGameController implements Initializable {
         isPlayersTurn = true;
     }
 
+    private void HitCard(){
+        deck.DealCard(CasinoApplication.player);
+        EndPlayerTurn();
+    }
+
+    private void DoubleDown(){
+        deck.DealCard(CasinoApplication.player);
+        deck.DealCard(CasinoApplication.player);
+        EndPlayerTurn();
+    }
+
+    private void Stand(){
+        EndPlayerTurn();
+    }
+
 
     private void DealCards() {
         if (deck == null || dealer == null) return;
@@ -65,6 +81,8 @@ public class BlackJackGameController implements Initializable {
 
         DetermineWinner();
     }
+
+
 
 
     private void NewRound() {
@@ -114,5 +132,33 @@ public class BlackJackGameController implements Initializable {
 
         //Start new Round
         NewRound();
+    }
+
+    public void Hit(MouseEvent event) {
+        HitCard();
+    }
+
+    public void DoubleDwn(MouseEvent event) {
+        DoubleDown();
+    }
+
+    public void Split(MouseEvent event) {
+
+    }
+
+    public void Stand(MouseEvent event) {
+        Stand();
+    }
+
+    public void GoBackToMain(MouseEvent event) {
+        CasinoApplication.setRoot("TitleScreen");
+    }
+
+    public void DecreaseBet(MouseEvent event) {
+
+    }
+
+    public void IncreaseBet(MouseEvent event) {
+
     }
 }
