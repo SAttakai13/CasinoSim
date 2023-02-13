@@ -18,7 +18,7 @@ public class CasinoApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("BlackJackTitleScreen"), 900, 600);
+        scene = new Scene(loadFXML("TitleScreen"), 900, 600);
         stage.setResizable(false);
         stage.setTitle("Black Jack");
         stage.setScene(scene);
