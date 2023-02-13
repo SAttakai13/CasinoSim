@@ -16,7 +16,7 @@
     <children>
         <ImageView fitHeight="942.0" fitWidth="1251.0" layoutX="-39.0" layoutY="-30.0" pickOnBounds="true" smooth="false">
             <image>
-                <Image url="@../../Users/Caleb%20Thompson/Downloads/casino_background.jpg" />
+                <Image url="@../../../CasinoAssets/Overall UI/casino_background.jpg" />
             </image>
         </ImageView>
         <GridPane alignment="CENTER" layoutX="89.0" layoutY="248.0" prefHeight="565.0" prefWidth="1169.0">
@@ -32,7 +32,7 @@
             <children>
                 <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                        <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="HAND" />
@@ -43,12 +43,12 @@
                 </ImageView>
                 <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0">
                     <image>
-                        <Image url="@../CasinoAssets/Craps/Dice1.png" />
+                        <Image url="@../../../CasinoAssets/Craps/Dice1.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                     <image>
-                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                        <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="HAND" />
@@ -59,7 +59,7 @@
                 </ImageView>
                 <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                     <image>
-                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                        <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="HAND" />
@@ -70,7 +70,7 @@
                 </ImageView>
                 <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <image>
-                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                        <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="HAND" />
@@ -81,7 +81,7 @@
                 </ImageView>
                 <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                     <image>
-                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                        <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="HAND" />
@@ -92,7 +92,7 @@
                 </ImageView>
                 <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <image>
-                        <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                        <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
                     </image>
                     <effect>
                         <DropShadow offsetX="5.0" offsetY="5.0" />
@@ -100,27 +100,27 @@
                 </ImageView>
                 <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0" GridPane.rowIndex="1">
                     <image>
-                        <Image url="@../CasinoAssets/Craps/Dice2.png" />
+                        <Image url="@../../../CasinoAssets/Craps/Dice2.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0" GridPane.rowIndex="2">
                     <image>
-                        <Image url="@../CasinoAssets/Craps/Dice3.png" />
+                        <Image url="@../../../CasinoAssets/Craps/Dice3.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0" GridPane.columnIndex="1">
                     <image>
-                        <Image url="@../CasinoAssets/Craps/Dice4.png" />
+                        <Image url="@../../../CasinoAssets/Craps/Dice4.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <image>
-                        <Image url="@../CasinoAssets/Craps/Dice5.png" />
+                        <Image url="@../../../CasinoAssets/Craps/Dice5.png" />
                     </image>
                 </ImageView>
                 <ImageView fitHeight="89.0" fitWidth="77.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" translateX="10.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <image>
-                        <Image url="@../CasinoAssets/Craps/Dice6.png" />
+                        <Image url="@../../../CasinoAssets/Craps/Dice6.png" />
                     </image>
                 </ImageView>
                 <Text mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Blackjack" translateX="140.0">
@@ -155,7 +155,7 @@
                 </Text>
                 <ImageView fitHeight="113.0" fitWidth="416.0" pickOnBounds="true" preserveRatio="true" rotate="15.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <image>
-                        <Image url="@../CasinoAssets/Overall%20UI/ComingSoonStamp.png" />
+                        <Image url="@../../../CasinoAssets/Overall UI/ComingSoonStamp.png" />
                     </image>
                     <effect>
                         <DropShadow />
@@ -177,7 +177,7 @@
         </Text>
         <ImageView fitHeight="58.0" fitWidth="291.0" layoutX="152.0" layoutY="819.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -188,7 +188,7 @@
         </ImageView>
         <ImageView fitHeight="58.0" fitWidth="291.0" layoutX="742.0" layoutY="815.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -199,7 +199,7 @@
         </ImageView>
         <ImageView fitHeight="21.0" fitWidth="25.0" layoutX="172.0" layoutY="837.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Roulette/CircleBlack.png" />
+                <Image url="@../../../CasinoAssets/Roulette/CircleBlack.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -217,7 +217,7 @@
         </Text>
         <ImageView fitHeight="21.0" fitWidth="25.0" layoutX="765.0" layoutY="834.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Roulette/CircleBlack.png" />
+                <Image url="@../../../CasinoAssets/Roulette/CircleBlack.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
