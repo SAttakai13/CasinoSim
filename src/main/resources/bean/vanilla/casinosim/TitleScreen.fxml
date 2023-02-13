@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ImageView fitHeight="942.0" fitWidth="1251.0" layoutX="-39.0" layoutY="-30.0" pickOnBounds="true" smooth="false">
             <image>
@@ -30,7 +25,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="BlackJackScreen" fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
                     </image>
@@ -46,7 +41,7 @@
                         <Image url="@../../../CasinoAssets/Craps/Dice1.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
+                <ImageView fx:id="FiveHandPoker" fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1">
                     <image>
                         <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
                     </image>
@@ -57,7 +52,7 @@
                         <DropShadow offsetX="5.0" offsetY="5.0" />
                     </effect>
                 </ImageView>
-                <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+                <ImageView fx:id="Roulette" fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                     <image>
                         <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
                     </image>
@@ -68,7 +63,7 @@
                         <DropShadow offsetX="5.0" offsetY="5.0" />
                     </effect>
                 </ImageView>
-                <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <ImageView fx:id="Slots" fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <image>
                         <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
                     </image>
@@ -79,7 +74,7 @@
                         <DropShadow offsetX="5.0" offsetY="5.0" />
                     </effect>
                 </ImageView>
-                <ImageView fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+                <ImageView fx:id="Craps" fitHeight="198.0" fitWidth="379.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
                     <image>
                         <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
                     </image>
