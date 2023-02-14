@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.BlackJackGameController">
     <children>
         <ImageView fitHeight="920.0" fitWidth="1217.0" layoutX="-9.0" layoutY="-7.0" pickOnBounds="true">
             <image>
@@ -37,7 +35,7 @@
                 <Circle fill="DODGERBLUE" layoutX="49.0" layoutY="71.0" radius="31.0" stroke="BLACK" strokeType="INSIDE" />
             </children>
         </Pane>
-        <ImageView fitHeight="69.0" fitWidth="361.0" layoutX="65.0" layoutY="673.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="69.0" fitWidth="361.0" layoutX="65.0" layoutY="673.0" onMouseClicked="#Hit" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
@@ -60,7 +58,7 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fitHeight="69.0" fitWidth="361.0" layoutX="62.0" layoutY="781.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="69.0" fitWidth="361.0" layoutX="62.0" layoutY="781.0" onMouseClicked="#Stand" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
@@ -83,7 +81,7 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fitHeight="69.0" fitWidth="361.0" layoutX="399.0" layoutY="673.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="69.0" fitWidth="361.0" layoutX="399.0" layoutY="673.0" onMouseClicked="#DoubleDwn" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
@@ -106,7 +104,7 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fitHeight="69.0" fitWidth="361.0" layoutX="397.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="69.0" fitWidth="361.0" layoutX="397.0" layoutY="780.0" onMouseClicked="#Split" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
@@ -129,7 +127,7 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fitHeight="69.0" fitWidth="361.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="69.0" fitWidth="361.0" layoutX="17.0" layoutY="14.0" onMouseClicked="#GoBackToMain" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
@@ -152,7 +150,7 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fitHeight="69.0" fitWidth="47.0" layoutX="909.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="69.0" fitWidth="47.0" layoutX="909.0" layoutY="674.0" onMouseClicked="#DecreaseBet" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
             </image>
@@ -163,7 +161,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <ImageView fitHeight="69.0" fitWidth="47.0" layoutX="994.0" layoutY="672.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+        <ImageView fitHeight="69.0" fitWidth="47.0" layoutX="994.0" layoutY="672.0" onMouseClicked="#IncreaseBet" pickOnBounds="true" preserveRatio="true" rotate="180.0">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
             </image>
@@ -200,4 +198,3 @@
         </Text>
     </children>
 </Pane>
-
