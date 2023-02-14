@@ -121,8 +121,8 @@ public class Card extends ImageView {
     }
 
 
-    private RotateTransition rotator = new RotateTransition(Duration.millis(500), this);
     public void FlipCard(double duration) {
+        RotateTransition rotator = new RotateTransition(Duration.millis(500), this);
         rotator.setDuration(Duration.millis(duration));
         rotator.setAxis(Rotate.Y_AXIS);
         rotator.setToAngle(cardFlipped ? 0 : 180);

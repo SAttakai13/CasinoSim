@@ -55,6 +55,11 @@ public class Deck {
         player.playerHand.AddToHand(cards.get(0));
         cards.remove(0);
     }
+    public void DealCard(Hand hand) {
+        if (cards == null || cards.size() == 0) return;
+        hand.AddToHand(cards.get(0));
+        cards.remove(0);
+    }
 
     public void TakeCardFromPlayer(Player player, Card card) {
         if (cards == null) return;
