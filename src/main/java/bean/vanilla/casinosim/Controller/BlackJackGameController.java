@@ -26,6 +26,13 @@ public class BlackJackGameController implements Initializable {
     @FXML
     private ImageView SplitButton;
 
+    @FXML
+    private Text BetText;
+
+    @FXML
+    private Text BalText;
+
+
     private Player dealer;
     private Deck deck;
     private Color deckColor = Color.BLUE;
@@ -44,8 +51,13 @@ public class BlackJackGameController implements Initializable {
 
     private double betAmount = 100.0;
 
+    private boolean betIsDoubled = false;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        BetText.setText("Bet: " + betAmount);
+        BalText.setText("Balance: " + CasinoApplication.player.GetBalance().GetBalance());
+
         dealer = new Player("Dealer", 10000.0);
         dealer.playerHand.resetHand();
         dealer.playerHand.SetPosition(truePlayerXPosition, 40);
@@ -61,6 +73,19 @@ public class BlackJackGameController implements Initializable {
         dealer.playerHand.FlipCard(0);
 
         isPlayersTurn = true;
+
+        updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
+    }
+
+    public void updateBetsAndBalance(double bets, double playerBalance){
+        BetText.setLayoutX(914.0);
+        BetText.setLayoutY(794.0);
+
+        BalText.setLayoutX(860.0);
+        BalText.setLayoutY(836.0);
+
+        BetText.setText("Bet: " + bets);
+        BalText.setText("Balance: " + playerBalance);
     }
 
     private void HitCard(){
@@ -75,7 +100,7 @@ public class BlackJackGameController implements Initializable {
 
     private void DoubleDown(){
         deck.DealCard(CasinoApplication.player);
-        betAmount *= 2;
+        betIsDoubled = true;
         EndPlayerTurn();
     }
 
@@ -124,8 +149,8 @@ public class BlackJackGameController implements Initializable {
 
     private void ExchangeBet(Player sender, Player receiver) { ExchangeBet(sender, receiver, 1.0); }
     private void ExchangeBet(Player sender, Player receiver, double multiplier) {
-        receiver.GetBalance().AddToBalance(betAmount * multiplier);
-        sender.GetBalance().LostPartBalance(betAmount * multiplier);
+        receiver.AddToBalance(betAmount * multiplier);
+        sender.LostPartBalance(betAmount * multiplier);
     }
 
 
@@ -149,6 +174,7 @@ public class BlackJackGameController implements Initializable {
             playerSplitHand = null;
             CasinoApplication.player.playerHand.SetPosition(truePlayerXPosition, 492);
         }
+        betIsDoubled = false;
 
         dealer.playerHand.resetHand();
         CasinoApplication.player.playerHand.resetHand();
@@ -166,30 +192,45 @@ public class BlackJackGameController implements Initializable {
         String bannerMessage = "";
 
         int dealerPoints = dealer.playerHand.BlackJackPoints();
+        int points = CasinoApplication.player.playerHand.BlackJackPoints();
+
+        //Check for split hand points
+        //Calculate bet return amount based off points of player's 2nd split hand and dealer hand
+        if (playerSplitHand != null) {
+            int splitPoints = playerSplitHand.BlackJackPoints();
+
+            if (splitPoints <= 21 && splitPoints > dealerPoints) {
+                //Split Hand Adjust balance
+                if (splitPoints == 21) {
+                    ExchangeBet(dealer, CasinoApplication.player, 2.0);
+                } else {
+                    ExchangeBet(dealer, CasinoApplication.player);
+                }
+            } else {
+                //Split Hand Lose
+                ExchangeBet(CasinoApplication.player, dealer, (betIsDoubled ? 2.0 : 1.0));
+            }
+        }
 
         //if dealer busts all players win
         if (dealerPoints > 21) {
-            ExchangeBet(dealer, CasinoApplication.player, 2.0);
-            bannerMessage = CasinoApplication.player.GetName() + " wins! Against Dealer: "+dealerPoints;
-        }
-        else {
-            int points = CasinoApplication.player.playerHand.BlackJackPoints();
+            if (points > 21) {
+                //Lose
+                bannerMessage = CasinoApplication.player.GetName() + " : "+ points + " Lost! Against Dealer: "+dealerPoints;
+                ExchangeBet(CasinoApplication.player, dealer, (betIsDoubled ? 2.0 : 1.0));
 
-            //Check for split hand points
-            if (playerSplitHand != null) {
-                int splitPoints = playerSplitHand.BlackJackPoints();
-                if ((points > 21 || splitPoints > points) && splitPoints <= 21) {
-                    points = splitPoints;
-                }
+            } else {
+                ExchangeBet(dealer, CasinoApplication.player, (betIsDoubled ? 2.0 : 1.0));
+                bannerMessage = CasinoApplication.player.GetName() + " wins! Against Dealer: " + dealerPoints;
             }
+        } else {
 
 
+            //Calculate bet return amount based off points of player and dealer hand
             if (points == dealerPoints) {
                 //tied
                 bannerMessage = CasinoApplication.player.GetName() + " Tied with the Dealer!";
 
-                //Return bets
-                ExchangeBet(dealer, CasinoApplication.player);
 
             } else if (points <= 21 && points > dealerPoints) {
                 //WIN
@@ -198,22 +239,28 @@ public class BlackJackGameController implements Initializable {
 
                 //Adjust balance
                 if (CasinoApplication.player.playerHand.getChildren().size() == 5) {
-                    ExchangeBet(dealer, CasinoApplication.player, 4.0);
+                    ExchangeBet(dealer, CasinoApplication.player, 3.0 * (betIsDoubled ? 2.0 : 1.0));
                     bannerMessage = CasinoApplication.player.GetName() + " 5-Card Charlie!";
                 } else if (points == 21) {
-                    ExchangeBet(dealer, CasinoApplication.player, 3.0);
+                    ExchangeBet(dealer, CasinoApplication.player, 2.0 * (betIsDoubled ? 2.0 : 1.0));
                     bannerMessage = CasinoApplication.player.GetName() + " BlackJack!";
                 } else {
-                    ExchangeBet(dealer, CasinoApplication.player, 2.0);
+                    ExchangeBet(dealer, CasinoApplication.player, (betIsDoubled ? 2.0 : 1.0));
                 }
             } else {
                 //Lose
                 bannerMessage = CasinoApplication.player.GetName() + " : "+ points + " Lost! Against Dealer: "+dealerPoints;
+                ExchangeBet(CasinoApplication.player, dealer, (betIsDoubled ? 2.0 : 1.0));
             }
         }
 
+        //Reveal hidden dealer card
         dealer.playerHand.FlipCard(0, 500);
 
+        //Update balance and bet text
+        updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
+
+        //Reveal Winner Banner
         bannerText.setText(bannerMessage);
         bannerPane.setVisible(true);
         buttonsDisabled = true;
@@ -234,15 +281,18 @@ public class BlackJackGameController implements Initializable {
     }
 
     public void DecreaseBet(MouseEvent event) {
-
+        betAmount -= 50;
+        updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
     public void IncreaseBet(MouseEvent event) {
-
+        betAmount += 50;
+        updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
     public void NewGameBtnPressed(ActionEvent actionEvent) {
         bannerPane.setVisible(false);
         NewRound();
     }
+
 }
