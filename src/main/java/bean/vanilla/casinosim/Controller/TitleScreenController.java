@@ -1,57 +1,52 @@
 package bean.vanilla.casinosim.Controller;
 
+import bean.vanilla.casinosim.CasinoApplication;
 import bean.vanilla.casinosim.Model.Card;
 import bean.vanilla.casinosim.Model.Deck;
 import bean.vanilla.casinosim.Model.Dice;
 import bean.vanilla.casinosim.Model.Player;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TitleScreenController implements Initializable {
-    @FXML
-    private Label welcomeText;
-    @FXML
-    private VBox pane;
-    private Card card;
-    private Dice die;
-    private Player p;
-    private Deck deck;
+public class TitleScreenController {
 
-    @FXML
-    protected void onHelloButtonClick() {
-        card.FlipCard(300);
-        die.Roll();
-
-        deck.DealCard(p);
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public void NavToBlackjack(MouseEvent event) {
+        CasinoApplication.setRoot("BlackJackGameScreen");
     }
 
-    @FXML
-    public void onOtherButtonClick(ActionEvent actionEvent) {
-        p.playerHand.ToggleIsHidden(100);
+    public void NavToPoker(MouseEvent event) {
+        CasinoApplication.setRoot("PokerGameScreen");
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        card = new Card(Card.eSuit.SPADES, "4", Color.BLUE);
-        card.Scale(0.4);
-        pane.getChildren().add(card);
-
-        die = new Dice();
-        die.Scale(0.6);
-        pane.getChildren().add(die);
-
-        deck = new Deck();
-        p = new Player("Jake", 1000.0);
-        p.playerHand.Scale(0.4);
-        pane.getChildren().add(p.playerHand);
+    public void NavToRoulette(MouseEvent event) {
+        CasinoApplication.setRoot("RouletteGameScreen");
     }
 
+    public void NavToSlots(MouseEvent event) {
+        CasinoApplication.setRoot("SlotsGameScreen");
+    }
+
+    public void NavToCraps(MouseEvent event) {
+        CasinoApplication.setRoot("CrapsGameScreen");
+    }
+
+    public void NavToCredit(MouseEvent event) {
+        //Need a credits screen
+    }
+
+    public void Quit(MouseEvent event) {
+        Platform.exit();
+    }
 }

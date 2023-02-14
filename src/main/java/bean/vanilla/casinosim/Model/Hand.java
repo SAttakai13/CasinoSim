@@ -43,6 +43,7 @@ public class Hand extends StackPane {
     }
 
     public void resetHand(){
+        this.setPadding(new Insets(0, 0, 0, 0));
         getChildren().clear();
     }
 
@@ -50,22 +51,27 @@ public class Hand extends StackPane {
         int totalValue = 0;
         int aceCount = 0;
 
-        for (Node card : getChildren()) {
-            if (card instanceof Card) {
-                int value = 0;
-                String cardCharacter = ((Card)card).GetCardCharacter();
-                try {
-                    value = Integer.valueOf(cardCharacter);
-                } catch (NumberFormatException e) {
-                    switch (cardCharacter) {
-                        case "J", "Q", "K" -> value = 10;
-                        case "A" -> {
-                            value = 11;
-                            aceCount++;
+        for (Node pane : getChildren()) {
+            if (pane instanceof StackPane) {
+                if (((StackPane) pane).getChildren().size() >= 1) {
+                    Node card = ((StackPane) pane).getChildren().get(0);
+                    if (card instanceof Card) {
+                        int value = 0;
+                        String cardCharacter = ((Card)card).GetCardCharacter();
+                        try {
+                            value = Integer.valueOf(cardCharacter);
+                        } catch (NumberFormatException e) {
+                            switch (cardCharacter) {
+                                case "J", "Q", "K" -> value = 10;
+                                case "A" -> {
+                                    value = 11;
+                                    aceCount++;
+                                }
+                            }
                         }
+                        totalValue += value;
                     }
                 }
-                totalValue += value;
             }
         }
 
@@ -103,7 +109,8 @@ public class Hand extends StackPane {
         SetIsHidden(!isHidden, duration);
     }
 
-    public void FlipCard(int index) {
+    public void FlipCard(int index) { FlipCard(index, 0); }
+    public void FlipCard(int index, double duration) {
         if (index < 0 || index >= getChildren().size())
             return;
 
@@ -112,10 +119,54 @@ public class Hand extends StackPane {
             if (((StackPane) pane).getChildren().size() >= 1) {
                 Node card = ((StackPane) pane).getChildren().get(0);
                 if (card instanceof Card) {
-                    ((Card) card).FlipCard(0);
+                    ((Card) card).FlipCard(duration);
                 }
             }
         }
+    }
+
+
+    public Card GetCard(int index) {
+        if (index < 0 || index >= getChildren().size())
+            return null;
+
+        Node pane = getChildren().get(index);
+        if (pane instanceof StackPane) {
+            if (((StackPane) pane).getChildren().size() >= 1) {
+                Node card = ((StackPane) pane).getChildren().get(0);
+                if (card instanceof Card) {
+                    return (Card)card;
+                }
+            }
+        }
+        return null;
+    }
+
+    public void RemoveCard(int index) {
+        getChildren().remove(index);
+    }
+
+
+    public boolean HasMatchingValues() {
+        String value = null;
+        for (int i = 0; i < getChildren().size(); i++) {
+            Node pane = getChildren().get(i);
+            if (pane instanceof StackPane) {
+                if (((StackPane) pane).getChildren().size() >= 1) {
+                    Node card = ((StackPane) pane).getChildren().get(0);
+                    if (card instanceof Card) {
+                        if (value == null) {
+                            value = ((Card) card).GetCardCharacter();
+                            continue;
+                        }
+                        if (!((Card) card).GetCardCharacter().equals(value)) {
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
     }
 
 
