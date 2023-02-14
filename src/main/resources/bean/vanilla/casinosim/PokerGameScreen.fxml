@@ -17,7 +17,7 @@
     <children>
         <ImageView fitHeight="917.0" fitWidth="1217.0" layoutX="-9.0" layoutY="-8.0" pickOnBounds="true">
             <image>
-                <Image url="@../../../CasinoAssets/Overall UI/Generic Felt Mat.jpeg" />
+                <Image url="@Generic%20Felt%20Mat.jpeg" />
             </image>
             <effect>
                 <DropShadow offsetX="5.0" />
@@ -25,7 +25,7 @@
         </ImageView>
         <ImageView fitHeight="480.0" fitWidth="1076.0" layoutX="80.0" layoutY="116.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../CasinoAssets/Poker/PokerTable.png" />
+                <Image url="@../CasinoAssets/Poker/PokerTable.png" />
             </image>
         </ImageView>
         <GridPane gridLinesVisible="true" layoutX="19.0" layoutY="392.0" prefHeight="242.0" prefWidth="1153.0">
@@ -52,9 +52,9 @@
                 <Circle fill="DODGERBLUE" layoutX="101.0" layoutY="104.0" radius="51.0" stroke="BLACK" strokeType="INSIDE" />
             </children>
         </Pane>
-        <ImageView fitHeight="67.0" fitWidth="347.0" layoutX="171.0" layoutY="736.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="btnPokerCall" fitHeight="67.0" fitWidth="347.0" layoutX="171.0" layoutY="736.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -75,9 +75,9 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fitHeight="67.0" fitWidth="347.0" layoutX="265.0" layoutY="651.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="btnPokerRaise" fitHeight="67.0" fitWidth="347.0" layoutX="265.0" layoutY="651.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -86,9 +86,9 @@
                 <DropShadow offsetX="5.0" offsetY="5.0" />
             </effect>
         </ImageView>
-        <ImageView fitHeight="67.0" fitWidth="347.0" layoutX="80.0" layoutY="819.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="btnPokerFold" fitHeight="67.0" fitWidth="347.0" layoutX="80.0" layoutY="819.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -121,9 +121,9 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fitHeight="67.0" fitWidth="347.0" layoutX="8.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="btnPokerQuit" fitHeight="67.0" fitWidth="347.0" layoutX="8.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -156,9 +156,9 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fitHeight="102.0" fitWidth="76.0" layoutX="763.0" layoutY="651.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="btnPokerBetDown" fitHeight="102.0" fitWidth="76.0" layoutX="763.0" layoutY="651.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
+                <Image url="@../CasinoAssets/Overall%20UI/ArrowDown.png" />
             </image>
             <effect>
                 <DropShadow offsetX="5.0" offsetY="5.0" />
@@ -179,9 +179,9 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fitHeight="102.0" fitWidth="76.0" layoutX="855.0" layoutY="651.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+        <ImageView fx:id="btnPokerBetUp" fitHeight="102.0" fitWidth="76.0" layoutX="855.0" layoutY="651.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
             <image>
-                <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
+                <Image url="@../CasinoAssets/Overall%20UI/ArrowDown.png" />
             </image>
             <effect>
                 <DropShadow offsetX="-5.0" offsetY="-5.0" />
