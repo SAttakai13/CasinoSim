@@ -43,6 +43,7 @@ public class Hand extends StackPane {
     }
 
     public void resetHand(){
+        this.setPadding(new Insets(0, 0, 0, 0));
         getChildren().clear();
     }
 
@@ -50,22 +51,27 @@ public class Hand extends StackPane {
         int totalValue = 0;
         int aceCount = 0;
 
-        for (Node card : getChildren()) {
-            if (card instanceof Card) {
-                int value = 0;
-                String cardCharacter = ((Card)card).GetCardCharacter();
-                try {
-                    value = Integer.valueOf(cardCharacter);
-                } catch (NumberFormatException e) {
-                    switch (cardCharacter) {
-                        case "J", "Q", "K" -> value = 10;
-                        case "A" -> {
-                            value = 11;
-                            aceCount++;
+        for (Node pane : getChildren()) {
+            if (pane instanceof StackPane) {
+                if (((StackPane) pane).getChildren().size() >= 1) {
+                    Node card = ((StackPane) pane).getChildren().get(0);
+                    if (card instanceof Card) {
+                        int value = 0;
+                        String cardCharacter = ((Card)card).GetCardCharacter();
+                        try {
+                            value = Integer.valueOf(cardCharacter);
+                        } catch (NumberFormatException e) {
+                            switch (cardCharacter) {
+                                case "J", "Q", "K" -> value = 10;
+                                case "A" -> {
+                                    value = 11;
+                                    aceCount++;
+                                }
+                            }
                         }
+                        totalValue += value;
                     }
                 }
-                totalValue += value;
             }
         }
 
