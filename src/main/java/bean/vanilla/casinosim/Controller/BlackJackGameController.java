@@ -187,4 +187,5 @@ public class BlackJackGameController implements Initializable {
         betAmount += 50;
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
+
 }
