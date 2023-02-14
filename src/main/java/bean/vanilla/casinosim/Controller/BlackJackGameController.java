@@ -1,13 +1,18 @@
 package bean.vanilla.casinosim.Controller;
 
 import bean.vanilla.casinosim.CasinoApplication;
+import bean.vanilla.casinosim.Model.Balance;
 import bean.vanilla.casinosim.Model.Deck;
 import bean.vanilla.casinosim.Model.Player;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +20,13 @@ import java.util.ResourceBundle;
 public class BlackJackGameController implements Initializable {
 
     @FXML
-    private AnchorPane pane;
+    private Pane pane;
+
+    @FXML
+    private Text BetText;
+
+    @FXML
+    private Text BalText;
 
     private Player dealer;
     private Deck deck;
@@ -27,6 +38,10 @@ public class BlackJackGameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        BetText.setText("Bet: " + betAmount);
+        BalText.setText("Balance: " + CasinoApplication.player.GetBalance().GetBalance());
+
+
         dealer = new Player("Dealer", 10000.0);
         dealer.playerHand.SetPosition(200, 20);
         dealer.playerHand.Scale(1.0/3.0);
@@ -41,6 +56,17 @@ public class BlackJackGameController implements Initializable {
         dealer.playerHand.FlipCard(0);
 
         isPlayersTurn = true;
+    }
+
+    public void updateBetsAndBalance(Double bets, Double playerBalance){
+        BetText.setLayoutX(914.0);
+        BetText.setLayoutY(794.0);
+
+        BalText.setLayoutX(860.0);
+        BalText.setLayoutY(836.0);
+
+        BetText.setText("Bet: " + bets);
+        BalText.setText("Balance: " + playerBalance);
     }
 
     private void HitCard(){
@@ -81,8 +107,6 @@ public class BlackJackGameController implements Initializable {
 
         DetermineWinner();
     }
-
-
 
 
     private void NewRound() {
@@ -155,10 +179,12 @@ public class BlackJackGameController implements Initializable {
     }
 
     public void DecreaseBet(MouseEvent event) {
-
+        betAmount -= 50;
+        updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
     public void IncreaseBet(MouseEvent event) {
-
+        betAmount += 50;
+        updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 }

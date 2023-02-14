@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.BlackJackGameController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.BlackJackGameController" fx:id="pane">
     <children>
         <ImageView fitHeight="920.0" fitWidth="1217.0" layoutX="-9.0" layoutY="-7.0" pickOnBounds="true">
             <image>
@@ -172,7 +172,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <Text layoutX="914.0" layoutY="794.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Bet: $50">
+        <Text layoutX="914.0" layoutY="794.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Bet: $50" fx:id="BetText">
             <font>
                 <Font name="Cambria" size="36.0" />
             </font>
@@ -184,7 +184,7 @@
                 </DropShadow>
             </effect>
         </Text>
-        <Text layoutX="860.0" layoutY="836.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance: $5000">
+        <Text layoutX="860.0" layoutY="836.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance: $5000" fx:id="BalText">
             <font>
                 <Font name="Cambria" size="36.0" />
             </font>
