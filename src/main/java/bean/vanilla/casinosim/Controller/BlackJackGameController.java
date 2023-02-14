@@ -26,6 +26,13 @@ public class BlackJackGameController implements Initializable {
     @FXML
     private ImageView SplitButton;
 
+    @FXML
+    private Text BetText;
+
+    @FXML
+    private Text BalText;
+
+
     private Player dealer;
     private Deck deck;
     private Color deckColor = Color.BLUE;
@@ -46,6 +53,9 @@ public class BlackJackGameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        BetText.setText("Bet: " + betAmount);
+        BalText.setText("Balance: " + CasinoApplication.player.GetBalance().GetBalance());
+
         dealer = new Player("Dealer", 10000.0);
         dealer.playerHand.resetHand();
         dealer.playerHand.SetPosition(truePlayerXPosition, 40);
@@ -61,6 +71,17 @@ public class BlackJackGameController implements Initializable {
         dealer.playerHand.FlipCard(0);
 
         isPlayersTurn = true;
+    }
+
+    public void updateBetsAndBalance(Double bets, Double playerBalance){
+        BetText.setLayoutX(914.0);
+        BetText.setLayoutY(794.0);
+
+        BalText.setLayoutX(860.0);
+        BalText.setLayoutY(836.0);
+
+        BetText.setText("Bet: " + bets);
+        BalText.setText("Balance: " + playerBalance);
     }
 
     private void HitCard(){
@@ -234,11 +255,13 @@ public class BlackJackGameController implements Initializable {
     }
 
     public void DecreaseBet(MouseEvent event) {
-
+        betAmount -= 50;
+        updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
     public void IncreaseBet(MouseEvent event) {
-
+        betAmount += 50;
+        updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
     public void NewGameBtnPressed(ActionEvent actionEvent) {

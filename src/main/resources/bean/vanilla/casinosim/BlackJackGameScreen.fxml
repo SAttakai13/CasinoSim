@@ -158,7 +158,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <Text layoutX="914.0" layoutY="794.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Bet: $50">
+        <Text layoutX="914.0" layoutY="794.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Bet: $50" fx:id="BetText">
             <font>
                 <Font name="Cambria" size="36.0" />
             </font>
@@ -170,7 +170,7 @@
                 </DropShadow>
             </effect>
         </Text>
-        <Text layoutX="860.0" layoutY="836.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance: $5000">
+        <Text layoutX="860.0" layoutY="836.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance: $5000" fx:id="BalText">
             <font>
                 <Font name="Cambria" size="36.0" />
             </font>
