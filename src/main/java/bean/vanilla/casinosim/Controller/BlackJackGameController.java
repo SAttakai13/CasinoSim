@@ -27,6 +27,14 @@ public class BlackJackGameController implements Initializable {
     private ImageView SplitButton;
 
     @FXML
+    private ImageView IncreaseBet;
+
+    @FXML
+    private ImageView DecreaseBet;
+
+
+
+    @FXML
     private Text BetText;
 
     @FXML
@@ -281,12 +289,34 @@ public class BlackJackGameController implements Initializable {
     }
 
     public void DecreaseBet(MouseEvent event) {
-        betAmount -= 50;
+        if (betAmount <= 0){
+            DecreaseBet.setDisable(true);
+            DecreaseBet.setOpacity(0.5);
+            betAmount = 0;
+        } else if (betAmount > 0){
+            DecreaseBet.setDisable(false);
+            betAmount -= 50;
+            if (IncreaseBet.isDisable() == true){
+                IncreaseBet.setDisable(false);
+                IncreaseBet.setOpacity(0);
+            }
+        }
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
     public void IncreaseBet(MouseEvent event) {
-        betAmount += 50;
+        if (betAmount >= CasinoApplication.player.GetBalance().GetBalance()){
+            IncreaseBet.setDisable(true);
+            IncreaseBet.setOpacity(0.5);
+            betAmount = CasinoApplication.player.GetBalance().GetBalance();
+        } else if (betAmount < CasinoApplication.player.GetBalance().GetBalance()){
+            IncreaseBet.setDisable(false);
+            betAmount += 50;
+            if (DecreaseBet.isDisable() == true){
+                DecreaseBet.setDisable(false);
+                IncreaseBet.setOpacity(0);
+            }
+        }
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
