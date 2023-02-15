@@ -298,7 +298,7 @@ public class BlackJackGameController implements Initializable {
             betAmount -= 50;
             if (IncreaseBet.isDisable() == true){
                 IncreaseBet.setDisable(false);
-                IncreaseBet.setOpacity(0);
+                IncreaseBet.setOpacity(1);
             }
         }
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
@@ -314,7 +314,7 @@ public class BlackJackGameController implements Initializable {
             betAmount += 50;
             if (DecreaseBet.isDisable() == true){
                 DecreaseBet.setDisable(false);
-                IncreaseBet.setOpacity(0);
+                DecreaseBet.setOpacity(1);
             }
         }
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
