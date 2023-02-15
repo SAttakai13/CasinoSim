@@ -12,7 +12,7 @@ import java.io.IOException;
 public class CasinoApplication extends Application {
 
 
-    public static Player player = new Player("Player 1", 0.0);
+    public static Player player = new Player("Player 1", 1000.0);
 
     private static Scene scene;
 

@@ -15,4 +15,11 @@ public class Player {
     public String GetName() { return name; }
     public Balance GetBalance() { return balance; }
 
+    public void AddToBalance(double amount) {
+        balance.AddToBalance(amount);
+    }
+    public void LostPartBalance(double amount) {
+        balance.LostPartBalance(amount);
+    }
+
 }
