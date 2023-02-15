@@ -9,6 +9,7 @@
 <?import javafx.scene.text.*?>
 
 <?import javafx.scene.control.Button?>
+
 <Pane fx:id="pane" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.BlackJackGameController">
     <children>
         <ImageView fitHeight="920.0" fitWidth="1217.0" layoutX="-9.0" layoutY="-7.0" pickOnBounds="true">
@@ -31,6 +32,11 @@
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
+        </ImageView>
+        <ImageView fitWidth="80" preserveRatio="true" layoutX="955" layoutY="20">
+            <image>
+                <Image url="@../../../CasinoAssets/BlackJack/Cards/cardBack_blue5.png" />
+            </image>
         </ImageView>
         <Text layoutX="187.0" layoutY="720.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Hit">
             <font>
