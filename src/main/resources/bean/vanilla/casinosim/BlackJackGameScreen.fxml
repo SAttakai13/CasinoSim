@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
 <Pane fx:id="pane" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.BlackJackGameController">
     <children>
         <ImageView fitHeight="920.0" fitWidth="1217.0" layoutX="-9.0" layoutY="-7.0" pickOnBounds="true">
@@ -136,7 +135,7 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fitHeight="69.0" fitWidth="47.0" layoutX="909.0" layoutY="674.0" onMouseClicked="#DecreaseBet" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="DecreaseBet" fitHeight="69.0" fitWidth="47.0" layoutX="909.0" layoutY="674.0" onMouseClicked="#DecreaseBet" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
             </image>
@@ -147,7 +146,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <ImageView fitHeight="69.0" fitWidth="47.0" layoutX="994.0" layoutY="672.0" onMouseClicked="#IncreaseBet" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+        <ImageView fx:id="IncreaseBet" fitHeight="69.0" fitWidth="47.0" layoutX="994.0" layoutY="672.0" onMouseClicked="#IncreaseBet" pickOnBounds="true" preserveRatio="true" rotate="180.0">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
             </image>
@@ -158,7 +157,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <Text layoutX="914.0" layoutY="794.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Bet: $50" fx:id="BetText">
+        <Text fx:id="BetText" layoutX="914.0" layoutY="794.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Bet: $50">
             <font>
                 <Font name="Cambria" size="36.0" />
             </font>
@@ -170,7 +169,7 @@
                 </DropShadow>
             </effect>
         </Text>
-        <Text layoutX="860.0" layoutY="836.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance: $5000" fx:id="BalText">
+        <Text fx:id="BalText" layoutX="860.0" layoutY="836.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance: $5000">
             <font>
                 <Font name="Cambria" size="36.0" />
             </font>
@@ -183,8 +182,8 @@
             </effect>
         </Text>
 
-        <Pane fx:id="bannerPane" visible="false" prefWidth="800" prefHeight="200" layoutY="250" layoutX="200" style="z-index: -100; -fx-background-color: linear-gradient(to bottom, #ffd843, #ffcd06); -fx-border-color: #cda400; -fx-border-width: 3px; -fx-background-radius: 10px; -fx-border-radius: 10px;">
-            <Text fx:id="bannerText" text="Test text. You win!" wrappingWidth="800" textAlignment="CENTER" layoutY="100" style="-fx-font-family: Cambria; -fx-font-size: 32pt">
+        <Pane fx:id="bannerPane" layoutX="200" layoutY="250" prefHeight="200" prefWidth="800" style="z-index: -100; -fx-background-color: linear-gradient(to bottom, #ffd843, #ffcd06); -fx-border-color: #cda400; -fx-border-width: 3px; -fx-background-radius: 10px; -fx-border-radius: 10px;" visible="false">
+            <Text fx:id="bannerText" layoutY="100" style="-fx-font-family: Cambria; -fx-font-size: 32pt" text="Test text. You win!" textAlignment="CENTER" wrappingWidth="800">
                 <effect>
                     <DropShadow>
                         <color>
@@ -193,7 +192,7 @@
                     </DropShadow>
                 </effect>
             </Text>
-            <Button text="New Game" prefWidth="200" layoutX="300" layoutY="150" onAction="#NewGameBtnPressed" style="-fx-font-family: Cambria; -fx-font-size: 12pt; -fx-background-color: linear-gradient(to bottom, #ff9900, #b45f06); -fx-border-color: #a35405; -fx-border-width: 1px; -fx-background-radius: 5px; -fx-border-radius: 5px;">
+            <Button layoutX="300" layoutY="150" onAction="#NewGameBtnPressed" prefWidth="200" style="-fx-font-family: Cambria; -fx-font-size: 12pt; -fx-background-color: linear-gradient(to bottom, #ff9900, #b45f06); -fx-border-color: #a35405; -fx-border-width: 1px; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="New Game">
                 <cursor>
                     <Cursor fx:constant="HAND" />
                 </cursor>
