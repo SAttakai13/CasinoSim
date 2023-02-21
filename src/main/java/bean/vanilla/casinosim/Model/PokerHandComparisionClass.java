@@ -11,6 +11,7 @@ public class PokerHandComparisionClass {
     private Hand playerHand;
 
     List<Card> handPlayer = new ArrayList<>();
+    List<String> PlayerCharacter = new ArrayList<>();
     public int numMatches;
     public boolean ThreeOfKind = false;
     public boolean FourOfKind = false;
@@ -42,18 +43,26 @@ public class PokerHandComparisionClass {
     public boolean CheckFlush(Hand playerHand){
         boolean Flush = false;
         for (int i = 0; i < 5; i++){
-            handPlayer.add(playerHand.GetCard(i));
+            PlayerCharacter.add(playerHand.GetCard(i).GetCardCharacter());
         }
 
-        if (handPlayer.contains(Straights2to6.get(0)) && handPlayer.contains(Straights2to6.get(1)) && handPlayer.contains(Straights2to6.get(2)) && handPlayer.contains(Straights2to6.get(3)) && handPlayer.contains(Straights2to6.get(4))) {
+        if (PlayerCharacter.contains(Straights2to6.get(0)) && PlayerCharacter.contains(Straights2to6.get(1)) && PlayerCharacter.contains(Straights2to6.get(2)) && PlayerCharacter.contains(Straights2to6.get(3)) && PlayerCharacter.contains(Straights2to6.get(4))) {
             Flush = true;
-        } else if (handPlayer.contains(Straights3to7.get(0)) && handPlayer.contains(Straights3to7.get(1)) && handPlayer.contains(Straights3to7.get(2)) && handPlayer.contains(Straights3to7.get(3)) &&handPlayer.contains(Straights3to7.get(4))){
+        } else if (PlayerCharacter.contains(Straights3to7.get(0)) && PlayerCharacter.contains(Straights3to7.get(1)) && PlayerCharacter.contains(Straights3to7.get(2)) && PlayerCharacter.contains(Straights3to7.get(3)) && PlayerCharacter.contains(Straights3to7.get(4))){
             Flush = true;
-        } else if (handPlayer.contains(Straights4to8.get(0)) && handPlayer.contains(Straights4to8.get(1)) && handPlayer.contains(Straights4to8.get(2)) && handPlayer.contains(Straights4to8.get(3)) && handPlayer.contains(Straights4to8.get(4))){
+        } else if (PlayerCharacter.contains(Straights4to8.get(0)) && PlayerCharacter.contains(Straights4to8.get(1)) && PlayerCharacter.contains(Straights4to8.get(2)) && PlayerCharacter.contains(Straights4to8.get(3)) && PlayerCharacter.contains(Straights4to8.get(4))){
             Flush = true;
-        } else if (handPlayer.contains(Straights5to9.get(0)) && handPlayer.contains(Straights5to9.get(1)) && handPlayer.contains(Straights5to9.get(2)) && handPlayer.contains(Straights5to9.get(3)) && handPlayer.contains(Straights5to9.get(1))){
+        } else if (PlayerCharacter.contains(Straights6to10.get(0)) && PlayerCharacter.contains(Straights6to10.get(1)) && PlayerCharacter.contains(Straights6to10.get(2)) && PlayerCharacter.contains(Straights6to10.get(3)) && PlayerCharacter.contains(Straights6to10.get(1))){
             Flush = true;
-        } else {
+        } else if (PlayerCharacter.contains(Straights7toJ.get(0)) && PlayerCharacter.contains(Straights7toJ.get(1)) && PlayerCharacter.contains(Straights7toJ.get(2)) && PlayerCharacter.contains(Straights7toJ.get(3)) && PlayerCharacter.contains(Straights7toJ.get(1))){
+            Flush = true;
+        } else if (PlayerCharacter.contains(Straights8toQ.get(0)) && PlayerCharacter.contains(Straights8toQ.get(1)) && PlayerCharacter.contains(Straights8toQ.get(2)) && PlayerCharacter.contains(Straights8toQ.get(3)) && PlayerCharacter.contains(Straights8toQ.get(1))){
+            Flush = true;
+        } else if (PlayerCharacter.contains(Straights9toK.get(0)) && PlayerCharacter.contains(Straights9toK.get(1)) && PlayerCharacter.contains(Straights5to9.get(2)) && PlayerCharacter.contains(Straights9toK.get(3)) && PlayerCharacter.contains(Straights9toK.get(1))){
+            Flush = true;
+        } else if (PlayerCharacter.contains(Straights10toA.get(0)) && PlayerCharacter.contains(Straights10toA.get(1)) && PlayerCharacter.contains(Straights10toA.get(2)) && PlayerCharacter.contains(Straights10toA.get(3)) && PlayerCharacter.contains(Straights10toA.get(1))){
+            Flush = true;
+        }else {
             Flush = false;
         }
         return Flush;
@@ -66,6 +75,7 @@ public class PokerHandComparisionClass {
         for (int i = 0; i < 5; i++){
             handPlayer.add(playerHand.GetCard(i));
         }
+        //this is diamonds
         if (handPlayer.contains(StraightOfDiamonds2to6.get(0)) && handPlayer.contains(StraightOfDiamonds2to6.get(1)) && handPlayer.contains(StraightOfDiamonds2to6.get(2)) && handPlayer.contains(StraightOfDiamonds2to6.get(3)) && handPlayer.contains(StraightOfDiamonds2to6.get(4))) {
             StraightFlush = true;
         } else if (handPlayer.contains(StraightOfDiamonds3to7.get(0)) && handPlayer.contains(StraightOfDiamonds3to7.get(1)) && handPlayer.contains(StraightOfDiamonds3to7.get(2)) && handPlayer.contains(StraightOfDiamonds3to7.get(3)) && handPlayer.contains(StraightOfDiamonds3to7.get(4))){
@@ -83,8 +93,7 @@ public class PokerHandComparisionClass {
         } else if (handPlayer.contains(StraightOfDiamonds9toK.get(0)) && handPlayer.contains(StraightOfDiamonds9toK.get(1)) && handPlayer.contains(StraightOfDiamonds9toK.get(2)) && handPlayer.contains(StraightOfDiamonds9toK.get(3)) && handPlayer.contains(StraightOfDiamonds9toK.get(4))){
             StraightFlush = true;
         }
-
-
+        //this is hearts
         else if (handPlayer.contains(StraightOfHEARTS2to6.get(0)) && handPlayer.contains(StraightOfHEARTS2to6.get(1)) && handPlayer.contains(StraightOfHEARTS2to6.get(2)) && handPlayer.contains(StraightOfHEARTS2to6.get(3)) && handPlayer.contains(StraightOfHEARTS2to6.get(4))){
             StraightFlush = true;
         } else if (handPlayer.contains(StraightOfHEARTS3to7.get(0)) && handPlayer.contains(StraightOfHEARTS3to7.get(1)) && handPlayer.contains(StraightOfHEARTS3to7.get(2)) && handPlayer.contains(StraightOfHEARTS3to7.get(3)) && handPlayer.contains(StraightOfHEARTS3to7.get(4))){
@@ -102,7 +111,7 @@ public class PokerHandComparisionClass {
         } else if (handPlayer.contains(StraightOfHEARTS9toK.get(0)) && handPlayer.contains(StraightOfHEARTS9toK.get(1)) && handPlayer.contains(StraightOfHEARTS9toK.get(2)) && handPlayer.contains(StraightOfHEARTS9toK.get(3)) && handPlayer.contains(StraightOfHEARTS9toK.get(4))){
             StraightFlush = true;
         }
-// you are right here changing names for spades and clubs...
+        //this is spades
         else if (handPlayer.contains(StraightOfSPADES2to6.get(0)) && handPlayer.contains(StraightOfSPADES2to6.get(1)) && handPlayer.contains(StraightOfSPADES2to6.get(2)) && handPlayer.contains(StraightOfSPADES2to6.get(3)) && handPlayer.contains(StraightOfSPADES2to6.get(4))){
             StraightFlush = true;
         } else if (handPlayer.contains(StraightOfSPADES3to7.get(0)) && handPlayer.contains(StraightOfSPADES3to7.get(1)) && handPlayer.contains(StraightOfSPADES3to7.get(2)) && handPlayer.contains(StraightOfSPADES3to7.get(3)) && handPlayer.contains(StraightOfSPADES3to7.get(4))){
@@ -120,7 +129,7 @@ public class PokerHandComparisionClass {
         } else if (handPlayer.contains(StraightOfSPADES9toK.get(0)) && handPlayer.contains(StraightOfSPADES9toK.get(1)) && handPlayer.contains(StraightOfSPADES9toK.get(2)) && handPlayer.contains(StraightOfSPADES9toK.get(3)) && handPlayer.contains(StraightOfSPADES9toK.get(4))){
             StraightFlush = true;
         }
-
+        //this is clubs
         else if (handPlayer.contains(StraightOfCLUBS2to6.get(0)) && handPlayer.contains(StraightOfCLUBS2to6.get(1)) && handPlayer.contains(StraightOfCLUBS2to6.get(2)) && handPlayer.contains(StraightOfCLUBS2to6.get(3)) && handPlayer.contains(StraightOfCLUBS2to6.get(4))){
             StraightFlush = true;
         } else if (handPlayer.contains(StraightOfCLUBS3to7.get(0)) && handPlayer.contains(StraightOfCLUBS3to7.get(1)) && handPlayer.contains(StraightOfCLUBS3to7.get(2)) && handPlayer.contains(StraightOfCLUBS3to7.get(3)) && handPlayer.contains(StraightOfCLUBS3to7.get(4))){
@@ -310,7 +319,7 @@ public class PokerHandComparisionClass {
 
 
     //Below are the lists for the straights, flushes, and royal flushes
-    //ROYAL FLUSHES
+    //ROYALFLUSHES
     public static List<Card> RoyalFlushOfDiamonds = Arrays.asList(new Card(Card.eSuit.DIAMONDS, "10", Color.GREEN),
             new Card(Card.eSuit.DIAMONDS, "J", Color.GREEN),
             new Card(Card.eSuit.DIAMONDS, "Q", Color.GREEN),
