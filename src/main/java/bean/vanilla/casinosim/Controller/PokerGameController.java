@@ -1,10 +1,7 @@
 package bean.vanilla.casinosim.Controller;
 
 import bean.vanilla.casinosim.CasinoApplication;
-import bean.vanilla.casinosim.Model.Card;
-import bean.vanilla.casinosim.Model.Deck;
-import bean.vanilla.casinosim.Model.Hand;
-import bean.vanilla.casinosim.Model.Player;
+import bean.vanilla.casinosim.Model.*;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -79,8 +76,84 @@ public class PokerGameController implements Initializable {
 
     public void DetermineWinner() {
         String bannerMessage = "";
-
-        
+        boolean GameWon = false;
+        PokerHandComparisionClass hands = new PokerHandComparisionClass();
+        hands.CheckGroupsAndPairs();
+        int HandTypes = 0;
+        switch (HandTypes){
+            case 0:
+                if ((hands.CheckRoyalFlush(CasinoApplication.player.playerHand)) == false){
+                    HandTypes++;
+                    break;
+                } else {
+                    GameWon = true;
+                    bannerMessage = CasinoApplication.player.GetName() + " won!";
+                }
+                break;
+            case 1:
+                //Straight flush
+                if ((hands.CheckStraightFlush(CasinoApplication.player.playerHand)) == false){
+                    HandTypes++;
+                    break;
+                } else {
+                    GameWon = true;
+                    bannerMessage = CasinoApplication.player.GetName() + " won!";
+                }
+                break;
+            case 2:
+                //Four of a kind
+                if (hands.FourOfKind == false){
+                    HandTypes++;
+                } else if (hands.FourOfKind == true){
+                    GameWon = true;
+                    bannerMessage = CasinoApplication.player.GetName() + " won!";
+                }
+                break;
+            case 3:
+                //Full house
+                if (hands.ThreeOfKind == false && hands.NumOfPairs != 1)  {
+                    HandTypes++;
+                } else if(hands.ThreeOfKind == true && hands.NumOfPairs == 1){
+                    GameWon = true;
+                    bannerMessage = CasinoApplication.player.GetName() + " won!";
+                }
+            case 4:
+//                if () {
+//
+//                } else if() {
+//
+//                }
+            case 5:
+//                if () {
+//
+//                } else if () {
+//
+//                }
+            case 6:
+//                if () {
+//
+//                } else if(){
+//
+//                }
+            case 7:
+//                if () {
+//
+//                } else if() {
+//
+//                }
+            case 8:
+//                if () {
+//
+//                } else if() {
+//
+//                }
+            case 9:
+//                if () {
+//
+//                } else if() {
+//
+//                }
+        }
     }
 
     public void GoBackToMain(MouseEvent event) {
