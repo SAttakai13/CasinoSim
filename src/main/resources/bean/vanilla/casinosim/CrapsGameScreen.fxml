@@ -13,21 +13,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="pane" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.CrapsGameController">
     <children>
         <ImageView fitHeight="918.0" fitWidth="1224.0" layoutX="-13.0" layoutY="-8.0" pickOnBounds="true">
             <image>
-                <Image url="@Generic%20Felt%20Mat.jpeg" />
+                <Image url="@../../../CasinoAssets/Overall UI/Generic Felt Mat.jpeg" />
             </image>
         </ImageView>
         <ImageView fitHeight="640.0" fitWidth="1036.0" layoutX="85.0" layoutY="20.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Craps/CrapsBoard.png" />
+                <Image url="@../../../CasinoAssets/Craps/CrapsBoard.png" />
             </image>
         </ImageView>
         <ImageView fx:id="Roll" fitHeight="77.0" fitWidth="432.0" layoutX="85.0" layoutY="689.0" onMouseClicked="#Roll" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -50,7 +50,7 @@
         </Text>
         <ImageView fx:id="DecreaseBet" fitHeight="114.0" fitWidth="81.0" layoutX="883.0" layoutY="575.0" onMouseClicked="#DecreaseBet" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ArrowDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -61,7 +61,7 @@
         </ImageView>
         <ImageView fx:id="IncreaseBet" fitHeight="114.0" fitWidth="81.0" layoutX="983.0" layoutY="575.0" onMouseClicked="#IncreaseBet" pickOnBounds="true" preserveRatio="true" rotate="180.0">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ArrowDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />
@@ -109,7 +109,7 @@
         </Text>
         <ImageView fx:id="PointMarker" fitHeight="77.0" fitWidth="81.0" layoutX="710.0" layoutY="266.0" onMouseClicked="#Roll" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Craps/CrapsOffIndicator.png" />
+                <Image url="@../../../CasinoAssets/Craps/CrapsOffIndicator.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="DEFAULT" />
@@ -120,7 +120,7 @@
         </ImageView>
         <ImageView fx:id="Quit" fitHeight="77.0" fitWidth="432.0" layoutX="211.0" layoutY="784.0" onMouseClicked="#Quit" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
             <cursor>
                 <Cursor fx:constant="HAND" />

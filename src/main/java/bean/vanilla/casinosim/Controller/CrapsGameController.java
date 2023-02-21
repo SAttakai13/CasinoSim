@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -26,7 +27,17 @@ public class CrapsGameController implements Initializable {
     private GridPane DiceGrid;
     @FXML
     private ImageView PointMarker;
-    private final double[] pointerPositions = new double[] { 85, 185, 285, 385, 485, 585 };
+    private final double[] pointerPositions = new double[] { 85, 210, 340, 410, 540, 710 };
+
+
+    @FXML
+    private ImageView IncreaseBet;
+    @FXML
+    private ImageView DecreaseBet;
+    @FXML
+    private Text BetText;
+    @FXML
+    private Text BalText;
 
 
     private static double betAmount = 100.0;
@@ -43,11 +54,9 @@ public class CrapsGameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         d1 = new Dice();
-        d1.Scale(0.5);
-        //DiceGrid.add(d1, 0, 0);
+        DiceGrid.add(d1, 0, 0);
         d2 = new Dice();
-        d2.Scale(0.5);
-        //DiceGrid.add(d2, 1, 0);
+        DiceGrid.add(d2, 1, 0);
 
         isFirstRoll = true;
         phase = eCrapsPhase.COME_OUT;
@@ -98,8 +107,7 @@ public class CrapsGameController implements Initializable {
                                 selection.ClearBet();
                                 continue;
                             } else {
-                                crapsPoint = total;
-                                //SET POSITION OF POINT TILE HERE ********
+                                SetPoint(total);
                             }
                             break;
                         case POINT:
@@ -107,15 +115,13 @@ public class CrapsGameController implements Initializable {
                                 CasinoApplication.player.LostPartBalance(selection.GetBetAmount());
                                 selection.ClearBet();
 
-                                crapsPoint = total;
-                                //SET POSITION OF POINT TILE HERE ********
+                                SetPoint(total);
                                 continue;
                             } else if (total == crapsPoint) {
                                 CasinoApplication.player.AddToBalance(selection.GetBetAmount());
                                 selection.ClearBet();
 
-                                crapsPoint = total;
-                                //SET POSITION OF POINT TILE HERE ********
+                                SetPoint(total);
                                 continue;
                             }
                             break;
@@ -138,8 +144,7 @@ public class CrapsGameController implements Initializable {
                                 selection.ClearBet();
                                 continue;
                             } else {
-                                crapsPoint = total;
-                                //SET POSITION OF POINT TILE HERE ********
+                                SetPoint(total);
                             }
                             break;
                         case POINT:
@@ -147,15 +152,13 @@ public class CrapsGameController implements Initializable {
                                 CasinoApplication.player.AddToBalance(selection.GetBetAmount());
                                 selection.ClearBet();
 
-                                crapsPoint = total;
-                                //SET POSITION OF POINT TILE HERE ********
+                                SetPoint(total);
                                 continue;
                             } else if (total == crapsPoint) {
                                 CasinoApplication.player.LostPartBalance(selection.GetBetAmount());
                                 selection.ClearBet();
 
-                                crapsPoint = total;
-                                //SET POSITION OF POINT TILE HERE ********
+                                SetPoint(total);
                                 continue;
                             }
                             break;
@@ -219,7 +222,19 @@ public class CrapsGameController implements Initializable {
     }
 
 
+    private void SetPoint(int point) {
+        if (point != -1 && point != 4 && point != 5 && point != 6 && point != 8 && point != 9 && point != 10)
+            return;
+        crapsPoint = point;
+
+        //Set position of point indicator
+        SetPointerPosition(crapsPoint);
+    }
     private void SetPointerPosition(int pos) {
+        if (pos == -1) {
+            PointMarker.setLayoutX(710);
+            PointMarker.setLayoutY(256);
+        }
         PointMarker.setLayoutY(50);
         switch (pos) {
             case 4 -> PointMarker.setLayoutX(pointerPositions[0]);
@@ -262,14 +277,6 @@ public class CrapsGameController implements Initializable {
         SetPoint(-1);
     }
 
-    private void SetPoint(int point) {
-        if (point != -1 && point != 4 && point != 5 && point != 6 && point != 8 && point != 9 && point != 10)
-            return;
-        crapsPoint = point;
-
-        //Set position of point indicator
-
-    }
 
     @FXML
     private void Quit(MouseEvent e) {
@@ -278,4 +285,42 @@ public class CrapsGameController implements Initializable {
 
 
     public static double GetBetAmount() { return betAmount; }
+
+
+    public void DecreaseBet(MouseEvent event) {
+        if (betAmount <= 0){
+            DecreaseBet.setDisable(true);
+            DecreaseBet.setOpacity(0.5);
+            betAmount = 0;
+        } else if (betAmount > 0){
+            DecreaseBet.setDisable(false);
+            betAmount -= 50;
+            if (IncreaseBet.isDisable() == true){
+                IncreaseBet.setDisable(false);
+                IncreaseBet.setOpacity(1);
+            }
+        }
+        updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
+    }
+
+    public void IncreaseBet(MouseEvent event) {
+        if (betAmount >= CasinoApplication.player.GetBalance().GetBalance()){
+            IncreaseBet.setDisable(true);
+            IncreaseBet.setOpacity(0.5);
+            betAmount = CasinoApplication.player.GetBalance().GetBalance();
+        } else if (betAmount < CasinoApplication.player.GetBalance().GetBalance()){
+            IncreaseBet.setDisable(false);
+            betAmount += 50;
+            if (DecreaseBet.isDisable() == true){
+                DecreaseBet.setDisable(false);
+                DecreaseBet.setOpacity(1);
+            }
+        }
+        updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
+    }
+
+    public void updateBetsAndBalance(double bets, double playerBalance){
+        BetText.setText("Bet: " + bets);
+        BalText.setText("Balance: " + playerBalance);
+    }
 }
