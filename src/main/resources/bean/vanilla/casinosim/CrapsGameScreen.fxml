@@ -1,14 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="bean.vanilla.casinosim.Controller.CrapsGameController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="918.0" fitWidth="1224.0" layoutX="-13.0" layoutY="-8.0" pickOnBounds="true">
+            <image>
+                <Image url="@Generic%20Felt%20Mat.jpeg" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="640.0" fitWidth="1036.0" layoutX="85.0" layoutY="20.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Craps/CrapsBoard.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="Roll" fitHeight="77.0" fitWidth="432.0" layoutX="85.0" layoutY="689.0" onMouseClicked="#Roll" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </ImageView>
+        <Text layoutX="200.0" layoutY="745.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Roll">
+            <font>
+                <Font name="Cambria" size="48.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <ImageView fx:id="DecreaseBet" fitHeight="114.0" fitWidth="81.0" layoutX="883.0" layoutY="575.0" onMouseClicked="#DecreaseBet" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Overall%20UI/ArrowDown.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </ImageView>
+        <ImageView fx:id="IncreaseBet" fitHeight="114.0" fitWidth="81.0" layoutX="983.0" layoutY="575.0" onMouseClicked="#IncreaseBet" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+            <image>
+                <Image url="@../CasinoAssets/Overall%20UI/ArrowDown.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <DropShadow offsetX="-5.0" offsetY="-5.0" />
+            </effect>
+        </ImageView>
+        <Text fx:id="BetText" layoutX="846.0" layoutY="779.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bet: $50">
+            <font>
+                <Font name="Cambria" size="64.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <GridPane fx:id="DiceGrid" gridLinesVisible="true" layoutX="193.0" layoutY="227.0" prefHeight="155.0" prefWidth="469.0">
+            <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Circle fill="DODGERBLUE" radius="51.0" stroke="BLACK" strokeType="INSIDE" />
+                <Circle fill="DODGERBLUE" radius="51.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" />
+            </children>
+        </GridPane>
+        <Text fx:id="BalText" layoutX="749.0" layoutY="855.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance: $5000">
+            <font>
+                <Font name="Cambria" size="64.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <ImageView fx:id="PointMarker" fitHeight="77.0" fitWidth="81.0" layoutX="710.0" layoutY="266.0" onMouseClicked="#Roll" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Craps/CrapsOffIndicator.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="DEFAULT" />
+            </cursor>
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </ImageView>
+        <ImageView fx:id="Quit" fitHeight="77.0" fitWidth="432.0" layoutX="211.0" layoutY="784.0" onMouseClicked="#Quit" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0" />
+            </effect>
+        </ImageView>
+        <Text layoutX="326.0" layoutY="840.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Quit">
+            <font>
+                <Font name="Cambria" size="48.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+    </children>
+</Pane>
