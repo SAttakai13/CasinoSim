@@ -1,7 +1,9 @@
 package bean.vanilla.casinosim.Controller;
 
 import bean.vanilla.casinosim.CasinoApplication;
+import bean.vanilla.casinosim.Model.Card;
 import bean.vanilla.casinosim.Model.Deck;
+import bean.vanilla.casinosim.Model.Player;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
@@ -19,20 +21,29 @@ public class PokerGameController implements Initializable {
     private Text BalText;
 
 
+    private double initialBet;
     private Deck deck;
+    private Card card;
+
+    private Player Dealer;
     private double betAmount = 100.0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         deck = new Deck(Color.RED);
+        Dealer = new Player("DEALER", 10000);
+        Dealer.playerHand.resetHand();
+        Dealer.playerHand.SetPosition(570, 40);
+        Dealer.playerHand.Scale(1.0/3.0);
 
+        CasinoApplication.player.playerHand.resetHand();
 
     }
 
 
 
     public void Raise(MouseEvent event) {
-
+        betAmount += initialBet;
     }
     public void Call(MouseEvent event) {
 
@@ -41,6 +52,9 @@ public class PokerGameController implements Initializable {
 
     }
 
+    public void DetermineWinner() {
+
+    }
 
 
     public void GoBackToMain(MouseEvent event) {
