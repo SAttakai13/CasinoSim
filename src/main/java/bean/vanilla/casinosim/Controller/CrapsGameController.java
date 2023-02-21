@@ -7,6 +7,7 @@ import bean.vanilla.casinosim.Model.eCrapsBetSelection;
 import bean.vanilla.casinosim.Model.eCrapsPhase;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -21,8 +22,11 @@ public class CrapsGameController implements Initializable {
     //@FXML
     @FXML
     private Pane pane;
-    //@FXML
+    @FXML
     private GridPane DiceGrid;
+    @FXML
+    private ImageView PointMarker;
+    private final double[] pointerPositions = new double[] { 85, 185, 285, 385, 485, 585 };
 
 
     private static double betAmount = 100.0;
@@ -123,33 +127,107 @@ public class CrapsGameController implements Initializable {
 
                     break;
                 case NOT_PASS:
+                    switch (phase) {
+                        case COME_OUT:
+                            if (total == 7 || total == 11) {
+                                CasinoApplication.player.LostPartBalance(selection.GetBetAmount());
+                                selection.ClearBet();
+                                continue;
+                            } else if (total == 2 || total == 3 || total == 12) {
+                                CasinoApplication.player.AddToBalance(selection.GetBetAmount());
+                                selection.ClearBet();
+                                continue;
+                            } else {
+                                crapsPoint = total;
+                                //SET POSITION OF POINT TILE HERE ********
+                            }
+                            break;
+                        case POINT:
+                            if (total == 7 || total == 11) {
+                                CasinoApplication.player.AddToBalance(selection.GetBetAmount());
+                                selection.ClearBet();
 
+                                crapsPoint = total;
+                                //SET POSITION OF POINT TILE HERE ********
+                                continue;
+                            } else if (total == crapsPoint) {
+                                CasinoApplication.player.LostPartBalance(selection.GetBetAmount());
+                                selection.ClearBet();
+
+                                crapsPoint = total;
+                                //SET POSITION OF POINT TILE HERE ********
+                                continue;
+                            }
+                            break;
+                        default:
+                        case NONE: break;
+                    }
+                    if (crapsPoint == -1) phase = eCrapsPhase.COME_OUT;
+                    else phase = eCrapsPhase.POINT;
 
                     break;
                 case FIELD:
+                    if (total == 3 || total == 4 || total == 9 || total == 10 || total == 11) {
+                        CasinoApplication.player.AddToBalance(selection.GetBetAmount());
+                    } else if (total == 2) {
+                        CasinoApplication.player.AddToBalance(selection.GetBetAmount() * 2.0);
+                    } else if (total == 12) {
+                        CasinoApplication.player.AddToBalance(selection.GetBetAmount() * 3.0);
+                    } else {
+                        CasinoApplication.player.LostPartBalance(selection.GetBetAmount());
+                    }
+                    selection.ClearBet();
+                    continue;
 
-
-                    break;
                 case HARDWAY_4:
-
-
-                    break;
+                    if (total == 4 && d1.GetNumber() == d2.GetNumber()) {
+                        CasinoApplication.player.AddToBalance(selection.GetBetAmount() * 7.0);
+                    } else {
+                        CasinoApplication.player.LostPartBalance(selection.GetBetAmount());
+                    }
+                    selection.ClearBet();
+                    continue;
                 case HARDWAY_6:
-
-
-                    break;
+                    if (total == 6 && d1.GetNumber() == d2.GetNumber()) {
+                        CasinoApplication.player.AddToBalance(selection.GetBetAmount() * 9.0);
+                    } else {
+                        CasinoApplication.player.LostPartBalance(selection.GetBetAmount());
+                    }
+                    selection.ClearBet();
+                    continue;
                 case HARDWAY_8:
-
-
-                    break;
+                    if (total == 8 && d1.GetNumber() == d2.GetNumber()) {
+                        CasinoApplication.player.AddToBalance(selection.GetBetAmount() * 9.0);
+                    } else {
+                        CasinoApplication.player.LostPartBalance(selection.GetBetAmount());
+                    }
+                    selection.ClearBet();
+                    continue;
                 case HARDWAY_10:
-
-
-                    break;
+                    if (total == 10 && d1.GetNumber() == d2.GetNumber()) {
+                        CasinoApplication.player.AddToBalance(selection.GetBetAmount() * 7.0);
+                    } else {
+                        CasinoApplication.player.LostPartBalance(selection.GetBetAmount());
+                    }
+                    selection.ClearBet();
+                    continue;
 
                 default:
                 case NONE: break;
             }
+        }
+    }
+
+
+    private void SetPointerPosition(int pos) {
+        PointMarker.setLayoutY(50);
+        switch (pos) {
+            case 4 -> PointMarker.setLayoutX(pointerPositions[0]);
+            case 5 -> PointMarker.setLayoutX(pointerPositions[1]);
+            case 6 -> PointMarker.setLayoutX(pointerPositions[2]);
+            case 8 -> PointMarker.setLayoutX(pointerPositions[3]);
+            case 9 -> PointMarker.setLayoutX(pointerPositions[4]);
+            case 10-> PointMarker.setLayoutX(pointerPositions[5]);
         }
     }
 
