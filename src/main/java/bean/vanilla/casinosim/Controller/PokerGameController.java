@@ -87,17 +87,17 @@ public class PokerGameController implements Initializable {
                     break;
                 } else {
                     GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won!";
+                    bannerMessage = CasinoApplication.player.GetName() + " won by a royal flush!";
                 }
                 break;
             case 1:
-                //Straight flush
+                //Straight flush (share same suit and in order.
                 if ((hands.CheckStraightFlush(CasinoApplication.player.playerHand)) == false){
                     HandTypes++;
                     break;
                 } else {
                     GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won!";
+                    bannerMessage = CasinoApplication.player.GetName() + " won by a straight flush!";
                 }
                 break;
             case 2:
@@ -106,52 +106,63 @@ public class PokerGameController implements Initializable {
                     HandTypes++;
                 } else if (hands.FourOfKind == true){
                     GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won!";
+                    bannerMessage = CasinoApplication.player.GetName() + " won by four of a kind!";
                 }
                 break;
             case 3:
-                //Full house
+                //Full house (three of a kind and a pair)
                 if (hands.ThreeOfKind == false && hands.NumOfPairs != 1)  {
                     HandTypes++;
                 } else if(hands.ThreeOfKind == true && hands.NumOfPairs == 1){
                     GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won!";
+                    bannerMessage = CasinoApplication.player.GetName() + " won by a full house!";
                 }
             case 4:
-//                if () {
-//
-//                } else if() {
-//
+                //flush (This is to match all cards in hand have same suits)
+//                if (){
+//                    HandTypes++;
+//                    break;
+//                } else (){
+//                    GameWon = true;
+//                    bannerMessage = CasinoApplication.player.GetName() + " won!";
 //                }
             case 5:
-//                if () {
-//
-//                } else if () {
-//
-//                }
+                //Straight (to have the numbers in the hand in order)
+                if ((hands.CheckStraight(CasinoApplication.player.playerHand)) == false){
+                    HandTypes++;
+                    break;
+                } else if ((hands.CheckStraight(CasinoApplication.player.playerHand)) == true) {
+                    GameWon = true;
+                    bannerMessage = CasinoApplication.player.GetName() + " won by a Straight!";
+                }
             case 6:
-//                if () {
-//
-//                } else if(){
-//
-//                }
+                //three of a kind
+                if (hands.ThreeOfKind == false){
+                    HandTypes++;
+                    break;
+                } else if (hands.ThreeOfKind == true){
+                    GameWon = true;
+                    bannerMessage = CasinoApplication.player.GetName() + " won by three of a kind!";
+                }
             case 7:
-//                if () {
-//
-//                } else if() {
-//
-//                }
+                //Pairs two and one
+                if (hands.NumOfPairs == 2){
+                    GameWon = true;
+                    bannerMessage = CasinoApplication.player.GetName() + " won by two pairs!";
+                } else if (hands.NumOfPairs == 1){
+                    GameWon = true;
+                    bannerMessage = CasinoApplication.player.GetName() + " won by one pair!";
+                }else if (hands.NumOfPairs == 0){
+                    HandTypes++;
+                    break;
+                }
             case 8:
-//                if () {
-//
-//                } else if() {
-//
-//                }
-            case 9:
-//                if () {
-//
-//                } else if() {
-//
+//                if (hands.Highcard){
+//                    HandTypes++;
+//                    break;
+//                } else if (hands.Highcard){
+//                    GameWon = false;
+//                    bannerMessage = CasinoApplication.player.GetName() + " won!";
 //                }
         }
     }
