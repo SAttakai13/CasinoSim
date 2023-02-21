@@ -44,17 +44,17 @@ public class PokerHandComparisionClass {
         for (int i = 0; i < 5; i++){
             PlayerSuits.add(playerHand.GetCard(i).GetCardSuitName());
         }
-//        if (){
-//
-//        } else if () {
-//
-//        } else if () {
-//
-//        } else if () {
-//
-//        } else {
-//            Flush = false;
-//        }
+        if (PlayerSuits.get(0).equals("Diamonds") && PlayerSuits.get(1).equals("Diamonds") && PlayerSuits.get(2).equals("Diamonds") && PlayerSuits.get(3).equals("Diamonds") && PlayerSuits.get(4).equals("Diamonds")){
+            Flush = true;
+        } else if (PlayerSuits.get(0).equals("Clubs") && PlayerSuits.get(1).equals("Clubs") && PlayerSuits.get(2).equals("Clubs") && PlayerSuits.get(3).equals("Clubs") && PlayerSuits.get(4).equals("Clubs")) {
+            Flush = true;
+        } else if (PlayerSuits.get(0).equals("Hearts") && PlayerSuits.get(1).equals("Hearts") && PlayerSuits.get(2).equals("Hearts") && PlayerSuits.get(3).equals("Hearts") && PlayerSuits.get(4).equals("Hearts")) {
+            Flush = true;
+        } else if (PlayerSuits.get(0).equals("Spades") && PlayerSuits.get(1).equals("Spades") && PlayerSuits.get(2).equals("Spades") && PlayerSuits.get(3).equals("Spades") && PlayerSuits.get(4).equals("Spades")) {
+            Flush = true;
+        } else {
+            Flush = false;
+        }
         return Flush;
     }
 

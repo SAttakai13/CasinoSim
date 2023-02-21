@@ -119,13 +119,13 @@ public class PokerGameController implements Initializable {
                 }
             case 4:
                 //flush (This is to match all cards in hand have same suits)
-//                if (){
-//                    HandTypes++;
-//                    break;
-//                } else (){
-//                    GameWon = true;
-//                    bannerMessage = CasinoApplication.player.GetName() + " won!";
-//                }
+                if (hands.CheckFlush((CasinoApplication.player.playerHand)) == false){
+                    HandTypes++;
+                    break;
+                } else if (hands.CheckFlush((CasinoApplication.player.playerHand)) == true){
+                    GameWon = true;
+                    bannerMessage = CasinoApplication.player.GetName() + " won!";
+                }
             case 5:
                 //Straight (to have the numbers in the hand in order)
                 if ((hands.CheckStraight(CasinoApplication.player.playerHand)) == false){
