@@ -83,7 +83,7 @@ public class BetSelection extends Pane {
 
         //Increase bet on mouse click
         setOnMouseClicked(event -> {
-            if (!IsDisabled())
+            if (!IsDisabled() && CrapsGameController.totalBet + betAmount < CasinoApplication.player.GetBalance().GetBalance())
                 AddToBetAmount(CrapsGameController.GetBetAmount());
         });
     }
@@ -107,15 +107,18 @@ public class BetSelection extends Pane {
 
     public void AddToBetAmount(double amount) {
         betAmount += amount;
+        CrapsGameController.totalBet += amount;
         UpdateBetDisplay();
     }
     public void SubtractFromBetAmount(double amount) {
         betAmount -= amount;
+        CrapsGameController.totalBet += amount;
         UpdateBetDisplay();
     }
 
     public void ClearBet() {
         betAmount = 0.0;
+        CrapsGameController.totalBet = 0.0;
         UpdateBetDisplay();
     }
 

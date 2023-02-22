@@ -46,6 +46,8 @@ public class CrapsGameController implements Initializable {
 
 
     private static double betAmount = 100.0;
+
+    public static double totalBet = 0.0;
     private Dice d1, d2;
 
     private boolean isFirstRoll = true;
