@@ -115,7 +115,7 @@ public class PokerGameController implements Initializable {
                 }
                 break;
             case 1:
-                //Straight flush (share same suit and in order.
+                //Straight flush (share same suit and in order.)
                 if ((hands.CheckStraightFlush(CasinoApplication.player.playerHand)) == false){
                     HandTypes++;
                     break;
