@@ -91,14 +91,7 @@ public class CrapsGameController implements Initializable {
     private void Roll(MouseEvent e) {
         d1.Roll();
         d2.Roll();
-        new Timer().schedule(
-            new TimerTask() {
-                @Override
-                public void run() {
-                    DetermineResults();
-                }
-            },
-            300);
+        DetermineResults();
     }
 
 
