@@ -77,6 +77,7 @@ public class PokerGameController implements Initializable {
         CasinoApplication.player.playerHand.RemoveCard(CardIndex);
         deck.DealCard(CasinoApplication.player);
 
+
     }
 
 
@@ -88,7 +89,7 @@ public class PokerGameController implements Initializable {
     }
 
     public void Raise(MouseEvent event) {
-        betAmount += 50 * 2;
+        betAmount += betAmount * 2;
     }
     public void Call(MouseEvent event) {
         betAmount += 50;
@@ -182,6 +183,7 @@ public class PokerGameController implements Initializable {
             case 8:
                 if (hands.Highcard == 5)
                     GameWon = false;
+
                     break;
 
         }
