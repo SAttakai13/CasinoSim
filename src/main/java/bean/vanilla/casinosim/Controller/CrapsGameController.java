@@ -252,14 +252,16 @@ public class CrapsGameController implements Initializable {
             PointMarker.setLayoutX(710);
             PointMarker.setLayoutY(256);
         }
-        PointMarker.setLayoutY(50);
-        switch (pos) {
-            case 4 -> PointMarker.setLayoutX(pointerPositions[0]);
-            case 5 -> PointMarker.setLayoutX(pointerPositions[1]);
-            case 6 -> PointMarker.setLayoutX(pointerPositions[2]);
-            case 8 -> PointMarker.setLayoutX(pointerPositions[3]);
-            case 9 -> PointMarker.setLayoutX(pointerPositions[4]);
-            case 10-> PointMarker.setLayoutX(pointerPositions[5]);
+        else {
+            PointMarker.setLayoutY(50);
+            switch (pos) {
+                case 4 -> PointMarker.setLayoutX(pointerPositions[0]);
+                case 5 -> PointMarker.setLayoutX(pointerPositions[1]);
+                case 6 -> PointMarker.setLayoutX(pointerPositions[2]);
+                case 8 -> PointMarker.setLayoutX(pointerPositions[3]);
+                case 9 -> PointMarker.setLayoutX(pointerPositions[4]);
+                case 10 -> PointMarker.setLayoutX(pointerPositions[5]);
+            }
         }
 
         //Set image
