@@ -5,6 +5,7 @@ import bean.vanilla.casinosim.Model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -37,7 +38,7 @@ public class PokerGameController implements Initializable {
 
     private Color deckColor = Color.GREEN;
 
-    private boolean buttonsDisabled = false;
+    //private boolean buttonsDisabled = false;
 
     private double initialBet;
     private Deck deck;
@@ -62,7 +63,7 @@ public class PokerGameController implements Initializable {
     }
 
     private void NewRound(){
-        buttonsDisabled = false;
+        //buttonsDisabled = false;
         CasinoApplication.player.playerHand.resetHand();
 
         deck = new Deck(deckColor);
@@ -73,16 +74,15 @@ public class PokerGameController implements Initializable {
         DetermineWinner();
     }
 
-    public void cardExchange(int CardIndex){
+    public void CardExchange(int CardIndex){
         CasinoApplication.player.playerHand.RemoveCard(CardIndex);
         deck.DealCard(CasinoApplication.player);
-
-
+        CasinoApplication.player.playerHand.getChildren().add(new Button("Remove Card"));
     }
 
 
     private void DealCards(){
-        if (deck == null || Dealer == null ) return;
+        if (deck == null) return;
         for (int i = 0; i < 5; i++) {
             deck.DealCard(CasinoApplication.player);
         }
@@ -92,7 +92,8 @@ public class PokerGameController implements Initializable {
         betAmount += betAmount * 2;
     }
     public void Call(MouseEvent event) {
-        betAmount += 50;
+        betAmount = betAmount;
+
     }
     public void Fold(MouseEvent event) {
 
@@ -189,7 +190,7 @@ public class PokerGameController implements Initializable {
         }
         bannerText.setText(bannerMessage);
         bannerPane.setVisible(true);
-        buttonsDisabled = true;
+        //buttonsDisabled = true;
     }
 
     public void GoBackToMain(MouseEvent event) {
