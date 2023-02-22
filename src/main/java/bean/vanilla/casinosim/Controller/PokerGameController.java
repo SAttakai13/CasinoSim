@@ -2,8 +2,10 @@ package bean.vanilla.casinosim.Controller;
 
 import bean.vanilla.casinosim.CasinoApplication;
 import bean.vanilla.casinosim.Model.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -22,7 +24,20 @@ public class PokerGameController implements Initializable {
     @FXML
     private Text BalText;
 
+    @FXML
+    private ImageView IncreaseBet;
+
+    @FXML
+    private ImageView DecreaseBet;
+
+    @FXML
+    private Pane bannerPane;
+    @FXML
+    private Text bannerText;
+
     private Color deckColor = Color.GREEN;
+
+    private boolean buttonsDisabled = false;
 
     private double initialBet;
     private Deck deck;
@@ -47,7 +62,15 @@ public class PokerGameController implements Initializable {
     }
 
     private void NewRound(){
+        buttonsDisabled = false;
+        CasinoApplication.player.playerHand.resetHand();
 
+        deck = new Deck(deckColor);
+        DealCards();
+    }
+
+    private void EndRound(){
+        DetermineWinner();
     }
 
     public void cardExchange(int CardIndex){
@@ -157,14 +180,14 @@ public class PokerGameController implements Initializable {
                     break;
                 }
             case 8:
-//                if (hands.Highcard){
-//                    HandTypes++;
-//                    break;
-//                } else if (hands.Highcard){
-//                    GameWon = false;
-//                    bannerMessage = CasinoApplication.player.GetName() + " won!";
-//                }
+                if (hands.Highcard == 5)
+                    GameWon = false;
+                    break;
+
         }
+        bannerText.setText(bannerMessage);
+        bannerPane.setVisible(true);
+        buttonsDisabled = true;
     }
 
     public void GoBackToMain(MouseEvent event) {
@@ -183,13 +206,41 @@ public class PokerGameController implements Initializable {
     }
 
 
+
     public void DecreaseBet(MouseEvent event) {
-        betAmount -= 50;
+        if (betAmount <= 0){
+            DecreaseBet.setDisable(true);
+            DecreaseBet.setOpacity(0.5);
+            betAmount = 0;
+        } else if (betAmount > 0){
+            DecreaseBet.setDisable(false);
+            betAmount -= 50;
+            if (IncreaseBet.isDisable() == true){
+                IncreaseBet.setDisable(false);
+                IncreaseBet.setOpacity(1);
+            }
+        }
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
     public void IncreaseBet(MouseEvent event) {
-        betAmount += 50;
+        if (betAmount >= CasinoApplication.player.GetBalance().GetBalance()){
+            IncreaseBet.setDisable(true);
+            IncreaseBet.setOpacity(0.5);
+            betAmount = CasinoApplication.player.GetBalance().GetBalance();
+        } else if (betAmount < CasinoApplication.player.GetBalance().GetBalance()){
+            IncreaseBet.setDisable(false);
+            betAmount += 50;
+            if (DecreaseBet.isDisable() == true){
+                DecreaseBet.setDisable(false);
+                DecreaseBet.setOpacity(1);
+            }
+        }
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
+    }
+
+    public void NewGameBtnPressed(ActionEvent actionEvent) {
+        bannerPane.setVisible(false);
+        NewRound();
     }
 }
