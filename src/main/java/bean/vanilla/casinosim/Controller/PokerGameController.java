@@ -75,9 +75,6 @@ public class PokerGameController implements Initializable {
     }
 
     public void CardExchange(int CardIndex){
-        CasinoApplication.player.playerHand.RemoveCard(CardIndex);
-        deck.DealCard(CasinoApplication.player);
-        CasinoApplication.player.playerHand.getChildren().add(new Button("Remove Card"));
     }
 
 
@@ -245,5 +242,11 @@ public class PokerGameController implements Initializable {
     public void NewGameBtnPressed(ActionEvent actionEvent) {
         bannerPane.setVisible(false);
         NewRound();
+    }
+
+    public void ExchangeCard(MouseEvent event) {
+
+        //CasinoApplication.player.playerHand.RemoveCard(CardIndex);
+        deck.DealCard(CasinoApplication.player);
     }
 }
