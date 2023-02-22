@@ -10,8 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.control.Button?>
-<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.PokerGameController" >
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.PokerGameController">
     <children>
         <ImageView fitHeight="917.0" fitWidth="1217.0" layoutX="-9.0" layoutY="-8.0" pickOnBounds="true">
             <image>
@@ -158,27 +157,6 @@
                 </DropShadow>
             </effect>
         </Text>
-
-        <Pane fx:id="bannerPane" layoutX="200" layoutY="250" prefHeight="200" prefWidth="800" style="z-index: -100; -fx-background-color: linear-gradient(to bottom, #ffd843, #ffcd06); -fx-border-color: #cda400; -fx-border-width: 3px; -fx-background-radius: 10px; -fx-border-radius: 10px;" visible="false">
-            <Text fx:id="bannerText" layoutY="100" style="-fx-font-family: Cambria; -fx-font-size: 32pt" text="Test text. You win!" textAlignment="CENTER" wrappingWidth="800">
-                <effect>
-                    <DropShadow>
-                        <color>
-                            <Color red="1.0" green="1.0" blue="1.0" />
-                        </color>
-                    </DropShadow>
-                </effect>
-            </Text>
-            <Button layoutX="300" layoutY="150" onAction="#NewGameBtnPressed" prefWidth="200" style="-fx-font-family: Cambria; -fx-font-size: 12pt; -fx-background-color: linear-gradient(to bottom, #ff9900, #b45f06); -fx-border-color: #a35405; -fx-border-width: 1px; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="New Game">
-                <cursor>
-                    <Cursor fx:constant="HAND" />
-                </cursor>
-            </Button>
-            <effect>
-                <DropShadow offsetX="5.0" offsetY="5.0" />
-            </effect>
-        </Pane>
-
         <ImageView fx:id="btnPokerBetUp" fitHeight="102.0" fitWidth="76.0" layoutX="855.0" layoutY="651.0" onMouseClicked="#IncreaseBet" pickOnBounds="true" preserveRatio="true" rotate="180.0">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
@@ -193,7 +171,122 @@
         <Pane layoutX="497.0" layoutY="416.0" prefHeight="200.0" prefWidth="198.0">
             <children>
                 <Circle fill="DODGERBLUE" layoutX="99.0" layoutY="100.0" radius="51.0" stroke="BLACK" strokeType="INSIDE" />
+            <ImageView fx:id="btnPokerExchange3" fitHeight="39.0" fitWidth="117.0" layoutX="41.0" layoutY="186.0" onMouseClicked="#ExchangeCard" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <DropShadow offsetX="5.0" offsetY="5.0" />
+               </effect>
+            </ImageView>
+            <Text layoutX="51.0" layoutY="208.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Exchange">
+               <font>
+                  <Font name="Cambria" size="24.0" />
+               </font>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Text>
             </children>
         </Pane>
+      <ImageView fx:id="btnPokerExchange1" fitHeight="39.0" fitWidth="117.0" layoutX="80.0" layoutY="602.0" onMouseClicked="#ExchangeCard" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow offsetX="5.0" offsetY="5.0" />
+         </effect>
+      </ImageView>
+      <Text layoutX="90.0" layoutY="624.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Exchange">
+         <font>
+            <Font name="Cambria" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Text>
+      <ImageView fx:id="btnPokerExchange2" fitHeight="39.0" fitWidth="117.0" layoutX="311.0" layoutY="602.0" onMouseClicked="#ExchangeCard" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow offsetX="5.0" offsetY="5.0" />
+         </effect>
+      </ImageView>
+      <Text layoutX="321.0" layoutY="624.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Exchange">
+         <font>
+            <Font name="Cambria" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Text>
+      <ImageView fx:id="btnPokerExchange4" fitHeight="39.0" fitWidth="117.0" layoutX="763.0" layoutY="602.0" onMouseClicked="#ExchangeCard" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow offsetX="5.0" offsetY="5.0" />
+         </effect>
+      </ImageView>
+      <Text layoutX="773.0" layoutY="624.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Exchange">
+         <font>
+            <Font name="Cambria" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Text>
+      <ImageView fx:id="btnPokerExchange5" fitHeight="39.0" fitWidth="117.0" layoutX="995.0" layoutY="602.0" onMouseClicked="#ExchangeCard" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow offsetX="5.0" offsetY="5.0" />
+         </effect>
+      </ImageView>
+      <Text layoutX="1005.0" layoutY="624.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Exchange">
+         <font>
+            <Font name="Cambria" size="24.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Text>
     </children>
 </Pane>

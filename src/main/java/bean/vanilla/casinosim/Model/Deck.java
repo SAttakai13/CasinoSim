@@ -4,6 +4,7 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Deck {
 
@@ -58,6 +59,12 @@ public class Deck {
     public void DealCard(Hand hand) {
         if (cards == null || cards.size() == 0) return;
         hand.AddToHand(cards.get(0));
+        cards.remove(0);
+    }
+
+    public void DealCard(List<Card> listCards) {
+        if (cards == null || cards.size() == 0) return;
+        listCards.add(cards.get(0));
         cards.remove(0);
     }
 
