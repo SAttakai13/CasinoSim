@@ -27,6 +27,7 @@ public class BetSelection extends Pane {
     private eCrapsBetSelection selection = eCrapsBetSelection.NONE;
     private double betAmount = 0.0;
 
+
     public BetSelection(double betAmount, eCrapsBetSelection selection, double x, double y, double width, double height) {
         this.betAmount = betAmount;
         this.selection = selection;
@@ -75,16 +76,27 @@ public class BetSelection extends Pane {
         //Display bet label on mouse hover
         hoverProperty().addListener((observable, oldValue, newValue) -> {
             if (this.betAmount != 0.0) betLabel.setVisible(newValue);
-            String bgColor = newValue ? "#00000069" : "transparent";
+            String bgColor = newValue ? "#26527a69" : "transparent";
+            if (IsDisabled()) bgColor = newValue ? "#7a262669" : "transparent";
             this.setStyle("-fx-background-color: "+bgColor+";");
         });
 
         //Increase bet on mouse click
         setOnMouseClicked(event -> {
-            AddToBetAmount(CrapsGameController.GetBetAmount());
+            if (!IsDisabled())
+                AddToBetAmount(CrapsGameController.GetBetAmount());
         });
     }
 
+    private boolean IsDisabled() {
+        if (selection == eCrapsBetSelection.NOT_PASS && CrapsGameController.phase == eCrapsPhase.POINT)
+            return true;
+        if ((selection == eCrapsBetSelection.HARDWAY_4 || selection == eCrapsBetSelection.HARDWAY_6 ||
+                selection == eCrapsBetSelection.HARDWAY_8 || selection == eCrapsBetSelection.HARDWAY_10)
+                && CrapsGameController.phase == eCrapsPhase.COME_OUT)
+            return true;
+        return false;
+    }
 
     public eCrapsBetSelection Selection() {
         return selection;
