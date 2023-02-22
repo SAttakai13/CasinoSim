@@ -64,7 +64,7 @@ public class Card extends ImageView {
         } else if (cardBackColor.equals(Color.GREEN)) {
             cardBackColorName = "green";
         }
-        backImagePath = imageDirectoryPath + "cardBack_"+cardBackColorName+"5.png";
+        backImagePath = imageDirectoryPath + "cardBack_" + cardBackColorName + "5.png";
 
         BuildCard();
     }
