@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class PokerGameController implements Initializable {
@@ -42,29 +43,33 @@ public class PokerGameController implements Initializable {
 
     private double initialBet;
     private Deck deck;
-    private Card card;
-
-    private Player Dealer;
     private double betAmount = 50.0;
+
+    private double PlayerPosY = 416.0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        deck = new Deck(Color.RED);
+        CasinoApplication.player.Pokerhand.get(0).SetPosition(497, PlayerPosY);
 
-        CasinoApplication.player.playerHand.resetHand();
-        CasinoApplication.player.playerHand.SetPosition(497, 416);
-        CasinoApplication.player.playerHand.Scale(1.0/3.0);
-
-        pane.getChildren().addAll(CasinoApplication.player.playerHand);
+        pane.getChildren().addAll(CasinoApplication.player.Pokerhand);
         deck = new Deck(deckColor);
         DealCards();
 
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
+    private void DealCards(){
+        if (deck == null) return;
+        deck.DealCard(CasinoApplication.player.Pokerhand);
+        deck.DealCard(CasinoApplication.player.Pokerhand);
+        deck.DealCard(CasinoApplication.player.Pokerhand);
+        deck.DealCard(CasinoApplication.player.Pokerhand);
+        deck.DealCard(CasinoApplication.player.Pokerhand);
+    }
+
     private void NewRound(){
         //buttonsDisabled = false;
-        CasinoApplication.player.playerHand.resetHand();
+        CasinoApplication.player.Pokerhand.clear();
 
         deck = new Deck(deckColor);
         DealCards();
@@ -74,26 +79,9 @@ public class PokerGameController implements Initializable {
         DetermineWinner();
     }
 
-    public void CardExchange(int CardIndex){
-    }
-
-
-    private void DealCards(){
-        if (deck == null) return;
-        for (int i = 0; i < 5; i++) {
-            deck.DealCard(CasinoApplication.player);
-        }
-    }
-
-    public void Raise(MouseEvent event) {
-        betAmount += betAmount * 2;
-    }
-    public void Call(MouseEvent event) {
-        betAmount = betAmount;
-
-    }
-    public void Fold(MouseEvent event) {
-
+    public void NewGameBtnPressed(ActionEvent actionEvent) {
+        bannerPane.setVisible(false);
+        NewRound();
     }
 
     public void DetermineWinner() {
@@ -104,7 +92,7 @@ public class PokerGameController implements Initializable {
         int HandTypes = 0;
         switch (HandTypes){
             case 0:
-                if ((hands.CheckRoyalFlush(CasinoApplication.player.playerHand)) == false){
+                if ((hands.CheckRoyalFlush(CasinoApplication.player.Pokerhand)) == false){
                     HandTypes++;
                     break;
                 } else {
@@ -114,7 +102,7 @@ public class PokerGameController implements Initializable {
                 break;
             case 1:
                 //Straight flush (share same suit and in order.)
-                if ((hands.CheckStraightFlush(CasinoApplication.player.playerHand)) == false){
+                if ((hands.CheckStraightFlush(CasinoApplication.player.Pokerhand)) == false){
                     HandTypes++;
                     break;
                 } else {
@@ -141,19 +129,19 @@ public class PokerGameController implements Initializable {
                 }
             case 4:
                 //flush (This is to match all cards in hand have same suits)
-                if (hands.CheckFlush((CasinoApplication.player.playerHand)) == false){
+                if (hands.CheckFlush((CasinoApplication.player.Pokerhand)) == false){
                     HandTypes++;
                     break;
-                } else if (hands.CheckFlush((CasinoApplication.player.playerHand)) == true){
+                } else if (hands.CheckFlush((CasinoApplication.player.Pokerhand)) == true){
                     GameWon = true;
                     bannerMessage = CasinoApplication.player.GetName() + " won!";
                 }
             case 5:
                 //Straight (to have the numbers in the hand in order)
-                if ((hands.CheckStraight(CasinoApplication.player.playerHand)) == false){
+                if ((hands.CheckStraight(CasinoApplication.player.Pokerhand)) == false){
                     HandTypes++;
                     break;
-                } else if ((hands.CheckStraight(CasinoApplication.player.playerHand)) == true) {
+                } else if ((hands.CheckStraight(CasinoApplication.player.Pokerhand)) == true) {
                     GameWon = true;
                     bannerMessage = CasinoApplication.player.GetName() + " won by a Straight!";
                 }
@@ -182,12 +170,46 @@ public class PokerGameController implements Initializable {
                 if (hands.Highcard == 5)
                     GameWon = false;
 
-                    break;
+                break;
 
         }
         bannerText.setText(bannerMessage);
         bannerPane.setVisible(true);
         //buttonsDisabled = true;
+    }
+
+    public void ExchangeCard(MouseEvent event) {
+        String CardIndexToRemove = event.getSource().toString();
+        if (CardIndexToRemove.equals("btnPokerExchange1")) {
+            CasinoApplication.player.Pokerhand.remove(0);
+            deck.DealCard(CasinoApplication.player.Pokerhand);
+
+        } else if (CardIndexToRemove.equals("btnPokerExchange2")) {
+            CasinoApplication.player.Pokerhand.remove(1);
+            deck.DealCard(CasinoApplication.player.Pokerhand);
+        } else if (CardIndexToRemove.equals("btnPokerExchange3")) {
+            CasinoApplication.player.Pokerhand.remove(2);
+            deck.DealCard(CasinoApplication.player.Pokerhand);
+        } else if (CardIndexToRemove.equals("btnPokerExchange4")) {
+            CasinoApplication.player.Pokerhand.remove(3);
+            deck.DealCard(CasinoApplication.player.Pokerhand);
+        } else if (CardIndexToRemove.equals("btnPokerExchange5")) {
+            CasinoApplication.player.Pokerhand.remove(4);
+            deck.DealCard(CasinoApplication.player);
+        }
+    }
+
+    public void Raise(MouseEvent event) {
+        betAmount += betAmount * 2;
+        DetermineWinner();
+    }
+    public void Call(MouseEvent event) {
+        betAmount = betAmount;
+        DetermineWinner();
+    }
+
+    public void Fold(MouseEvent event) {
+
     }
 
     public void GoBackToMain(MouseEvent event) {
@@ -239,14 +261,6 @@ public class PokerGameController implements Initializable {
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
-    public void NewGameBtnPressed(ActionEvent actionEvent) {
-        bannerPane.setVisible(false);
-        NewRound();
-    }
 
-    public void ExchangeCard(MouseEvent event) {
 
-        //CasinoApplication.player.playerHand.RemoveCard(CardIndex);
-        deck.DealCard(CasinoApplication.player);
-    }
 }

@@ -18,11 +18,8 @@ public class PokerHandComparisionClass {
     public int NumOfPairs = 0;
 
 
-    public boolean CheckRoyalFlush(Hand playerHand){
+    public boolean CheckRoyalFlush(List<Card> handPlayer){
         boolean RoyalFlush = false;
-        for (int i = 0; i < 5; i++){
-            handPlayer.add(playerHand.GetCard(i));
-        }
 
         if (handPlayer.contains(RoyalFlushOfHearts.get(0)) && handPlayer.contains(RoyalFlushOfHearts.get(1)) && handPlayer.contains(RoyalFlushOfHearts.get(2)) && handPlayer.contains(RoyalFlushOfHearts.get(3)) && handPlayer.contains(RoyalFlushOfHearts.get(4))) {
             RoyalFlush = true;
@@ -39,10 +36,10 @@ public class PokerHandComparisionClass {
     }
 
     //Suits
-    public boolean CheckFlush(Hand playerHand){
+    public boolean CheckFlush(List<Card> playerHand){
         boolean Flush = false;
         for (int i = 0; i < 5; i++){
-            PlayerSuits.add(playerHand.GetCard(i).GetCardSuitName());
+            PlayerSuits.add(playerHand.get(i).GetCardSuitName());
         }
         if (PlayerSuits.get(0).equals("Diamonds") && PlayerSuits.get(1).equals("Diamonds") && PlayerSuits.get(2).equals("Diamonds") && PlayerSuits.get(3).equals("Diamonds") && PlayerSuits.get(4).equals("Diamonds")){
             Flush = true;
@@ -59,10 +56,10 @@ public class PokerHandComparisionClass {
     }
 
     //Numbers and Characters
-    public boolean CheckStraight(Hand playerHand){
+    public boolean CheckStraight(List<Card> playerHand){
         boolean Straight = false;
         for (int i = 0; i < 5; i++){
-            PlayerNumbers.add(playerHand.GetCard(i).GetCardCharacter());
+            PlayerNumbers.add(playerHand.get(i).GetCardCharacter());
         }
 
         if (PlayerNumbers.contains(Straights2to6.get(0)) && PlayerNumbers.contains(Straights2to6.get(1)) && PlayerNumbers.contains(Straights2to6.get(2)) && PlayerNumbers.contains(Straights2to6.get(3)) && PlayerNumbers.contains(Straights2to6.get(4))) {
@@ -87,10 +84,10 @@ public class PokerHandComparisionClass {
         return Straight;
     }
 
-    public boolean CheckStraightFlush(Hand playerHand){
+    public boolean CheckStraightFlush(List<Card> playerHand){
         boolean StraightFlush = false;
         for (int i = 0; i < 5; i++){
-            handPlayer.add(playerHand.GetCard(i));
+            handPlayer.add(playerHand.get(i));
         }
         //this is diamonds
         if (handPlayer.contains(StraightOfDiamonds2to6.get(0)) && handPlayer.contains(StraightOfDiamonds2to6.get(1)) && handPlayer.contains(StraightOfDiamonds2to6.get(2)) && handPlayer.contains(StraightOfDiamonds2to6.get(3)) && handPlayer.contains(StraightOfDiamonds2to6.get(4))) {
