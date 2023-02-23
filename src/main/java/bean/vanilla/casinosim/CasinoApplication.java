@@ -20,7 +20,7 @@ public class CasinoApplication extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("TitleScreen"), 1200, 900);
         stage.setResizable(false);
-        stage.setTitle("Black Jack");
+        stage.setTitle("Casino Sim");
         stage.setScene(scene);
         stage.show();
     }
@@ -30,6 +30,7 @@ public class CasinoApplication extends Application {
             scene.setRoot(loadFXML(fxml));
         } catch (IOException e) {
             System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
         }
     }
 

@@ -39,7 +39,7 @@ public class PokerGameController implements Initializable {
 
     private Color deckColor = Color.GREEN;
 
-    //private boolean buttonsDisabled = false;
+    private boolean buttonsDisabled = false;
 
     private double initialBet;
     private Deck deck;
@@ -49,7 +49,13 @@ public class PokerGameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        CasinoApplication.player.Pokerhand.get(0).SetPosition(497, PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(0).SetPosition(197, PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(1).SetPosition(327, PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(2).SetPosition(497, PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(3).SetPosition(587, PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(4).SetPosition(657, PlayerPosY);
+
+
 
         pane.getChildren().addAll(CasinoApplication.player.Pokerhand);
         deck = new Deck(deckColor);
