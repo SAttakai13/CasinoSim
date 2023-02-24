@@ -83,6 +83,12 @@ public class Deck {
         cards.remove(0);
     }
 
+    public Card TakeTopCard() {
+        Card card = cards.get(0);
+        cards.remove(0);
+        return card;
+    }
+
     public void TakeCardFromPlayer(Player player, Card card) {
         if (cards == null) return;
         player.playerHand.removeOneFromHand(card);
