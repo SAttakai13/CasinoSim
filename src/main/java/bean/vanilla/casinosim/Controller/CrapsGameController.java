@@ -233,7 +233,12 @@ public class CrapsGameController implements Initializable {
                 case NONE: break;
             }
         }
+
+        //Update bet and balance display
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
+
+        //Check if the player is out of money and withdraw if so
+        CasinoApplication.CheckForWithdraw();
     }
 
 

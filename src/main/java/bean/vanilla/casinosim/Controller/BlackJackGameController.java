@@ -268,11 +268,15 @@ public class BlackJackGameController implements Initializable {
         //Update balance and bet text
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
 
+        //Check if player is out of money
+        CasinoApplication.CheckForWithdraw();
+
         //Reveal Winner Banner
         bannerText.setText(bannerMessage);
         bannerPane.setVisible(true);
         buttonsDisabled = true;
     }
+
 
     public void Hit(MouseEvent event) {
         if (!buttonsDisabled) HitCard();
