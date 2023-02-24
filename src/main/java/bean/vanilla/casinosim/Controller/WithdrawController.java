@@ -3,6 +3,7 @@ package bean.vanilla.casinosim.Controller;
 import bean.vanilla.casinosim.CasinoApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -33,5 +34,10 @@ public class WithdrawController implements Initializable {
     public static void SetQuote() {
         quote = QuoteList[CasinoApplication.rand.nextInt(QuoteList.length)];
         static_QuoteText.setText(quote);
+    }
+
+    public void WithdrawClicked(MouseEvent event) {
+        CasinoApplication.player.GetBalance().SetBalance(1000.0);
+        CasinoApplication.setRoot("TitleScreen");
     }
 }
