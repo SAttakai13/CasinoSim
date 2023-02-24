@@ -49,6 +49,8 @@ public class PokerGameController implements Initializable {
 
     private ArrayList<Double> PlayerPosX = new ArrayList<>();
 
+    private int CardIndexToExchange = 0;
+
     //Array of set position x values;
 
     @Override
@@ -191,31 +193,12 @@ public class PokerGameController implements Initializable {
         //buttonsDisabled = true;
     }
 
-    public void ExchangeCard(MouseEvent event) {
-        String CardIndexToRemove = event.getSource().toString();
-        if (CardIndexToRemove.equals("btnPokerExchange1")) {
-            CasinoApplication.player.Pokerhand.remove(0);
-            deck.DealCard(CasinoApplication.player.Pokerhand);
-            ///need to add a pane.getChildren.addChildren();
-            CasinoApplication.player.Pokerhand.get(0).SetPosition(PlayerPosX.get(0), PlayerPosY);
-
-        } else if (CardIndexToRemove.equals("btnPokerExchange2")) {
-            CasinoApplication.player.Pokerhand.remove(1);
-            deck.DealCard(CasinoApplication.player.Pokerhand);
-            CasinoApplication.player.Pokerhand.get(1).SetPosition(PlayerPosX.get(1), PlayerPosY);
-        } else if (CardIndexToRemove.equals("btnPokerExchange3")) {
-            CasinoApplication.player.Pokerhand.remove(2);
-            deck.DealCard(CasinoApplication.player.Pokerhand);
-            CasinoApplication.player.Pokerhand.get(2).SetPosition(PlayerPosX.get(2), PlayerPosY);
-        } else if (CardIndexToRemove.equals("btnPokerExchange4")) {
-            CasinoApplication.player.Pokerhand.remove(3);
-            deck.DealCard(CasinoApplication.player.Pokerhand);
-            CasinoApplication.player.Pokerhand.get(3).SetPosition(PlayerPosX.get(0), PlayerPosY);
-        } else if (CardIndexToRemove.equals("btnPokerExchange5")) {
-            CasinoApplication.player.Pokerhand.remove(4);
-            deck.DealCard(CasinoApplication.player);
-            CasinoApplication.player.Pokerhand.get(4).SetPosition(PlayerPosX.get(0), PlayerPosY);
-        }
+    public void ExchangeCard() {
+        pane.getChildren().remove(CasinoApplication.player.Pokerhand.get(CardIndexToExchange));
+        Card card = deck.TakeTopCard();
+        card.SetPosition(PlayerPosX.get(CardIndexToExchange), PlayerPosY);
+        CasinoApplication.player.Pokerhand.set(CardIndexToExchange, card);
+        pane.getChildren().add(card);
     }
 
     public void Raise(MouseEvent event) {
@@ -228,7 +211,7 @@ public class PokerGameController implements Initializable {
     }
 
     public void Fold(MouseEvent event) {
-
+        CasinoApplication.player.LostPartBalance(betAmount);
     }
 
     public void GoBackToMain(MouseEvent event) {
@@ -281,5 +264,28 @@ public class PokerGameController implements Initializable {
     }
 
 
+    public void ExchangeCard3(MouseEvent event) {
+        CardIndexToExchange = 2;
+        ExchangeCard();
+    }
 
+    public void ExchangeCard1(MouseEvent event) {
+        CardIndexToExchange = 0;
+        ExchangeCard();
+    }
+
+    public void ExchangeCard2(MouseEvent event) {
+        CardIndexToExchange = 1;
+        ExchangeCard();
+    }
+
+    public void ExchangeCard4(MouseEvent event) {
+        CardIndexToExchange = 3;
+        ExchangeCard();
+    }
+
+    public void ExchangeCard5(MouseEvent event) {
+        CardIndexToExchange = 4;
+        ExchangeCard();
+    }
 }
