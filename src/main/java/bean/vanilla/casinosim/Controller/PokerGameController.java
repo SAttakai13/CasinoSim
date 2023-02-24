@@ -45,18 +45,27 @@ public class PokerGameController implements Initializable {
     private Deck deck;
     private double betAmount = 50.0;
 
-    private double PlayerPosY = 416.0;
+    private double PlayerPosY = 436.0;
+
+    private ArrayList<Double> PlayerPosX = new ArrayList<>();
+
+    //Array of set position x values;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        PlayerPosX.add(88.0);
+        PlayerPosX.add(318.0);
+        PlayerPosX.add(547.0);
+        PlayerPosX.add(775.0);
+        PlayerPosX.add(1005.0);
+
         deck = new Deck(deckColor, 0.4);
         DealCards();
-
-        CasinoApplication.player.Pokerhand.get(0).SetPosition(197, PlayerPosY);
-        CasinoApplication.player.Pokerhand.get(1).SetPosition(327, PlayerPosY);
-        CasinoApplication.player.Pokerhand.get(2).SetPosition(497, PlayerPosY);
-        CasinoApplication.player.Pokerhand.get(3).SetPosition(587, PlayerPosY);
-        CasinoApplication.player.Pokerhand.get(4).SetPosition(657, PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(0).SetPosition(PlayerPosX.get(0), PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(1).SetPosition(PlayerPosX.get(1), PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(2).SetPosition(PlayerPosX.get(2), PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(3).SetPosition(PlayerPosX.get(3), PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(4).SetPosition(PlayerPosX.get(4), PlayerPosY);
 
         pane.getChildren().addAll(CasinoApplication.player.Pokerhand);
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
@@ -187,19 +196,25 @@ public class PokerGameController implements Initializable {
         if (CardIndexToRemove.equals("btnPokerExchange1")) {
             CasinoApplication.player.Pokerhand.remove(0);
             deck.DealCard(CasinoApplication.player.Pokerhand);
+            ///need to add a pane.getChildren.addChildren();
+            CasinoApplication.player.Pokerhand.get(0).SetPosition(PlayerPosX.get(0), PlayerPosY);
 
         } else if (CardIndexToRemove.equals("btnPokerExchange2")) {
             CasinoApplication.player.Pokerhand.remove(1);
             deck.DealCard(CasinoApplication.player.Pokerhand);
+            CasinoApplication.player.Pokerhand.get(1).SetPosition(PlayerPosX.get(1), PlayerPosY);
         } else if (CardIndexToRemove.equals("btnPokerExchange3")) {
             CasinoApplication.player.Pokerhand.remove(2);
             deck.DealCard(CasinoApplication.player.Pokerhand);
+            CasinoApplication.player.Pokerhand.get(2).SetPosition(PlayerPosX.get(2), PlayerPosY);
         } else if (CardIndexToRemove.equals("btnPokerExchange4")) {
             CasinoApplication.player.Pokerhand.remove(3);
             deck.DealCard(CasinoApplication.player.Pokerhand);
+            CasinoApplication.player.Pokerhand.get(3).SetPosition(PlayerPosX.get(0), PlayerPosY);
         } else if (CardIndexToRemove.equals("btnPokerExchange5")) {
             CasinoApplication.player.Pokerhand.remove(4);
             deck.DealCard(CasinoApplication.player);
+            CasinoApplication.player.Pokerhand.get(4).SetPosition(PlayerPosX.get(0), PlayerPosY);
         }
     }
 

@@ -134,7 +134,7 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fx:id="btnPokerBetDown" fitHeight="102.0" fitWidth="76.0" layoutX="763.0" layoutY="651.0" onMouseClicked="#DecreaseBet" pickOnBounds="true" preserveRatio="true">
+        <ImageView fx:id="DecreaseBet" fitHeight="102.0" fitWidth="76.0" layoutX="763.0" layoutY="651.0" onMouseClicked="#DecreaseBet" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
             </image>
@@ -157,7 +157,7 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fx:id="btnPokerBetUp" fitHeight="102.0" fitWidth="76.0" layoutX="855.0" layoutY="651.0" onMouseClicked="#IncreaseBet" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+        <ImageView fx:id="IncreaseBet" fitHeight="102.0" fitWidth="76.0" layoutX="855.0" layoutY="651.0" onMouseClicked="#IncreaseBet" pickOnBounds="true" preserveRatio="true" rotate="180.0">
             <image>
                 <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
             </image>
