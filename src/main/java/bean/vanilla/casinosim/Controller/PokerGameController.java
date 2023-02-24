@@ -229,8 +229,6 @@ public class PokerGameController implements Initializable {
         BalText.setText("Balance: " + playerBalance);
     }
 
-
-
     public void DecreaseBet(MouseEvent event) {
         if (betAmount <= 0){
             DecreaseBet.setDisable(true);
