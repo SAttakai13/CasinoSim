@@ -10,9 +10,15 @@ public class Deck {
 
     private ArrayList<Card> cards;
 
+
     public Deck() {
         cards = new ArrayList<>();
         FillDeck();
+        Shuffle();
+    }
+    public Deck(double scale) {
+        cards = new ArrayList<>();
+        FillDeck(scale);
         Shuffle();
     }
     public Deck(Color cardBackColor) {
@@ -20,9 +26,16 @@ public class Deck {
         FillDeck(cardBackColor);
         Shuffle();
     }
+    public Deck(Color cardBackColor, double scale) {
+        cards = new ArrayList<>();
+        FillDeck(cardBackColor, scale);
+        Shuffle();
+    }
 
-    public void FillDeck() { FillDeck(Color.RED); }
-    public void FillDeck(Color cardBackColor){
+    public void FillDeck() {FillDeck(Color.RED, 1.0);}
+    public void FillDeck(double scale) { FillDeck(Color.RED, scale); }
+    public void FillDeck(Color backColor) { FillDeck(backColor, 1.0); }
+    public void FillDeck(Color cardBackColor, double scale){
         Clear();
 
         String valueCharacter;
@@ -36,7 +49,9 @@ public class Deck {
                 else if (value == 13) valueCharacter = "K";
                 else valueCharacter = (value + "");
 
-                cards.add(new Card(suitCharacter, valueCharacter+"", cardBackColor));
+                Card card = new Card(suitCharacter, valueCharacter+"", cardBackColor);
+                card.Scale(scale);
+                cards.add(card);
             }
         }
     }
