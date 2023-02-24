@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -286,5 +287,19 @@
                 </DropShadow>
             </effect>
         </Text>
+      <Pane fx:id="bannerPane" layoutX="200.0" layoutY="250.0" prefHeight="200.0" prefWidth="800.0" style="z-index: -100; -fx-background-color: linear-gradient(to bottom, #ffd843, #ffcd06); -fx-border-color: #cda400; -fx-border-width: 3px; -fx-background-radius: 10px; -fx-border-radius: 10px;" visible="false">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Text fx:id="bannerText" layoutY="100.0" style="-fx-font-family: Cambria; -fx-font-size: 32pt;" text="Test text. You win!" textAlignment="CENTER" wrappingWidth="800.0">
+               <effect>
+                  <DropShadow />
+               </effect></Text>
+            <Button layoutX="300.0" layoutY="150.0" mnemonicParsing="false" onAction="#NewGameBtnPressed" prefWidth="200.0" style="-fx-font-family: Cambria; -fx-font-size: 12pt; -fx-background-color: linear-gradient(to bottom, #ff9900, #b45f06); -fx-border-color: #a35405; -fx-border-width: 1px; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="New Game">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children></Pane>
     </children>
 </Pane>

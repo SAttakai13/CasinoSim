@@ -41,7 +41,6 @@ public class PokerGameController implements Initializable {
 
     private boolean buttonsDisabled = false;
 
-    private double initialBet;
     private Deck deck;
     private double betAmount = 50.0;
 
@@ -83,16 +82,13 @@ public class PokerGameController implements Initializable {
     }
 
     private void NewRound(){
-        //buttonsDisabled = false;
+        buttonsDisabled = false;
         CasinoApplication.player.Pokerhand.clear();
 
         deck = new Deck(deckColor);
         DealCards();
     }
 
-    private void EndRound(){
-        DetermineWinner();
-    }
 
     public void NewGameBtnPressed(ActionEvent actionEvent) {
         bannerPane.setVisible(false);
@@ -190,7 +186,7 @@ public class PokerGameController implements Initializable {
         }
         bannerText.setText(bannerMessage);
         bannerPane.setVisible(true);
-        //buttonsDisabled = true;
+        buttonsDisabled = true;
     }
 
     public void ExchangeCard() {
@@ -202,16 +198,23 @@ public class PokerGameController implements Initializable {
     }
 
     public void Raise(MouseEvent event) {
-        betAmount += betAmount * 2;
-        DetermineWinner();
+        if (!buttonsDisabled) {
+            betAmount += betAmount * 2;
+            DetermineWinner();
+        }
+
     }
     public void Call(MouseEvent event) {
-        betAmount = betAmount;
-        DetermineWinner();
+        if (!buttonsDisabled) {
+            betAmount = betAmount;
+            DetermineWinner();
+        }
     }
 
     public void Fold(MouseEvent event) {
-        CasinoApplication.player.LostPartBalance(betAmount);
+        if (!buttonsDisabled) {
+            CasinoApplication.player.LostPartBalance(betAmount);
+        }
     }
 
     public void GoBackToMain(MouseEvent event) {
