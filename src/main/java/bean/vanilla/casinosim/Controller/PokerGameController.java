@@ -54,21 +54,20 @@ public class PokerGameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        BetText.setText("Bet: " + betAmount);
+        BalText.setText("Balance: " + CasinoApplication.player.GetBalance().GetBalance());
+
         PlayerPosX.add(88.0);
         PlayerPosX.add(318.0);
         PlayerPosX.add(547.0);
         PlayerPosX.add(775.0);
         PlayerPosX.add(1005.0);
 
+
+        CasinoApplication.player.Pokerhand.clear();
         deck = new Deck(deckColor, 0.4);
         DealCards();
-        CasinoApplication.player.Pokerhand.get(0).SetPosition(PlayerPosX.get(0), PlayerPosY);
-        CasinoApplication.player.Pokerhand.get(1).SetPosition(PlayerPosX.get(1), PlayerPosY);
-        CasinoApplication.player.Pokerhand.get(2).SetPosition(PlayerPosX.get(2), PlayerPosY);
-        CasinoApplication.player.Pokerhand.get(3).SetPosition(PlayerPosX.get(3), PlayerPosY);
-        CasinoApplication.player.Pokerhand.get(4).SetPosition(PlayerPosX.get(4), PlayerPosY);
 
-        pane.getChildren().addAll(CasinoApplication.player.Pokerhand);
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
@@ -79,114 +78,25 @@ public class PokerGameController implements Initializable {
         deck.DealCard(CasinoApplication.player.Pokerhand);
         deck.DealCard(CasinoApplication.player.Pokerhand);
         deck.DealCard(CasinoApplication.player.Pokerhand);
+
+        CasinoApplication.player.Pokerhand.get(0).SetPosition(PlayerPosX.get(0), PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(1).SetPosition(PlayerPosX.get(1), PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(2).SetPosition(PlayerPosX.get(2), PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(3).SetPosition(PlayerPosX.get(3), PlayerPosY);
+        CasinoApplication.player.Pokerhand.get(4).SetPosition(PlayerPosX.get(4), PlayerPosY);
+
+        pane.getChildren().addAll(CasinoApplication.player.Pokerhand);
+
     }
 
     private void NewRound(){
         buttonsDisabled = false;
-        CasinoApplication.player.Pokerhand.clear();
-
-        deck = new Deck(deckColor);
-        DealCards();
-    }
-
-
-    public void NewGameBtnPressed(ActionEvent actionEvent) {
-        bannerPane.setVisible(false);
-        NewRound();
-    }
-
-    public void DetermineWinner() {
-        String bannerMessage = "";
-        boolean GameWon = false;
-        PokerHandComparisionClass hands = new PokerHandComparisionClass();
-        hands.CheckGroupsAndPairs();
-        int HandTypes = 0;
-        switch (HandTypes){
-            case 0:
-                if ((hands.CheckRoyalFlush(CasinoApplication.player.Pokerhand)) == false){
-                    HandTypes++;
-                    break;
-                } else {
-                    GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won by a royal flush!";
-                }
-                break;
-            case 1:
-                //Straight flush (share same suit and in order.)
-                if ((hands.CheckStraightFlush(CasinoApplication.player.Pokerhand)) == false){
-                    HandTypes++;
-                    break;
-                } else {
-                    GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won by a straight flush!";
-                }
-                break;
-            case 2:
-                //Four of a kind
-                if (hands.FourOfKind == false){
-                    HandTypes++;
-                } else if (hands.FourOfKind == true){
-                    GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won by four of a kind!";
-                }
-                break;
-            case 3:
-                //Full house (three of a kind and a pair)
-                if (hands.ThreeOfKind == false && hands.NumOfPairs != 1)  {
-                    HandTypes++;
-                } else if(hands.ThreeOfKind == true && hands.NumOfPairs == 1){
-                    GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won by a full house!";
-                }
-            case 4:
-                //flush (This is to match all cards in hand have same suits)
-                if (hands.CheckFlush((CasinoApplication.player.Pokerhand)) == false){
-                    HandTypes++;
-                    break;
-                } else if (hands.CheckFlush((CasinoApplication.player.Pokerhand)) == true){
-                    GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won!";
-                }
-            case 5:
-                //Straight (to have the numbers in the hand in order)
-                if ((hands.CheckStraight(CasinoApplication.player.Pokerhand)) == false){
-                    HandTypes++;
-                    break;
-                } else if ((hands.CheckStraight(CasinoApplication.player.Pokerhand)) == true) {
-                    GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won by a Straight!";
-                }
-            case 6:
-                //three of a kind
-                if (hands.ThreeOfKind == false){
-                    HandTypes++;
-                    break;
-                } else if (hands.ThreeOfKind == true){
-                    GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won by three of a kind!";
-                }
-            case 7:
-                //Pairs two and one
-                if (hands.NumOfPairs == 2){
-                    GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won by two pairs!";
-                } else if (hands.NumOfPairs == 1){
-                    GameWon = true;
-                    bannerMessage = CasinoApplication.player.GetName() + " won by one pair!";
-                }else if (hands.NumOfPairs == 0){
-                    HandTypes++;
-                    break;
-                }
-            case 8:
-                if (hands.Highcard == 5)
-                    GameWon = false;
-
-                break;
-
+        for (int i = 0; i < CasinoApplication.player.Pokerhand.size(); i++){
+            pane.getChildren().remove(CasinoApplication.player.Pokerhand.get(i));
         }
-        bannerText.setText(bannerMessage);
-        bannerPane.setVisible(true);
-        buttonsDisabled = true;
+        CasinoApplication.player.Pokerhand.clear();
+        deck = new Deck(deckColor, 0.4);
+        DealCards();
     }
 
     public void ExchangeCard() {
@@ -197,6 +107,56 @@ public class PokerGameController implements Initializable {
         pane.getChildren().add(card);
     }
 
+
+
+    public void DetermineWinner() {
+        String bannerMessage = "";
+        PokerHandComparisionClass hands = new PokerHandComparisionClass();
+        hands.CheckGroupsAndPairs(CasinoApplication.player.Pokerhand);
+        System.out.println(hands.Highcard);
+        System.out.println(hands.NumOfPairs);
+
+        if ((hands.CheckRoyalFlush(CasinoApplication.player.Pokerhand)) == true) {
+            CasinoApplication.player.AddToBalance(betAmount * 5);
+            bannerMessage = CasinoApplication.player.GetName() + " won by a royal flush!";
+        } else if ((hands.CheckStraightFlush(CasinoApplication.player.Pokerhand)) == true) {
+            CasinoApplication.player.AddToBalance(betAmount * 4);
+            bannerMessage = CasinoApplication.player.GetName() + " won by a straight flush!";
+        } else if ((hands.FourOfKind == true)) {
+            CasinoApplication.player.AddToBalance(betAmount * 2);
+            bannerMessage = CasinoApplication.player.GetName() + " won by four of a kind!";
+        } else if (hands.ThreeOfKind == true && hands.NumOfPairs == 1) {
+            CasinoApplication.player.AddToBalance(betAmount * 2);
+            bannerMessage = CasinoApplication.player.GetName() + " won by a full house!";
+        } else if (hands.CheckFlush((CasinoApplication.player.Pokerhand)) == true) {
+            CasinoApplication.player.AddToBalance(betAmount + 100);
+            bannerMessage = CasinoApplication.player.GetName() + " won by a flush!";
+        } else if ((hands.CheckStraight(CasinoApplication.player.Pokerhand)) == true) {
+            CasinoApplication.player.AddToBalance(betAmount + 100);
+            bannerMessage = CasinoApplication.player.GetName() + " won by a Straight!";
+        } else if (hands.ThreeOfKind == true) {
+            CasinoApplication.player.AddToBalance(betAmount + 75);
+            bannerMessage = CasinoApplication.player.GetName() + " won by three of a kind!";
+        } else if (hands.NumOfPairs == 2) {
+            CasinoApplication.player.AddToBalance(betAmount + 50);
+            bannerMessage = CasinoApplication.player.GetName() + " won by two pairs!";
+        } else if (hands.NumOfPairs == 1){
+            CasinoApplication.player.AddToBalance(betAmount + 25);
+            bannerMessage = CasinoApplication.player.GetName() + " won by one pair!";
+        } else if (hands.Highcard == 5){
+            CasinoApplication.player.LostPartBalance(betAmount);
+            bannerMessage = "You lose by high card";
+        }
+
+        updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
+
+        bannerText.setText(bannerMessage);
+        bannerPane.setVisible(true);
+        buttonsDisabled = true;
+    }
+
+
+
     public void Raise(MouseEvent event) {
         if (!buttonsDisabled) {
             betAmount += betAmount * 2;
@@ -206,7 +166,6 @@ public class PokerGameController implements Initializable {
     }
     public void Call(MouseEvent event) {
         if (!buttonsDisabled) {
-            betAmount = betAmount;
             DetermineWinner();
         }
     }
@@ -214,12 +173,13 @@ public class PokerGameController implements Initializable {
     public void Fold(MouseEvent event) {
         if (!buttonsDisabled) {
             CasinoApplication.player.LostPartBalance(betAmount);
+            bannerText.setText("You lose, play again?");
+            bannerPane.setVisible(true);
+            buttonsDisabled = true;
         }
     }
 
-    public void GoBackToMain(MouseEvent event) {
-        CasinoApplication.setRoot("TitleScreen");
-    }
+
 
     public void updateBetsAndBalance(double bets, double playerBalance){
         BetText.setLayoutX(914.0);
@@ -288,5 +248,14 @@ public class PokerGameController implements Initializable {
     public void ExchangeCard5(MouseEvent event) {
         CardIndexToExchange = 4;
         ExchangeCard();
+    }
+
+    public void GoBackToMain(MouseEvent event) {
+        CasinoApplication.setRoot("TitleScreen");
+    }
+
+    public void NewGameBtnPressed(ActionEvent actionEvent) {
+        bannerPane.setVisible(false);
+        NewRound();
     }
 }
