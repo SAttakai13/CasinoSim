@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -20,22 +21,37 @@ import java.util.ResourceBundle;
 public class PokerGameController implements Initializable {
     @FXML
     private Pane pane;
-
     @FXML
     private Text BetText;
     @FXML
     private Text BalText;
-
     @FXML
     private ImageView IncreaseBet;
-
     @FXML
     private ImageView DecreaseBet;
-
     @FXML
     private Pane bannerPane;
     @FXML
     private Text bannerText;
+    @FXML
+    private ImageView btnPokerExchange1;
+    @FXML
+    private ImageView btnPokerExchange2;
+    @FXML
+    private ImageView btnPokerExchange3;
+    @FXML
+    private ImageView btnPokerExchange4;
+    @FXML
+    private ImageView btnPokerExchange5;
+    @FXML
+    private ImageView btnPokerRaise;
+    @FXML
+    private ImageView btnPokerCall;
+
+    @FXML
+    private ImageView btnPokerFold;
+
+
 
     private Color deckColor = Color.GREEN;
 
@@ -54,6 +70,7 @@ public class PokerGameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        PokerButtons(buttonsDisabled);
         BetText.setText("Bet: " + betAmount);
         BalText.setText("Balance: " + CasinoApplication.player.GetBalance().GetBalance());
 
@@ -91,6 +108,7 @@ public class PokerGameController implements Initializable {
 
     private void NewRound(){
         buttonsDisabled = false;
+        PokerButtons(buttonsDisabled);
         for (int i = 0; i < CasinoApplication.player.Pokerhand.size(); i++){
             pane.getChildren().remove(CasinoApplication.player.Pokerhand.get(i));
         }
@@ -153,6 +171,7 @@ public class PokerGameController implements Initializable {
         bannerText.setText(bannerMessage);
         bannerPane.setVisible(true);
         buttonsDisabled = true;
+        PokerButtons(buttonsDisabled);
     }
 
 
@@ -178,6 +197,7 @@ public class PokerGameController implements Initializable {
             buttonsDisabled = true;
         }
     }
+
 
 
 
@@ -228,26 +248,72 @@ public class PokerGameController implements Initializable {
     public void ExchangeCard3(MouseEvent event) {
         CardIndexToExchange = 2;
         ExchangeCard();
+        PokerExchangeBtnDisabled(true);
     }
+
+
 
     public void ExchangeCard1(MouseEvent event) {
         CardIndexToExchange = 0;
         ExchangeCard();
+        PokerExchangeBtnDisabled(true);
     }
 
     public void ExchangeCard2(MouseEvent event) {
         CardIndexToExchange = 1;
         ExchangeCard();
+        PokerExchangeBtnDisabled(true);
     }
 
     public void ExchangeCard4(MouseEvent event) {
         CardIndexToExchange = 3;
         ExchangeCard();
+        PokerExchangeBtnDisabled(true);
     }
 
     public void ExchangeCard5(MouseEvent event) {
         CardIndexToExchange = 4;
+        PokerExchangeBtnDisabled(true);
         ExchangeCard();
+
+    }
+
+    public void PokerButtons(boolean tool){
+        btnPokerFold.setDisable(tool);
+        btnPokerCall.setDisable(tool);
+        btnPokerRaise.setDisable(tool);
+        PokerExchangeBtnDisabled(tool);
+        if (tool) {
+            btnPokerCall.setOpacity(0.5);
+            btnPokerRaise.setOpacity(0.5);
+            btnPokerFold.setOpacity(0.5);
+        } else if (!tool) {
+            btnPokerCall.setOpacity(1);
+            btnPokerRaise.setOpacity(1);
+            btnPokerFold.setOpacity(1);
+        }
+
+    }
+
+    public void PokerExchangeBtnDisabled(boolean tool){
+        btnPokerExchange1.setDisable(tool);
+        btnPokerExchange2.setDisable(tool);
+        btnPokerExchange3.setDisable(tool);
+        btnPokerExchange4.setDisable(tool);
+        btnPokerExchange5.setDisable(tool);
+        if (tool) {
+            btnPokerExchange1.setOpacity(0.5);
+            btnPokerExchange2.setOpacity(0.5);
+            btnPokerExchange3.setOpacity(0.5);
+            btnPokerExchange4.setOpacity(0.5);
+            btnPokerExchange5.setOpacity(0.5);
+        } else if (!tool){
+            btnPokerExchange1.setOpacity(1);
+            btnPokerExchange2.setOpacity(1);
+            btnPokerExchange3.setOpacity(1);
+            btnPokerExchange4.setOpacity(1);
+            btnPokerExchange5.setOpacity(1);
+        }
     }
 
     public void GoBackToMain(MouseEvent event) {
