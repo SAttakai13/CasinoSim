@@ -1,5 +1,6 @@
 package bean.vanilla.casinosim;
 
+import bean.vanilla.casinosim.Controller.WithdrawController;
 import bean.vanilla.casinosim.Model.Player;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +9,11 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class CasinoApplication extends Application {
 
+    public static Random rand = new Random();
 
     public static Player player = new Player("Player 1", 1000.0);
 
@@ -41,5 +44,15 @@ public class CasinoApplication extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+
+
+
+    public static void CheckForWithdraw() {
+        if (player.GetBalance().GetBalance() > 0)
+            return;
+
+        WithdrawController.SetQuote();
+        setRoot("WithdrawScreen");
     }
 }

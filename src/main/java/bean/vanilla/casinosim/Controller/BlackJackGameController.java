@@ -63,25 +63,30 @@ public class BlackJackGameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        BetText.setText("Bet: " + betAmount);
-        BalText.setText("Balance: " + CasinoApplication.player.GetBalance().GetBalance());
 
+        //Initializes dealer
         dealer = new Player("Dealer", 10000.0);
         dealer.playerHand.resetHand();
         dealer.playerHand.SetPosition(truePlayerXPosition, 40);
         dealer.playerHand.Scale(1.0/3.0);
 
+        //Initialize Player hand
         CasinoApplication.player.playerHand.resetHand();
         CasinoApplication.player.playerHand.SetPosition(truePlayerXPosition, 492);
         CasinoApplication.player.playerHand.Scale(1.0/3.0);
         pane.getChildren().addAll(dealer.playerHand, CasinoApplication.player.playerHand);
+
+        //Deal cards
         deck = new Deck(deckColor);
         DealCards();
 
+        //flip dealers first card
         dealer.playerHand.FlipCard(0);
 
+        //set players turn
         isPlayersTurn = true;
 
+        //Update bet and balance text
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
@@ -99,9 +104,11 @@ public class BlackJackGameController implements Initializable {
     private void HitCard(){
         deck.DealCard(CasinoApplication.player);
 
+        //disable split option
         SplitButton.setDisable(true);
         SplitButton.setOpacity(0.5);
 
+        //if player busts or gets 5 or more cards, end turn
         if (CasinoApplication.player.playerHand.BlackJackPoints() > 21 || CasinoApplication.player.playerHand.getChildren().size() >= 5)
             EndPlayerTurn();
     }
@@ -117,15 +124,19 @@ public class BlackJackGameController implements Initializable {
     }
 
     private void Split() {
+        //disable split option
         SplitButton.setDisable(true);
         SplitButton.setOpacity(0.5);
 
+        //Create second player hand
         playerSplitHand = new Hand();
         playerSplitHand.Scale(1.0/3.0);
+
+        //Add one card to each hand
         playerSplitHand.AddToHand(CasinoApplication.player.playerHand.GetCard(1));
         CasinoApplication.player.playerHand.RemoveCard(1);
 
-        //Set Positions
+        //Set the new hands Positions
         pane.getChildren().add(playerSplitHand);
         CasinoApplication.player.playerHand.SetPosition(truePlayerXPosition - 50, 492);
         playerSplitHand.SetPosition(truePlayerXPosition + 50, 492);
@@ -176,7 +187,7 @@ public class BlackJackGameController implements Initializable {
     private void NewRound() {
         buttonsDisabled = false;
 
-        //Reset split
+        //Reset split and hands if they were split
         if (playerSplitHand != null) {
             pane.getChildren().remove(playerSplitHand);
             playerSplitHand = null;
@@ -184,14 +195,18 @@ public class BlackJackGameController implements Initializable {
         }
         betIsDoubled = false;
 
+        //reset player and dealer hands
         dealer.playerHand.resetHand();
         CasinoApplication.player.playerHand.resetHand();
 
+        //deal new cards
         deck = new Deck(deckColor);
         DealCards();
 
+        //flip dealers first card
         dealer.playerHand.FlipCard(0);
 
+        //set player turn
         isPlayersTurn = true;
     }
 
@@ -199,6 +214,7 @@ public class BlackJackGameController implements Initializable {
     private void DetermineWinner() {
         String bannerMessage = "";
 
+        //Get points
         int dealerPoints = dealer.playerHand.BlackJackPoints();
         int points = CasinoApplication.player.playerHand.BlackJackPoints();
 
@@ -220,8 +236,9 @@ public class BlackJackGameController implements Initializable {
             }
         }
 
-        //if dealer busts all players win
+        //if dealer busts player wins
         if (dealerPoints > 21) {
+            //if player busts as well player loses
             if (points > 21) {
                 //Lose
                 bannerMessage = CasinoApplication.player.GetName() + " : "+ points + " Lost! Against Dealer: "+dealerPoints;
@@ -274,6 +291,7 @@ public class BlackJackGameController implements Initializable {
         buttonsDisabled = true;
     }
 
+
     public void Hit(MouseEvent event) {
         if (!buttonsDisabled) HitCard();
     }
@@ -322,6 +340,10 @@ public class BlackJackGameController implements Initializable {
 
     public void NewGameBtnPressed(ActionEvent actionEvent) {
         bannerPane.setVisible(false);
+
+        //Check if player is out of money
+        CasinoApplication.CheckForWithdraw();
+
         NewRound();
     }
 
