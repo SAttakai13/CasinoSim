@@ -4,6 +4,7 @@ import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class PokerHandComparisionClass {
@@ -21,13 +22,13 @@ public class PokerHandComparisionClass {
     public boolean CheckRoyalFlush(List<Card> handPlayer){
         boolean RoyalFlush = false;
 
-        if (handPlayer.contains(RoyalFlushOfHearts.get(0)) && handPlayer.contains(RoyalFlushOfHearts.get(1)) && handPlayer.contains(RoyalFlushOfHearts.get(2)) && handPlayer.contains(RoyalFlushOfHearts.get(3)) && handPlayer.contains(RoyalFlushOfHearts.get(4))) {
+        if (handPlayer.containsAll(RoyalFlushOfHearts)) {
             RoyalFlush = true;
-        } else if (handPlayer.contains(RoyalFlushOfDiamonds.get(0)) && handPlayer.contains(RoyalFlushOfDiamonds.get(1)) && handPlayer.contains(RoyalFlushOfDiamonds.get(2)) && handPlayer.contains(RoyalFlushOfDiamonds.get(3)) && handPlayer.contains(RoyalFlushOfDiamonds.get(4))){
+        } else if (handPlayer.containsAll(RoyalFlushOfDiamonds)){
             RoyalFlush = true;
-        } else if (handPlayer.contains(RoyalFlushOfClubs.get(0)) && handPlayer.contains(RoyalFlushOfClubs.get(1)) && handPlayer.contains(RoyalFlushOfClubs.get(2)) && handPlayer.contains(RoyalFlushOfClubs.get(3)) && handPlayer.contains(RoyalFlushOfClubs.get(4))){
+        } else if (handPlayer.containsAll(RoyalFlushOfClubs)){
             RoyalFlush = true;
-        } else if (handPlayer.contains(RoyalFlushOfSpades.get(0)) && handPlayer.contains(RoyalFlushOfSpades.get(1)) && handPlayer.contains(RoyalFlushOfSpades.get(2)) && handPlayer.contains(RoyalFlushOfSpades.get(3)) && handPlayer.contains(RoyalFlushOfSpades.get(4))){
+        } else if (handPlayer.containsAll(RoyalFlushOfSpades)){
             RoyalFlush = true;
         } else {
             RoyalFlush = false;
@@ -62,21 +63,21 @@ public class PokerHandComparisionClass {
             PlayerNumbers.add(playerHand.get(i).GetCardCharacter());
         }
 
-        if (PlayerNumbers.contains(Straights2to6.get(0)) && PlayerNumbers.contains(Straights2to6.get(1)) && PlayerNumbers.contains(Straights2to6.get(2)) && PlayerNumbers.contains(Straights2to6.get(3)) && PlayerNumbers.contains(Straights2to6.get(4))) {
+        if (PlayerNumbers.containsAll(Straights2to6)) {
             Straight = true;
-        } else if (PlayerNumbers.contains(Straights3to7.get(0)) && PlayerNumbers.contains(Straights3to7.get(1)) && PlayerNumbers.contains(Straights3to7.get(2)) && PlayerNumbers.contains(Straights3to7.get(3)) && PlayerNumbers.contains(Straights3to7.get(4))){
+        } else if (PlayerNumbers.containsAll(Straights3to7)){
             Straight = true;
-        } else if (PlayerNumbers.contains(Straights4to8.get(0)) && PlayerNumbers.contains(Straights4to8.get(1)) && PlayerNumbers.contains(Straights4to8.get(2)) && PlayerNumbers.contains(Straights4to8.get(3)) && PlayerNumbers.contains(Straights4to8.get(4))){
+        } else if (PlayerNumbers.containsAll(Straights4to8)){
             Straight = true;
-        } else if (PlayerNumbers.contains(Straights6to10.get(0)) && PlayerNumbers.contains(Straights6to10.get(1)) && PlayerNumbers.contains(Straights6to10.get(2)) && PlayerNumbers.contains(Straights6to10.get(3)) && PlayerNumbers.contains(Straights6to10.get(1))){
+        } else if (PlayerNumbers.containsAll(Straights6to10)){
             Straight = true;
-        } else if (PlayerNumbers.contains(Straights7toJ.get(0)) && PlayerNumbers.contains(Straights7toJ.get(1)) && PlayerNumbers.contains(Straights7toJ.get(2)) && PlayerNumbers.contains(Straights7toJ.get(3)) && PlayerNumbers.contains(Straights7toJ.get(1))){
+        } else if (PlayerNumbers.containsAll(Straights7toJ)){
             Straight = true;
-        } else if (PlayerNumbers.contains(Straights8toQ.get(0)) && PlayerNumbers.contains(Straights8toQ.get(1)) && PlayerNumbers.contains(Straights8toQ.get(2)) && PlayerNumbers.contains(Straights8toQ.get(3)) && PlayerNumbers.contains(Straights8toQ.get(1))){
+        } else if (PlayerNumbers.containsAll(Straights8toQ)){
             Straight = true;
-        } else if (PlayerNumbers.contains(Straights9toK.get(0)) && PlayerNumbers.contains(Straights9toK.get(1)) && PlayerNumbers.contains(Straights5to9.get(2)) && PlayerNumbers.contains(Straights9toK.get(3)) && PlayerNumbers.contains(Straights9toK.get(1))){
+        } else if (PlayerNumbers.containsAll(Straights9toK)){
             Straight = true;
-        } else if (PlayerNumbers.contains(Straights10toA.get(0)) && PlayerNumbers.contains(Straights10toA.get(1)) && PlayerNumbers.contains(Straights10toA.get(2)) && PlayerNumbers.contains(Straights10toA.get(3)) && PlayerNumbers.contains(Straights10toA.get(1))){
+        } else if (PlayerNumbers.containsAll(Straights10toA)){
             Straight = true;
         }else {
             Straight = false;
@@ -90,75 +91,75 @@ public class PokerHandComparisionClass {
             handPlayer.add(playerHand.get(i));
         }
         //this is diamonds
-        if (handPlayer.contains(StraightOfDiamonds2to6.get(0)) && handPlayer.contains(StraightOfDiamonds2to6.get(1)) && handPlayer.contains(StraightOfDiamonds2to6.get(2)) && handPlayer.contains(StraightOfDiamonds2to6.get(3)) && handPlayer.contains(StraightOfDiamonds2to6.get(4))) {
+        if (handPlayer.containsAll(StraightOfDiamonds2to6)) {
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfDiamonds3to7.get(0)) && handPlayer.contains(StraightOfDiamonds3to7.get(1)) && handPlayer.contains(StraightOfDiamonds3to7.get(2)) && handPlayer.contains(StraightOfDiamonds3to7.get(3)) && handPlayer.contains(StraightOfDiamonds3to7.get(4))){
+        } else if (handPlayer.containsAll(StraightOfDiamonds3to7)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfDiamonds4to8.get(0)) && handPlayer.contains(StraightOfDiamonds4to8.get(1)) && handPlayer.contains(StraightOfDiamonds4to8.get(2)) && handPlayer.contains(StraightOfDiamonds4to8.get(3)) && handPlayer.contains(StraightOfDiamonds4to8.get(4))){
+        } else if (handPlayer.containsAll(StraightOfDiamonds4to8)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfDiamonds5to9.get(0)) && handPlayer.contains(StraightOfDiamonds5to9.get(1)) && handPlayer.contains(StraightOfDiamonds5to9.get(2)) && handPlayer.contains(StraightOfDiamonds5to9.get(3)) && handPlayer.contains(StraightOfDiamonds5to9.get(4))){
+        } else if (handPlayer.containsAll(StraightOfDiamonds5to9)){
             StraightFlush = true;
-        }else if (handPlayer.contains(StraightOfDiamonds6to10.get(0)) && handPlayer.contains(StraightOfHEARTS6to10.get(1)) && handPlayer.contains(StraightOfHEARTS6to10.get(2)) && handPlayer.contains(StraightOfHEARTS6to10.get(3)) && handPlayer.contains(StraightOfHEARTS6to10.get(4))){
+        } else if (handPlayer.containsAll(StraightOfDiamonds6to10)){
             StraightFlush = true;
-        }else if (handPlayer.contains(StraightOfDiamonds7toJ.get(0)) && handPlayer.contains(StraightOfDiamonds7toJ.get(1)) && handPlayer.contains(StraightOfDiamonds7toJ.get(2)) && handPlayer.contains(StraightOfDiamonds7toJ.get(3)) && handPlayer.contains(StraightOfDiamonds7toJ.get(4))){
+        } else if (handPlayer.containsAll(StraightOfDiamonds7toJ)){
             StraightFlush = true;
-        }else if (handPlayer.contains(StraightOfDiamonds8toQ.get(0)) && handPlayer.contains(StraightOfDiamonds8toQ.get(1)) && handPlayer.contains(StraightOfDiamonds8toQ.get(2)) && handPlayer.contains(StraightOfDiamonds8toQ.get(3)) && handPlayer.contains(StraightOfDiamonds8toQ.get(4))){
+        } else if (handPlayer.containsAll(StraightOfDiamonds8toQ)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfDiamonds9toK.get(0)) && handPlayer.contains(StraightOfDiamonds9toK.get(1)) && handPlayer.contains(StraightOfDiamonds9toK.get(2)) && handPlayer.contains(StraightOfDiamonds9toK.get(3)) && handPlayer.contains(StraightOfDiamonds9toK.get(4))){
+        } else if (handPlayer.containsAll(StraightOfDiamonds9toK)){
             StraightFlush = true;
         }
         //this is hearts
-        else if (handPlayer.contains(StraightOfHEARTS2to6.get(0)) && handPlayer.contains(StraightOfHEARTS2to6.get(1)) && handPlayer.contains(StraightOfHEARTS2to6.get(2)) && handPlayer.contains(StraightOfHEARTS2to6.get(3)) && handPlayer.contains(StraightOfHEARTS2to6.get(4))){
+        else if (handPlayer.containsAll(StraightOfHEARTS2to6)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfHEARTS3to7.get(0)) && handPlayer.contains(StraightOfHEARTS3to7.get(1)) && handPlayer.contains(StraightOfHEARTS3to7.get(2)) && handPlayer.contains(StraightOfHEARTS3to7.get(3)) && handPlayer.contains(StraightOfHEARTS3to7.get(4))){
+        } else if (handPlayer.containsAll(StraightOfHEARTS3to7)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfHEARTS4to8.get(0)) && handPlayer.contains(StraightOfHEARTS4to8.get(1)) && handPlayer.contains(StraightOfHEARTS4to8.get(2)) && handPlayer.contains(StraightOfHEARTS4to8.get(3)) && handPlayer.contains(StraightOfHEARTS4to8.get(4))){
+        } else if (handPlayer.containsAll(StraightOfHEARTS4to8)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfHEARTS5to9.get(0)) && handPlayer.contains(StraightOfHEARTS5to9.get(1)) && handPlayer.contains(StraightOfHEARTS5to9.get(2)) && handPlayer.contains(StraightOfHEARTS5to9.get(3)) && handPlayer.contains(StraightOfHEARTS5to9.get(4))){
+        } else if (handPlayer.containsAll(StraightOfHEARTS5to9)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfHEARTS6to10.get(0)) && handPlayer.contains(StraightOfHEARTS6to10.get(1)) && handPlayer.contains(StraightOfHEARTS6to10.get(2)) && handPlayer.contains(StraightOfHEARTS6to10.get(3)) && handPlayer.contains(StraightOfHEARTS6to10.get(4))){
+        } else if (handPlayer.containsAll(StraightOfHEARTS6to10)){
             StraightFlush = true;
-        }else if (handPlayer.contains(StraightOfHEARTS7toJ.get(0)) && handPlayer.contains(StraightOfHEARTS7toJ.get(1)) && handPlayer.contains(StraightOfHEARTS7toJ.get(2)) && handPlayer.contains(StraightOfHEARTS7toJ.get(3)) && handPlayer.contains(StraightOfHEARTS7toJ.get(4))){
+        } else if (handPlayer.containsAll(StraightOfHEARTS7toJ)){
             StraightFlush = true;
-        }else if (handPlayer.contains(StraightOfHEARTS8toQ.get(0)) && handPlayer.contains(StraightOfHEARTS8toQ.get(1)) && handPlayer.contains(StraightOfHEARTS8toQ.get(2)) && handPlayer.contains(StraightOfHEARTS8toQ.get(3)) && handPlayer.contains(StraightOfHEARTS8toQ.get(4))){
+        } else if (handPlayer.containsAll(StraightOfHEARTS8toQ)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfHEARTS9toK.get(0)) && handPlayer.contains(StraightOfHEARTS9toK.get(1)) && handPlayer.contains(StraightOfHEARTS9toK.get(2)) && handPlayer.contains(StraightOfHEARTS9toK.get(3)) && handPlayer.contains(StraightOfHEARTS9toK.get(4))){
+        } else if (handPlayer.containsAll(StraightOfHEARTS9toK)){
             StraightFlush = true;
         }
         //this is spades
-        else if (handPlayer.contains(StraightOfSPADES2to6.get(0)) && handPlayer.contains(StraightOfSPADES2to6.get(1)) && handPlayer.contains(StraightOfSPADES2to6.get(2)) && handPlayer.contains(StraightOfSPADES2to6.get(3)) && handPlayer.contains(StraightOfSPADES2to6.get(4))){
+        else if (handPlayer.containsAll(StraightOfSPADES2to6)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfSPADES3to7.get(0)) && handPlayer.contains(StraightOfSPADES3to7.get(1)) && handPlayer.contains(StraightOfSPADES3to7.get(2)) && handPlayer.contains(StraightOfSPADES3to7.get(3)) && handPlayer.contains(StraightOfSPADES3to7.get(4))){
+        } else if (handPlayer.containsAll(StraightOfSPADES3to7)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfSPADES4to8.get(0)) && handPlayer.contains(StraightOfSPADES4to8.get(1)) && handPlayer.contains(StraightOfSPADES4to8.get(2)) && handPlayer.contains(StraightOfSPADES4to8.get(3)) && handPlayer.contains(StraightOfSPADES4to8.get(4))){
+        } else if (handPlayer.containsAll(StraightOfSPADES4to8)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfSPADES5to9.get(0)) && handPlayer.contains(StraightOfSPADES5to9.get(1)) && handPlayer.contains(StraightOfSPADES5to9.get(2)) && handPlayer.contains(StraightOfSPADES5to9.get(3)) && handPlayer.contains(StraightOfSPADES5to9.get(4))){
+        } else if (handPlayer.containsAll(StraightOfSPADES5to9)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfSPADES6to10.get(0)) && handPlayer.contains(StraightOfSPADES6to10.get(1)) && handPlayer.contains(StraightOfSPADES6to10.get(2)) && handPlayer.contains(StraightOfSPADES6to10.get(3)) && handPlayer.contains(StraightOfSPADES6to10.get(4))){
+        } else if (handPlayer.containsAll(StraightOfSPADES6to10)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfSPADES7toJ.get(0)) && handPlayer.contains(StraightOfSPADES7toJ.get(1)) && handPlayer.contains(StraightOfSPADES7toJ.get(2)) && handPlayer.contains(StraightOfSPADES7toJ.get(3)) && handPlayer.contains(StraightOfSPADES7toJ.get(4))){
+        } else if (handPlayer.containsAll(StraightOfSPADES7toJ)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfSPADES8toQ.get(0)) && handPlayer.contains(StraightOfSPADES8toQ.get(1)) && handPlayer.contains(StraightOfSPADES8toQ.get(2)) && handPlayer.contains(StraightOfSPADES8toQ.get(3)) && handPlayer.contains(StraightOfSPADES8toQ.get(4))){
+        } else if (handPlayer.containsAll(StraightOfSPADES8toQ)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfSPADES9toK.get(0)) && handPlayer.contains(StraightOfSPADES9toK.get(1)) && handPlayer.contains(StraightOfSPADES9toK.get(2)) && handPlayer.contains(StraightOfSPADES9toK.get(3)) && handPlayer.contains(StraightOfSPADES9toK.get(4))){
+        } else if (handPlayer.containsAll(StraightOfSPADES9toK)){
             StraightFlush = true;
         }
         //this is clubs
-        else if (handPlayer.contains(StraightOfCLUBS2to6.get(0)) && handPlayer.contains(StraightOfCLUBS2to6.get(1)) && handPlayer.contains(StraightOfCLUBS2to6.get(2)) && handPlayer.contains(StraightOfCLUBS2to6.get(3)) && handPlayer.contains(StraightOfCLUBS2to6.get(4))){
+        else if (handPlayer.containsAll(StraightOfCLUBS2to6)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfCLUBS3to7.get(0)) && handPlayer.contains(StraightOfCLUBS3to7.get(1)) && handPlayer.contains(StraightOfCLUBS3to7.get(2)) && handPlayer.contains(StraightOfCLUBS3to7.get(3)) && handPlayer.contains(StraightOfCLUBS3to7.get(4))){
+        } else if (handPlayer.containsAll(StraightOfCLUBS3to7)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfCLUBS4to8.get(0)) && handPlayer.contains(StraightOfCLUBS4to8.get(1)) && handPlayer.contains(StraightOfCLUBS4to8.get(2)) && handPlayer.contains(StraightOfCLUBS4to8.get(3)) && handPlayer.contains(StraightOfCLUBS4to8.get(4))){
+        } else if (handPlayer.containsAll(StraightOfCLUBS4to8)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfCLUBS5to9.get(0)) && handPlayer.contains(StraightOfCLUBS5to9.get(1)) && handPlayer.contains(StraightOfCLUBS5to9.get(2)) && handPlayer.contains(StraightOfCLUBS5to9.get(3)) && handPlayer.contains(StraightOfCLUBS5to9.get(4))){
+        } else if (handPlayer.containsAll(StraightOfCLUBS5to9)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfCLUBS6to10.get(0)) && handPlayer.contains(StraightOfCLUBS6to10.get(1)) && handPlayer.contains(StraightOfCLUBS6to10.get(2)) && handPlayer.contains(StraightOfCLUBS6to10.get(3)) && handPlayer.contains(StraightOfCLUBS6to10.get(4))){
+        } else if (handPlayer.containsAll(StraightOfCLUBS6to10)){
             StraightFlush = true;
-        }else if (handPlayer.contains(StraightOfCLUBS7toJ.get(0)) && handPlayer.contains(StraightOfCLUBS7toJ.get(1)) && handPlayer.contains(StraightOfCLUBS7toJ.get(2)) && handPlayer.contains(StraightOfCLUBS7toJ.get(3)) && handPlayer.contains(StraightOfCLUBS7toJ.get(4))){
+        } else if (handPlayer.containsAll(StraightOfCLUBS7toJ)){
             StraightFlush = true;
-        }else if (handPlayer.contains(StraightOfCLUBS8toQ.get(0)) && handPlayer.contains(StraightOfCLUBS8toQ.get(1)) && handPlayer.contains(StraightOfCLUBS8toQ.get(2)) && handPlayer.contains(StraightOfCLUBS8toQ.get(3)) && handPlayer.contains(StraightOfCLUBS8toQ.get(4))){
+        } else if (handPlayer.containsAll(StraightOfCLUBS8toQ)){
             StraightFlush = true;
-        } else if (handPlayer.contains(StraightOfCLUBS9toK.get(0)) && handPlayer.contains(StraightOfCLUBS9toK.get(1)) && handPlayer.contains(StraightOfCLUBS9toK.get(2)) && handPlayer.contains(StraightOfCLUBS9toK.get(3)) && handPlayer.contains(StraightOfCLUBS9toK.get(4))){
+        } else if (handPlayer.containsAll(StraightOfCLUBS9toK)){
             StraightFlush = true;
         } else {
             StraightFlush = false;
@@ -166,168 +167,223 @@ public class PokerHandComparisionClass {
         return StraightFlush;
     }
 
-    public void CheckGroupsAndPairs(){
+    public void CheckGroupsAndPairs(List<Card> playerHand){
+        for (int i = 0; i < 5; i++){
+            PlayerNumbers.add(playerHand.get(i).GetCardCharacter());
+        }
         int GroupTypes = 0;
-        long count;
+        int count;
         switch (GroupTypes){
             case 0:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("2")).count();
+                count = Collections.frequency(PlayerNumbers, "2");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
+
             case 1:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("3")).count();
+                count = Collections.frequency(PlayerNumbers, "3");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
+
             case 2:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("4")).count();
+                count = Collections.frequency(PlayerNumbers, "4");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
+
             case 3:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("5")).count();
+                count = Collections.frequency(PlayerNumbers, "5");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
+
             case 4:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("6")).count();
+                count = Collections.frequency(PlayerNumbers, "6");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
             case 5:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("7")).count();
+                count = Collections.frequency(PlayerNumbers, "7");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
             case 6:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("8")).count();
+                count = Collections.frequency(PlayerNumbers, "8");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
             case 7:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("9")).count();
+                count = Collections.frequency(PlayerNumbers, "9");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
             case 8:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("10")).count();
+                count = Collections.frequency(PlayerNumbers, "10");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
             case 9:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("J")).count();
+                count = Collections.frequency(PlayerNumbers, "J");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
             case 10:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("Q")).count();
+                count = Collections.frequency(PlayerNumbers, "Q");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
             case 11:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("K")).count();
+                count = Collections.frequency(PlayerNumbers, "K");
                 if (count == 2){
                     NumOfPairs++;
+                    GroupTypes++;
                 } else if(count == 3){
                     ThreeOfKind = true;
+                    GroupTypes++;
                 } else if(count == 4){
                     FourOfKind = true;
+                    GroupTypes++;
                 } else if (count == 1){
                     Highcard++;
                     GroupTypes++;
+                } else {
+                    GroupTypes++;
                 }
-                break;
             case 12:
-                count = handPlayer.stream().filter(handPlayer -> handPlayer.GetCardCharacter().equals("A")).count();
+                count = Collections.frequency(PlayerNumbers, "A");
                 if (count == 2){
                     NumOfPairs++;
                 } else if(count == 3){
@@ -337,6 +393,7 @@ public class PokerHandComparisionClass {
                 } else if (count == 1){
                     Highcard++;
                 }
+                break;
         }
     }
 
