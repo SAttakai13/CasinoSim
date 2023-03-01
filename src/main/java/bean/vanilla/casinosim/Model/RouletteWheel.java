@@ -16,6 +16,8 @@ import java.util.TimerTask;
 
 public class RouletteWheel extends ImageView {
 
+    private double trueSize = 864.0;
+
     private Color[] rouletteValueColors = new Color[] { Color.GREEN,
             Color.RED, Color.BLACK, Color.RED, Color.BLACK, Color.RED, Color.BLACK, Color.RED, Color.BLACK, Color.RED, Color.BLACK,
             Color.BLACK, Color.RED, Color.BLACK, Color.RED, Color.BLACK, Color.RED, Color.BLACK, Color.RED, Color.RED, Color.BLACK,
@@ -24,6 +26,7 @@ public class RouletteWheel extends ImageView {
 
     private int value = 0;
     private Color valueColor = Color.GREEN;
+    public RotateTransition rotator;
 
     public RouletteWheel() {
         try {
@@ -31,25 +34,33 @@ public class RouletteWheel extends ImageView {
         } catch (FileNotFoundException e) {
             System.out.println("Roulette Wheel image not found.");
         }
+
+        rotator = new RotateTransition(Duration.millis(CasinoApplication.rand.nextInt(1500, 3000)), this);
+        rotator.setAxis(Rotate.Z_AXIS);
+        rotator.setInterpolator(Interpolator.EASE_BOTH);
+        rotator.setCycleCount(1);
     }
+
 
     public void SpinWheel() {
-        RotateTransition rotator = new RotateTransition(Duration.millis(CasinoApplication.rand.nextInt(800, 1400)), this);
-        rotator.setAxis(Rotate.Z_AXIS);
-        rotator.setToAngle(CasinoApplication.rand.nextInt(360, 780));
-        rotator.setInterpolator(Interpolator.EASE_IN);
-        rotator.setCycleCount(1);
+        rotator.setFromAngle(0);
+        rotator.setToAngle(CasinoApplication.rand.nextInt(360 * 4, 360 * 9));
         rotator.playFromStart();
-
-        rotator.setOnFinished(event -> {
-            SetValue(CasinoApplication.rand.nextInt(37)); //0-36
-        });
     }
 
+    public void SetPosition(double x, double y) {
+        setLayoutX(x);
+        setLayoutY(y);
+    }
+
+    public void Scale(double scale) {
+        setFitWidth(trueSize * scale);
+        setFitHeight(trueSize * scale);
+    }
 
     public int GetValue() { return value; }
     public Color GetValueColor() { return valueColor; }
-    private void SetValue(int value) {
+    public void SetValue(int value) {
         this.value = value;
         valueColor = rouletteValueColors[value];
     }

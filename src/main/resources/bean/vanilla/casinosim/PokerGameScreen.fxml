@@ -167,9 +167,13 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
+        <ImageView fitWidth="100.0" layoutX="1005.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../../CasinoAssets/BlackJack/Cards/cardBack_red5.png" />
+            </image>
+        </ImageView>
         <Pane layoutX="497.0" layoutY="416.0" prefHeight="200.0" prefWidth="198.0">
             <children>
-                <Circle fill="DODGERBLUE" layoutX="99.0" layoutY="100.0" radius="51.0" stroke="BLACK" strokeType="INSIDE" />
             <ImageView fx:id="btnPokerExchange3" fitHeight="39.0" fitWidth="117.0" layoutX="41.0" layoutY="186.0" onMouseClicked="#ExchangeCard3" pickOnBounds="true" preserveRatio="true">
                 <image>
                     <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
