@@ -177,7 +177,7 @@ public class SlotsGameController implements Initializable {
             case 9:
                 if ((!ConFirst.equals(ConSecond)) && (!ConFirst.equals(ConThird)) && (!ConSecond.equals(ConThird))){
                     Double nothing = betAmount;
-                    bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + nothing;
+                    bannerMessage = CasinoApplication.player.GetName() + " lost.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney lost: " + nothing;
                     CasinoApplication.player.LostPartBalance(nothing);
                     break;
                 }
