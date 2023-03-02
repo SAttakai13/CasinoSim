@@ -322,6 +322,9 @@ public class PokerGameController implements Initializable {
 
     public void NewGameBtnPressed(ActionEvent actionEvent) {
         bannerPane.setVisible(false);
+
+        CasinoApplication.CheckForWithdraw();
+
         NewRound();
     }
 }

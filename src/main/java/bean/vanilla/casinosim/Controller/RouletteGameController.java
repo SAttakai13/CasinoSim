@@ -265,6 +265,8 @@ public class RouletteGameController implements Initializable {
             WinningsLabel.setText("");
         }
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
+
+        CasinoApplication.CheckForWithdraw();
     }
 
 

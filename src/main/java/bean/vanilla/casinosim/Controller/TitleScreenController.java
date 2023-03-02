@@ -43,10 +43,11 @@ public class TitleScreenController {
     }
 
     public void NavToCredit(MouseEvent event) {
-        //Need a credits screen
+        CasinoApplication.setRoot("CreditScreen");
     }
 
     public void Quit(MouseEvent event) {
         Platform.exit();
     }
+
 }

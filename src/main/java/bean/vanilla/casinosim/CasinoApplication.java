@@ -52,7 +52,7 @@ public class CasinoApplication extends Application {
         if (player.GetBalance().GetBalance() > 0)
             return;
 
-        WithdrawController.SetQuote();
         setRoot("WithdrawScreen");
+        WithdrawController.SetQuote();
     }
 }

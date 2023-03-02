@@ -18,7 +18,9 @@ public class Balance {
     }
 
     public double LostPartBalance(double MoneyLost) {
-        return Balance -= MoneyLost;
+        Balance -= MoneyLost;
+        if (Balance < 0.0) Balance = 0.0;
+        return Balance;
     }
 
 }

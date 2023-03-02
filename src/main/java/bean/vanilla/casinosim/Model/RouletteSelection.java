@@ -73,7 +73,7 @@ public class RouletteSelection extends Pane {
 
         //Increase bet on mouse click
         setOnMouseClicked(event -> {
-            if (RouletteGameController.totalBet + RouletteGameController.GetBetAmount() < CasinoApplication.player.GetBalance().GetBalance())
+            if (RouletteGameController.totalBet + RouletteGameController.GetBetAmount() <= CasinoApplication.player.GetBalance().GetBalance())
                 AddToBetAmount(RouletteGameController.GetBetAmount());
         });
     }
