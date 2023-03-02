@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="922.0" fitWidth="1217.0" layoutX="-9.0" layoutY="-9.0" pickOnBounds="true">
+            <image>
+                <Image url="@casino_background.jpg" />
+            </image>
+        </ImageView>
+        <Text layoutX="446.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credits">
+            <font>
+                <Font name="Gabriola" size="150.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <Text layoutX="112.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developers - Sheridan Attakai &amp;" textAlignment="CENTER" wrappingWidth="986.4990234375">
+            <font>
+                <Font name="Gabriola" size="100.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <Text layoutX="410.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jacob Mabey" textAlignment="CENTER">
+            <font>
+                <Font name="Gabriola" size="100.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <Text layoutX="12.0" layoutY="546.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Graphic Design - Caleb Thompson" textAlignment="CENTER" wrappingWidth="1187.3878593444824">
+            <font>
+                <Font name="Gabriola" size="100.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <ImageView fx:id="btnCreditsBack" fitHeight="69.0" fitWidth="361.0" layoutX="454.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+            </image>
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0" />
+            </effect>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Text layoutX="562.0" layoutY="827.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
+            <font>
+                <Font name="Cambria" size="36.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <Text layoutX="12.0" layoutY="692.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Assets - Michael Pritchard" textAlignment="CENTER" wrappingWidth="1187.3878593444824">
+            <font>
+                <Font name="Gabriola" size="100.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1043.0" layoutY="721.0" pickOnBounds="true" preserveRatio="true" rotate="30.0">
+            <image>
+                <Image url="@../CasinoAssets/BlackJack/Cards/cardSpadesA.png" />
+            </image>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </ImageView>
+        <ImageView fitHeight="257.0" fitWidth="190.0" layoutX="1033.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Slots/Wheel%20-%20Seven.png" />
+            </image>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </ImageView>
+        <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="35.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" rotate="30.0">
+            <image>
+                <Image url="@../CasinoAssets/Craps/Dice6.png" />
+            </image>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </ImageView>
+        <ImageView fitHeight="185.0" fitWidth="177.0" layoutX="24.0" layoutY="707.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Roulette/RouletteWheel_SingleZero.png" />
+            </image>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </ImageView>
+    </children>
+</Pane>
