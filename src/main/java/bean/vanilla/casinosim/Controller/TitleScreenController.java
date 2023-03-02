@@ -5,6 +5,7 @@ import bean.vanilla.casinosim.Model.Card;
 import bean.vanilla.casinosim.Model.Deck;
 import bean.vanilla.casinosim.Model.Dice;
 import bean.vanilla.casinosim.Model.Player;
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -48,6 +49,7 @@ public class TitleScreenController {
 
     public void Quit(MouseEvent event) {
         Platform.exit();
+        System.exit(0);
     }
 
 }

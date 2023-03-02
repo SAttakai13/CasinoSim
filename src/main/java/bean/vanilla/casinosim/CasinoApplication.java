@@ -3,10 +3,13 @@ package bean.vanilla.casinosim;
 import bean.vanilla.casinosim.Controller.WithdrawController;
 import bean.vanilla.casinosim.Model.Player;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.util.Random;
@@ -24,6 +27,14 @@ public class CasinoApplication extends Application {
         scene = new Scene(loadFXML("TitleScreen"), 1200, 900);
         stage.setResizable(false);
         stage.setTitle("Casino Sim");
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent t) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
+
         stage.setScene(scene);
         stage.show();
     }
