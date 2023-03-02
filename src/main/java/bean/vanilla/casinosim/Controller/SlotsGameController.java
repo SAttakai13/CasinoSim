@@ -2,6 +2,7 @@ package bean.vanilla.casinosim.Controller;
 
 import bean.vanilla.casinosim.CasinoApplication;
 import bean.vanilla.casinosim.Model.SlotsWheels;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
@@ -22,6 +23,13 @@ public class SlotsGameController implements Initializable {
 
     @FXML
     private Pane pane;
+    @FXML
+    private Pane bannerPane;
+    @FXML
+    private Text bannerText;
+
+    @FXML
+    private ImageView Spin;
 
     @FXML
     private Text BetText;
@@ -42,6 +50,8 @@ public class SlotsGameController implements Initializable {
     @FXML
     private ImageView Slot3;
 
+    private boolean buttonsDisabled = false;
+
 
 
     private double betAmount = 50.0;
@@ -57,6 +67,7 @@ public class SlotsGameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        SlotButtons(buttonsDisabled);
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
     }
 
@@ -66,6 +77,8 @@ public class SlotsGameController implements Initializable {
 
 
     public void SpinWheel() throws FileNotFoundException {
+        buttonsDisabled = false;
+        SlotButtons(buttonsDisabled);
         wheels.fillWheel().clear();
         slot1 = firstNum.nextInt(0, 7);
         slot2 = secondNum.nextInt(0, 7);
@@ -78,6 +91,7 @@ public class SlotsGameController implements Initializable {
     }
 
     public void DetermineSlots(int firstSlot, int secondSlot, int thirdSlot){
+        String bannerMessage = "";
         String ConFirst = firstSlot + "";
         String ConSecond = secondSlot + "";
         String ConThird = thirdSlot + "";
@@ -90,67 +104,91 @@ public class SlotsGameController implements Initializable {
         switch (SlotMatches){
             case 0:
                 if ((ConFirst.equals(ConSecond.contains("7"))) && (ConFirst.equals(ConThird.contains("7"))) && (ConSecond.equals(ConThird.contains("7")))){
-                    CasinoApplication.player.AddToBalance(betAmount * 10);
+                    Double Jackpot = betAmount * 10;
+                    CasinoApplication.player.AddToBalance(Jackpot);
+                    bannerMessage = CasinoApplication.player.GetName() + " JACKPOT!\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Jackpot;
                 } else {
                     SlotMatches++;
                 }
             case 1: //this is 2
                 if ((ConFirst.equals(ConSecond.contains("2"))) && (ConFirst.equals(ConThird.contains("2"))) && (ConSecond.equals(ConThird.contains("2")))){
-                    CasinoApplication.player.AddToBalance(betAmount * 5);
+                    Double cherry = betAmount * 5;
+                    bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + cherry;
+                    CasinoApplication.player.AddToBalance(cherry);
                 } else {
                     SlotMatches++;
                 }
             case 2: //this is 1
                 if ((ConFirst.equals(ConSecond.contains("1"))) && (ConFirst.equals(ConThird.contains("1"))) && (ConSecond.equals(ConThird.contains("1")))){
-                    CasinoApplication.player.AddToBalance(betAmount * 3);
+                    Double Bell = betAmount * 3;
+                    bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Bell;
+                    CasinoApplication.player.AddToBalance(Bell);
                 } else {
                     SlotMatches++;
                 }
             case 3: //this is 3
                 if ((ConFirst.equals(ConSecond.contains("3"))) && (ConFirst.equals(ConThird.contains("3"))) && (ConSecond.equals(ConThird.contains("3")))){
-                    CasinoApplication.player.AddToBalance(betAmount * 3);
+                    Double lemon = betAmount * 3;
+                    bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + lemon;
+                    CasinoApplication.player.AddToBalance(lemon);
                 } else {
                     SlotMatches++;
                 }
             case 4: //this is 4
                 if ((ConFirst.equals(ConSecond.contains("4"))) && (ConFirst.equals(ConThird.contains("4"))) && (ConSecond.equals(ConThird.contains("4")))){
-                    CasinoApplication.player.AddToBalance(betAmount + 75);
+                    Double Melon = betAmount + 75;
+                    bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Melon;
+                    CasinoApplication.player.AddToBalance(Melon);
                 } else {
                     SlotMatches++;
                 }
             case 5: //this is 0
                 if ((ConFirst.equals(ConSecond.contains("0"))) && (ConFirst.equals(ConThird.contains("0"))) && (ConSecond.equals(ConThird.contains("0")))){
-                    CasinoApplication.player.AddToBalance(betAmount + 50);
+                    Double Banana = betAmount + 50;
+                    bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Banana;
+                    CasinoApplication.player.AddToBalance(Banana);
                 } else {
                     SlotMatches++;
                 }
             case 6: //this is 5
                 if ((ConFirst.equals(ConSecond.contains("5"))) && (ConFirst.equals(ConThird.contains("5"))) && (ConSecond.equals(ConThird.contains("5")))){
-                    CasinoApplication.player.AddToBalance(betAmount + 25);
+                    Double Orange = betAmount + 25;
+                    bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Orange;
+                    CasinoApplication.player.AddToBalance(Orange);
                 } else {
                     SlotMatches++;
                 }
             case 7: //this is 6
                 if ((ConFirst.equals(ConSecond.contains("6"))) && (ConFirst.equals(ConThird.contains("6"))) && (ConSecond.equals(ConThird.contains("6")))){
-                    CasinoApplication.player.AddToBalance(betAmount + 15);
+                    Double Plum = betAmount + 15;
+                    bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Plum;
+                    CasinoApplication.player.AddToBalance(Plum);
                 } else {
                     SlotMatches++;
                 }
             case 8: //this is 7
                 if ((ConFirst.equals(ConSecond)) || (ConFirst.equals(ConThird)) || (ConSecond.equals(ConThird))){
-                    CasinoApplication.player.AddToBalance(betAmount + 50);
+                    Double Pairs = betAmount + 50;
+                    bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Pairs;
+                    CasinoApplication.player.AddToBalance(Pairs);
                 } else {
                     SlotMatches++;
                 }
             case 9:
                 if ((!ConFirst.equals(ConSecond)) && (!ConFirst.equals(ConThird)) && (!ConSecond.equals(ConThird))){
-                    CasinoApplication.player.LostPartBalance(betAmount);
+                    Double nothing = betAmount;
+                    bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + nothing;
+                    CasinoApplication.player.LostPartBalance(nothing);
                     break;
                 }
         }
 
 
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
+        bannerText.setText(bannerMessage);
+        bannerPane.setVisible(true);
+        buttonsDisabled = true;
+        SlotButtons(buttonsDisabled);
     }
 
 
@@ -206,5 +244,26 @@ public class SlotsGameController implements Initializable {
             }
         }
         updateBetsAndBalance(betAmount, CasinoApplication.player.GetBalance().GetBalance());
+    }
+
+    public void SlotButtons(boolean tool){
+        IncreaseBet.setDisable(tool);
+        DecreaseBet.setDisable(tool);
+        Spin.setDisable(tool);
+        if (tool) {
+            IncreaseBet.setOpacity(0.5);
+            DecreaseBet.setOpacity(0.5);
+            Spin.setOpacity(0.5);
+        } else if (!tool) {
+            IncreaseBet.setOpacity(1);
+            DecreaseBet.setOpacity(1);
+            Spin.setOpacity(1);
+        }
+
+    }
+
+    public void SpinAgainBtnPressed(ActionEvent event) throws FileNotFoundException {
+        bannerPane.setVisible(false);
+        SlotButtons(false);
     }
 }
