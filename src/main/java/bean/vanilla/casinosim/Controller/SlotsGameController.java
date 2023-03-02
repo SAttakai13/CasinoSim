@@ -66,12 +66,14 @@ public class SlotsGameController implements Initializable {
 
 
     public void SpinWheel() throws FileNotFoundException {
+        wheels.fillWheel().clear();
         slot1 = firstNum.nextInt(0, 7);
         slot2 = secondNum.nextInt(0, 7);
         slot3 = thirdNum.nextInt(0, 7);
         Slot1.setImage(wheels.fillWheel().get(slot1));
         Slot2.setImage(wheels.fillWheel().get(slot2));
         Slot3.setImage(wheels.fillWheel().get(slot3));
+
         DetermineSlots(slot1, slot2, slot3);
     }
 
