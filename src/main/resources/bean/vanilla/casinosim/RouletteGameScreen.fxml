@@ -16,237 +16,27 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.RouletteGameController">
+
+<Pane fx:id="pane" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.RouletteGameController">
     <children>
         <ImageView fitHeight="927.0" fitWidth="1221.0" layoutX="-10.0" layoutY="-14.0" pickOnBounds="true">
             <image>
-                <Image url="@Generic%20Felt%20Mat.jpeg" />
+                <Image url="@../../../CasinoAssets/Overall UI/Generic Felt Mat.jpeg" />
             </image>
         </ImageView>
         <ImageView fitHeight="748.0" fitWidth="787.0" layoutX="379.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Roulette/Roulette_SingleZero.png" />
+                <Image url="@../../../CasinoAssets/Roulette/Roulette_SingleZero.png" />
             </image>
-        </ImageView>
-        <ImageView fx:id="RouletteWheel" fitHeight="408.0" fitWidth="431.0" layoutX="28.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
-            <image>
-                <Image url="@../CasinoAssets/Roulette/RouletteWheel_SingleZero.png" />
-            </image>
-            <effect>
-                <DropShadow />
-            </effect>
         </ImageView>
         <Ellipse fill="#ffffff00" layoutX="332.0" layoutY="649.0" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Ellipse>
-        <GridPane layoutX="457.0" layoutY="26.0" prefHeight="229.0" prefWidth="653.0">
-            <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <Ellipse fx:id="Bet3" fill="#ffffff00" onMouseClicked="#Bet3" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet2" fill="#ffffff00" onMouseClicked="#Bet2" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet1" fill="#ffffff00" onMouseClicked="#Bet1" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet6" fill="#ffffff00" onMouseClicked="#Bet6" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet5" fill="#ffffff00" onMouseClicked="#Bet5" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet4" fill="#ffffff00" onMouseClicked="#Bet4" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet9" fill="#ffffff00" onMouseClicked="#Bet9" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet8" fill="#ffffff00" onMouseClicked="#Bet8" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet7" fill="#ffffff00" onMouseClicked="#Bet7" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet12" fill="#ffffff00" onMouseClicked="#Bet12" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="3">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet11" fill="#ffffff00" onMouseClicked="#Bet11" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet10" fill="#ffffff00" onMouseClicked="#Bet10" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet15" fill="#ffffff00" onMouseClicked="#Bet115" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="4">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet14" fill="#ffffff00" onMouseClicked="#Bet14" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet13" fill="#ffffff00" onMouseClicked="#Bet13" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet18" fill="#ffffff00" onMouseClicked="#Bet18" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="5">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet17" fill="#ffffff00" onMouseClicked="#Bet17" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet16" fill="#ffffff00" onMouseClicked="#Bet16" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet21" fill="#ffffff00" onMouseClicked="#Bet21" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="6">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet20" fill="#ffffff00" onMouseClicked="#Bet20" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="6" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet19" fill="#ffffff00" onMouseClicked="#Bet19" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="6" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet24" fill="#ffffff00" onMouseClicked="#Bet24" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="7">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet23" fill="#ffffff00" onMouseClicked="#Bet23" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="7" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet22" fill="#ffffff00" onMouseClicked="#Bet22" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="7" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet27" fill="#ffffff00" onMouseClicked="#Bet27" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="8">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet26" fill="#ffffff00" onMouseClicked="#Bet26" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="8" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet25" fill="#ffffff00" onMouseClicked="#Bet25" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="8" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet30" fill="#ffffff00" onMouseClicked="#Bet30" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="9">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet29" fill="#ffffff00" onMouseClicked="#Bet29" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="9" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet28" fill="#ffffff00" onMouseClicked="#Bet28" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="9" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet33" fill="#ffffff00" onMouseClicked="#Bet33" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="10">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet32" fill="#ffffff00" onMouseClicked="#Bet32" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="10" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet31" fill="#ffffff00" onMouseClicked="#Bet31" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="10" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet36" fill="#ffffff00" onMouseClicked="#Bet36" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="11">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet35" fill="#ffffff00" onMouseClicked="#Bet35" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="11" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-                <Ellipse fx:id="Bet34" fill="#ffffff00" onMouseClicked="#Bet34" radiusX="21.0" radiusY="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" GridPane.columnIndex="11" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Ellipse>
-            </children>
-        </GridPane>
         <ImageView fx:id="DecreaseBet" fitHeight="121.0" fitWidth="68.0" layoutX="806.0" layoutY="598.0" onMouseClicked="#DecreaseBet" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ArrowDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
             </image>
             <effect>
                 <DropShadow offsetX="5.0" offsetY="5.0" />
@@ -257,7 +47,7 @@
         </ImageView>
         <ImageView fx:id="Quit" fitHeight="97.0" fitWidth="454.0" layoutX="86.0" layoutY="769.0" onMouseClicked="#Quit" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
             <effect>
                 <DropShadow offsetX="5.0" offsetY="5.0" />
@@ -280,7 +70,7 @@
         </Text>
         <ImageView fx:id="IncreaseBet" fitHeight="97.0" fitWidth="68.0" layoutX="913.0" layoutY="598.0" onMouseClicked="#IncreaseBet" pickOnBounds="true" preserveRatio="true" rotate="180.0">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ArrowDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ArrowDown.png" />
             </image>
             <effect>
                 <DropShadow offsetX="-5.0" offsetY="-5.0" />
@@ -313,113 +103,9 @@
                 </DropShadow>
             </effect>
         </Text>
-        <GridPane layoutX="458.0" layoutY="311.0" prefHeight="56.0" prefWidth="653.0">
-            <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <Rectangle fx:id="Bet1To18" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" onMouseClicked="#Bet1To18" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="106.0">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-                <Rectangle fx:id="BetEven" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" onMouseClicked="#BetEven" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="106.0" GridPane.columnIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-                <Rectangle fx:id="BetRed" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" onMouseClicked="#BetRed" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="106.0" GridPane.columnIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-                <Rectangle fx:id="BetBlack" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" onMouseClicked="#BetBlack" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="106.0" GridPane.columnIndex="3">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-                <Rectangle fx:id="BetOdd" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" onMouseClicked="#BetOdd" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="106.0" GridPane.columnIndex="4">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-                <Rectangle fx:id="Bet19To36" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" onMouseClicked="#Bet19To36" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="106.0" GridPane.columnIndex="5">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-            </children>
-        </GridPane>
-        <GridPane layoutX="457.0" layoutY="255.0" prefHeight="56.0" prefWidth="653.0">
-            <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <Rectangle fx:id="Bet1st12" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" onMouseClicked="#Bet1st12" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="215.0">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-                <Rectangle fx:id="Bet2nd12" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" onMouseClicked="#Bet2nd12" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="215.0" GridPane.columnIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-                <Rectangle fx:id="Bet3rd12" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="49.0" onMouseClicked="#Bet3rd12" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="215.0" GridPane.columnIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-            </children>
-        </GridPane>
-        <GridPane layoutX="1110.0" layoutY="26.0" prefHeight="229.0" prefWidth="55.0">
-            <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <Rectangle fx:id="Bet1stRow" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="73.0" onMouseClicked="#Bet1stRow" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="55.0">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-                <Rectangle fx:id="Bet2ndRow" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="73.0" onMouseClicked="#Bet2ndRow" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="55.0" GridPane.rowIndex="1">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-                <Rectangle fx:id="Bet3rdRow" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="73.0" onMouseClicked="#Bet3rdRow" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="55.0" GridPane.rowIndex="2">
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Rectangle>
-            </children>
-        </GridPane>
-        <Polygon fx:id="Bet0" fill="#1f93ff00" layoutX="708.0" layoutY="428.0" onMouseClicked="#Bet0" points="-249.66665649414062, -169.66668701171875, -249.66665649414062, -400.6666564941406, -328.9999694824219, -288.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </Polygon>
         <ImageView fx:id="Spin" fitHeight="97.0" fitWidth="454.0" layoutX="174.0" layoutY="639.0" onMouseClicked="#Spin" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
             <effect>
                 <DropShadow offsetX="5.0" offsetY="5.0" />
@@ -442,9 +128,26 @@
         </Text>
         <TextFlow layoutX="458.0" layoutY="392.0" prefHeight="84.0" prefWidth="682.0" textAlignment="CENTER">
             <children>
-                <Text fx:id="SpinNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Spin: 19!" wrappingWidth="589.84375">
+                <Text fx:id="SpinNumber" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="589.84375">
                     <font>
                         <Font name="Cambria" size="72.0" />
+                    </font>
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Text>
+            </children>
+        </TextFlow>
+
+        <TextFlow layoutX="458.0" layoutY="500.0" prefHeight="84.0" prefWidth="682.0" textAlignment="CENTER">
+            <children>
+                <Text fx:id="WinningsLabel" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="589.84375">
+                    <font>
+                        <Font name="Cambria" size="64.0" />
                     </font>
                     <effect>
                         <DropShadow>

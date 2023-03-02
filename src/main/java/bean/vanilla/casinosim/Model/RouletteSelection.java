@@ -2,36 +2,29 @@ package bean.vanilla.casinosim.Model;
 
 import bean.vanilla.casinosim.CasinoApplication;
 import bean.vanilla.casinosim.Controller.CrapsGameController;
-import javafx.beans.value.ChangeListener;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import bean.vanilla.casinosim.Controller.RouletteGameController;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Pane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-public class BetSelection extends Pane {
+public class RouletteSelection extends Pane {
 
     private final int[] chipValues = new int[] {1,5,10,20,50,100,500,1000,5000};
     private final String imageDirectoryPath = "src/main/resources/CasinoAssets/Overall UI/";
     private ImageView chipImage;
     private Label betLabel;
 
-    private eCrapsBetSelection selection = eCrapsBetSelection.NONE;
+    private eRouletteBetSelection selection = eRouletteBetSelection.NONE;
+    private int rouletteNumber = -1;
     private double betAmount = 0.0;
 
 
-    public BetSelection(double betAmount, eCrapsBetSelection selection, double x, double y, double width, double height) {
-        this.betAmount = betAmount;
-        this.selection = selection;
-
+    public RouletteSelection(double x, double y, double width, double height) {
         //Setup position
         this.setLayoutX(x);
         this.setLayoutY(y);
@@ -46,16 +39,14 @@ public class BetSelection extends Pane {
         chipImage.setPreserveRatio(true);
         double size;
         if (width < height) {
-            size = (1.0 / 4.0) * width;
-            if (size < 40) size = 40;
+            size = (3.0 / 4.0) * width;
             chipImage.setFitWidth(size);
         } else {
-            size = (1.0 / 4.0) * height;
-            if (size < 40) size = 40;
+            size = (3.0 / 4.0) * height;
             chipImage.setFitHeight(size);
         }
-        chipImage.setLayoutX((width / 2.0) - (chipImage.getFitWidth()));
-        chipImage.setLayoutY((height / 2.0) - (chipImage.getFitHeight() / 2.0));
+        //chipImage.setLayoutX((width / 2.0) - (chipImage.getFitWidth()));
+        //chipImage.setLayoutY((height / 2.0) - (chipImage.getFitHeight() / 2.0));
 
         //Setup bet label
         betLabel = new Label("$"+betAmount);
@@ -77,30 +68,26 @@ public class BetSelection extends Pane {
         hoverProperty().addListener((observable, oldValue, newValue) -> {
             if (this.betAmount != 0.0) betLabel.setVisible(newValue);
             String bgColor = newValue ? "#26527a69" : "transparent";
-            if (IsDisabled()) bgColor = newValue ? "#7a262669" : "transparent";
             this.setStyle("-fx-background-color: "+bgColor+";");
         });
 
         //Increase bet on mouse click
         setOnMouseClicked(event -> {
-            if (!IsDisabled() && CrapsGameController.totalBet + CrapsGameController.GetBetAmount() < CasinoApplication.player.GetBalance().GetBalance())
-                AddToBetAmount(CrapsGameController.GetBetAmount());
+            if (RouletteGameController.totalBet + RouletteGameController.GetBetAmount() < CasinoApplication.player.GetBalance().GetBalance())
+                AddToBetAmount(RouletteGameController.GetBetAmount());
         });
     }
 
-    private boolean IsDisabled() {
-        if (selection == eCrapsBetSelection.NOT_PASS && CrapsGameController.phase == eCrapsPhase.POINT)
-            return true;
-        if ((selection == eCrapsBetSelection.HARDWAY_4 || selection == eCrapsBetSelection.HARDWAY_6 ||
-                selection == eCrapsBetSelection.HARDWAY_8 || selection == eCrapsBetSelection.HARDWAY_10)
-                && CrapsGameController.phase == eCrapsPhase.COME_OUT)
-            return true;
-        return false;
-    }
 
-    public eCrapsBetSelection Selection() {
+
+    public eRouletteBetSelection Selection() {
         return selection;
     }
+    public void SetRouletteSelection(eRouletteBetSelection selection) {
+        this.selection = selection;
+    }
+    public int GetRouletteNumber() { return rouletteNumber; }
+    public void SetRouletteNumber(int num) { rouletteNumber = num; }
 
     public double GetBetAmount() {
         return betAmount;
@@ -108,17 +95,17 @@ public class BetSelection extends Pane {
 
     public void AddToBetAmount(double amount) {
         betAmount += amount;
-        CrapsGameController.totalBet += amount;
+        RouletteGameController.totalBet += amount;
         UpdateBetDisplay();
     }
     public void SubtractFromBetAmount(double amount) {
         betAmount -= amount;
-        CrapsGameController.totalBet += amount;
+        RouletteGameController.totalBet -= amount;
         UpdateBetDisplay();
     }
 
     public void ClearBet() {
-        CrapsGameController.totalBet -= betAmount;
+        RouletteGameController.totalBet -= betAmount;
         betAmount = 0.0;
         UpdateBetDisplay();
     }
