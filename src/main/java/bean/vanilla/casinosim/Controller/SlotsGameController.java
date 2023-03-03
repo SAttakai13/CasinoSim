@@ -265,5 +265,7 @@ public class SlotsGameController implements Initializable {
     public void SpinAgainBtnPressed(ActionEvent event) throws FileNotFoundException {
         bannerPane.setVisible(false);
         SlotButtons(false);
+
+        CasinoApplication.CheckForWithdraw();
     }
 }
