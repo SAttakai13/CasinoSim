@@ -282,15 +282,21 @@ public class PokerGameController implements Initializable {
         btnPokerFold.setDisable(tool);
         btnPokerCall.setDisable(tool);
         btnPokerRaise.setDisable(tool);
+        IncreaseBet.setDisable(tool);
+        DecreaseBet.setDisable(tool);
         PokerExchangeBtnDisabled(tool);
         if (tool) {
             btnPokerCall.setOpacity(0.5);
             btnPokerRaise.setOpacity(0.5);
             btnPokerFold.setOpacity(0.5);
+            IncreaseBet.setOpacity(0.5);
+            DecreaseBet.setOpacity(0.5);
         } else if (!tool) {
             btnPokerCall.setOpacity(1);
             btnPokerRaise.setOpacity(1);
             btnPokerFold.setOpacity(1);
+            IncreaseBet.setOpacity(1);
+            DecreaseBet.setOpacity(1);
         }
 
     }
