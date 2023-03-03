@@ -17,11 +17,14 @@ public class WithdrawController implements Initializable {
 
     private static String quote = "";
     public static final String[] QuoteList = new String[] {
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\"You gotta know when to hold 'em...and know when to fold 'em.\"\n - Kenny Rogers",
+            "\"Sometimes you eat the bear, and sometimes the bear…well, he eats you.\"\n - The Stranger",
+            "\"Never tell me the odds.\"\n - Han Solo",
+            "\"You’ve got to ask yourself one question. ‘Do I feel lucky?’ Well, do ya, punk?\"\n - Dirty Harry",
+            "\"Even if the wheel is straight…and it ain’t…the house got 8% the best of it.\"\n - Latigo Smith",
+            "\"Truth is, the game was rigged from the start.\"\n - Benny",
+            "\"It feels like...like our luck has turned...you know...and it ain't turning back.\"\n - Arthur Morgan",
+            "\"It's wanting that gets so many folk in trouble...\"\n - John Marston",
     };
 
     @Override

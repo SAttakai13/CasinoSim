@@ -9,11 +9,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.CreditsController">
     <children>
         <ImageView fitHeight="922.0" fitWidth="1217.0" layoutX="-9.0" layoutY="-9.0" pickOnBounds="true">
             <image>
-                <Image url="@casino_background.jpg" />
+                <Image url="@../../../CasinoAssets/Overall UI/casino_background.jpg" />
             </image>
         </ImageView>
         <Text layoutX="446.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credits">
@@ -64,9 +64,9 @@
                 </DropShadow>
             </effect>
         </Text>
-        <ImageView fx:id="btnCreditsBack" fitHeight="69.0" fitWidth="361.0" layoutX="454.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="69.0" fitWidth="361.0" layoutX="454.0" layoutY="780.0" onMouseClicked="#Back" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
             <effect>
                 <DropShadow offsetX="5.0" offsetY="5.0" />
@@ -101,7 +101,7 @@
         </Text>
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1043.0" layoutY="721.0" pickOnBounds="true" preserveRatio="true" rotate="30.0">
             <image>
-                <Image url="@../CasinoAssets/BlackJack/Cards/cardSpadesA.png" />
+                <Image url="@../../../CasinoAssets/BlackJack/Cards/cardSpadesA.png" />
             </image>
             <effect>
                 <DropShadow>
@@ -113,7 +113,7 @@
         </ImageView>
         <ImageView fitHeight="257.0" fitWidth="190.0" layoutX="1033.0" layoutY="-40.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Slots/Wheel%20-%20Seven.png" />
+                <Image url="@../../../CasinoAssets/Slots/Wheel - Seven.png" />
             </image>
             <effect>
                 <DropShadow>
@@ -125,7 +125,7 @@
         </ImageView>
         <ImageView fitHeight="140.0" fitWidth="125.0" layoutX="35.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" rotate="30.0">
             <image>
-                <Image url="@../CasinoAssets/Craps/Dice6.png" />
+                <Image url="@../../../CasinoAssets/Craps/Dice6.png" />
             </image>
             <effect>
                 <DropShadow>
@@ -137,7 +137,7 @@
         </ImageView>
         <ImageView fitHeight="185.0" fitWidth="177.0" layoutX="24.0" layoutY="707.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Roulette/RouletteWheel_SingleZero.png" />
+                <Image url="@../../../CasinoAssets/Roulette/RouletteWheel_SingleZero.png" />
             </image>
             <effect>
                 <DropShadow>

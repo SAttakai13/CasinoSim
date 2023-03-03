@@ -10,11 +10,11 @@
 <?import javafx.scene.text.Text?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.WithdrawController">
     <children>
         <ImageView fitHeight="922.0" fitWidth="1217.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true">
             <image>
-                <Image url="@casino_background.jpg" />
+                <Image url="@../../../CasinoAssets/Overall UI/casino_background.jpg" />
             </image>
         </ImageView>
         <Text fx:id="QuoteText" layoutX="143.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&#10;" textAlignment="CENTER" wrappingWidth="926.9435262680054">
@@ -31,7 +31,7 @@
         </Text>
         <ImageView fx:id="Withdraw" fitHeight="178.0" fitWidth="505.0" layoutX="340.0" layoutY="725.0" onMouseClicked="#WithdrawClicked" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
             <effect>
                 <DropShadow offsetX="5.0" offsetY="5.0" />

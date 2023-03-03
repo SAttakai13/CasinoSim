@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
-<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.SlotsGameController">
+<Pane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.SlotsGameController">
     <children>
         <ImageView fitHeight="908.0" fitWidth="1207.0" pickOnBounds="true">
             <image>
@@ -152,5 +148,30 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
+      <Pane fx:id="bannerPane" layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="800.0" style="z-index: -100; -fx-background-color: linear-gradient(to bottom, #ffd843, #ffcd06); -fx-border-color: #cda400; -fx-border-width: 3px; -fx-background-radius: 10px; -fx-border-radius: 10px;" visible="false">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="1.0" green="1.0" blue="1.0" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <Text fx:id="bannerText" layoutY="50.0" strokeWidth="0.0" style="-fx-font-family: Cambria; -fx-font-size: 16pt;" text="test text you win!" textAlignment="CENTER" wrappingWidth="800.0">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Text>
+            <Button layoutX="300.0" layoutY="150.0" mnemonicParsing="false" onAction="#SpinAgainBtnPressed" prefWidth="200.0" style="-fx-font-family: Cambria; -fx-font-size: 12pt; -fx-background-color: linear-gradient(to bottom, #ff9900, #b45f06); -fx-border-color: #a35405; -fx-border-width: 1px; -fx-background-radius: 5px; -fx-border-radius: 5px;" text="Try Again?">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
     </children>
 </Pane>

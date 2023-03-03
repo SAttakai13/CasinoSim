@@ -83,7 +83,7 @@ public class BetSelection extends Pane {
 
         //Increase bet on mouse click
         setOnMouseClicked(event -> {
-            if (!IsDisabled() && CrapsGameController.totalBet + CrapsGameController.GetBetAmount() < CasinoApplication.player.GetBalance().GetBalance())
+            if (!IsDisabled() && CrapsGameController.totalBet + CrapsGameController.GetBetAmount() <= CasinoApplication.player.GetBalance().GetBalance())
                 AddToBetAmount(CrapsGameController.GetBetAmount());
         });
     }
