@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="913.0" fitWidth="1214.0" layoutX="-10.0" layoutY="-8.0" pickOnBounds="true">
+            <image>
+                <Image url="@Generic%20Felt%20Mat.jpeg" />
+            </image>
+        </ImageView>
+        <Text fx:id="BetText" layoutX="63.0" layoutY="121.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions">
+            <font>
+                <Font name="Cambria" size="96.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <Text fx:id="BetText1" layoutX="600.0" layoutY="188.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Pass (Multi-Roll Bet) - 1:1&#10;Don't Pass (Multi-Roll Bet) - 1:1&#10;Field (Single Roll) - 1:1 on 3,4,9,10,11...&#10;2:1 on 2... 3:1 on 12&#10;Hardway 4 (Single Roll) - 7:1&#10;Hardway 10 (Single Roll) - 7:1&#10;Hardway 6 (Single Roll) - 9:1&#10;Hardway 8 (Single Roll) - 9:1&#10;Next Roll 7 - 4:1&#10;Next Roll 3 - 15:1&#10;Next Roll 2 - 30:1&#10;Next Roll 11 - 15:1&#10;Next Roll 12 - 30:1&#10;Next Roll &quot;Craps&quot; (2, 3, or 12) - 7:1" textAlignment="CENTER">
+            <font>
+                <Font name="Cambria" size="36.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <Text fx:id="BetText2" layoutX="739.0" layoutY="122.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Payouts">
+            <font>
+                <Font name="Cambria" size="96.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <ImageView fx:id="Play" fitHeight="126.0" fitWidth="375.0" layoutX="801.0" layoutY="797.0" onMouseClicked="#Play" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+            </image>
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0" />
+            </effect>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Text layoutX="945.0" layoutY="859.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Play">
+            <font>
+                <Font name="Cambria" size="48.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <ImageView fx:id="Back" fitHeight="126.0" fitWidth="375.0" layoutX="14.0" layoutY="799.0" onMouseClicked="#Back" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+            </image>
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0" />
+            </effect>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Text layoutX="152.0" layoutY="859.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
+            <font>
+                <Font name="Cambria" size="48.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <TextFlow layoutX="29.0" layoutY="154.0" prefHeight="613.0" prefWidth="557.0" textAlignment="CENTER">
+            <children>
+                <Text fx:id="BetText11" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="The player starts by rolling a pair of dice. If the player rolls a 2, 3, or 12, they lose the round and start again. If the player rolls a 7 or 11, they win the round. If the player rolls a 4, 5, 6, 8, 9, or 10, that becomes the &quot;point&quot; and they continue rolling. The goal then changes to roll the point number again without rolling a seven." textAlignment="CENTER">
+                    <font>
+                        <Font name="Cambria" size="36.0" />
+                    </font>
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Text>
+            </children>
+        </TextFlow>
+    </children>
+</Pane>

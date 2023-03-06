@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="913.0" fitWidth="1214.0" layoutX="-10.0" layoutY="-8.0" pickOnBounds="true">
+            <image>
+                <Image url="@Generic%20Felt%20Mat.jpeg" />
+            </image>
+        </ImageView>
+        <Text fx:id="BetText" layoutX="89.0" layoutY="103.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions">
+            <font>
+                <Font name="Cambria" size="96.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <Text fx:id="BetText1" layoutX="794.0" layoutY="203.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Loss: Lose Bet&#10;Draw: Bet Returned&#10;Win - 1:1&#10;Blackjack - 2:1&#10;5-Card Charlie - 3:1" textAlignment="CENTER">
+            <font>
+                <Font name="Cambria" size="36.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <ImageView fx:id="Play" fitHeight="126.0" fitWidth="375.0" layoutX="801.0" layoutY="777.0" onMouseClicked="#Play" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+            </image>
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0" />
+            </effect>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Text layoutX="947.0" layoutY="839.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Play">
+            <font>
+                <Font name="Cambria" size="48.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <ImageView fx:id="Back" fitHeight="126.0" fitWidth="375.0" layoutX="18.0" layoutY="777.0" onMouseClicked="#Back" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+            </image>
+            <effect>
+                <DropShadow offsetX="5.0" offsetY="5.0" />
+            </effect>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Text layoutX="156.0" layoutY="839.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Back">
+            <font>
+                <Font name="Cambria" size="48.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <Text fx:id="BetText2" layoutX="783.0" layoutY="104.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Payouts">
+            <font>
+                <Font name="Cambria" size="96.0" />
+            </font>
+            <effect>
+                <DropShadow>
+                    <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                    </color>
+                </DropShadow>
+            </effect>
+        </Text>
+        <TextFlow layoutX="41.0" layoutY="125.0" prefHeight="635.0" prefWidth="611.0" textAlignment="CENTER">
+            <children>
+                <Text fx:id="BetText11" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Both the player and dealer start with two cards (player with both face up and the dealer with only one face up). The goal is to achieve a card total as close to 21 without going over. The player can Hit, Stand, Double Down, and Split.&#10;&#10;Hit - Adds another card to your hand.&#10;Stand - Ends turn without adding a card.&#10;Double Down - Doubles your bet, adds a card, and finishes the round.&#10;Split - If the two cards have the same value, separate them to make two hands." textAlignment="CENTER" wrappingWidth="261.48827362060547">
+                    <font>
+                        <Font name="Cambria" size="36.0" />
+                    </font>
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="1.0" green="1.0" blue="1.0" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </Text>
+            </children>
+        </TextFlow>
+    </children>
+</Pane>
