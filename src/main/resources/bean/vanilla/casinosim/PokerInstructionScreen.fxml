@@ -10,11 +10,11 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bean.vanilla.casinosim.Controller.PokerInstructionsController">
     <children>
         <ImageView fitHeight="913.0" fitWidth="1214.0" layoutX="-10.0" layoutY="-8.0" pickOnBounds="true">
             <image>
-                <Image url="@Generic%20Felt%20Mat.jpeg" />
+                <Image url="@../../../CasinoAssets/Overall UI/Generic Felt Mat.jpeg" />
             </image>
         </ImageView>
         <Text fx:id="BetText" layoutX="83.0" layoutY="111.0" mouseTransparent="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions">
@@ -55,7 +55,7 @@
         </Text>
         <ImageView fx:id="Play" fitHeight="126.0" fitWidth="375.0" layoutX="811.0" layoutY="787.0" onMouseClicked="#Play" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
             <effect>
                 <DropShadow offsetX="5.0" offsetY="5.0" />
@@ -78,7 +78,7 @@
         </Text>
         <ImageView fx:id="Back" fitHeight="126.0" fitWidth="375.0" layoutX="35.0" layoutY="787.0" onMouseClicked="#Back" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../CasinoAssets/Overall%20UI/ButtonDown.png" />
+                <Image url="@../../../CasinoAssets/Overall UI/ButtonDown.png" />
             </image>
             <effect>
                 <DropShadow offsetX="5.0" offsetY="5.0" />

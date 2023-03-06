@@ -24,23 +24,23 @@ import java.util.ResourceBundle;
 public class TitleScreenController {
 
     public void NavToBlackjack(MouseEvent event) {
-        CasinoApplication.setRoot("BlackJackGameScreen");
+        CasinoApplication.setRoot("BlackJackInstructionScreen");
     }
 
     public void NavToPoker(MouseEvent event) {
-        CasinoApplication.setRoot("PokerGameScreen");
+        CasinoApplication.setRoot("PokerInstructionScreen");
     }
 
     public void NavToRoulette(MouseEvent event) {
-        CasinoApplication.setRoot("RouletteGameScreen");
+        CasinoApplication.setRoot("RouletteInstructionScreen");
     }
 
     public void NavToSlots(MouseEvent event) {
-        CasinoApplication.setRoot("SlotsGameScreen");
+        CasinoApplication.setRoot("SlotsInstructionScreen");
     }
 
     public void NavToCraps(MouseEvent event) {
-        CasinoApplication.setRoot("CrapsGameScreen");
+        CasinoApplication.setRoot("CrapsInstructionScreen");
     }
 
     public void NavToCredit(MouseEvent event) {
