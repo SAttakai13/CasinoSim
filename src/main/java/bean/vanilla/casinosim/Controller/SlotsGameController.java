@@ -136,7 +136,7 @@ public class SlotsGameController implements Initializable {
                 }
             case 4: //this is 4
                 if ((ConFirst.equals(ConSecond.contains("4"))) && (ConFirst.equals(ConThird.contains("4"))) && (ConSecond.equals(ConThird.contains("4")))){
-                    Double Melon = 75.0;
+                    Double Melon = betAmount + 75;
                     bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Melon;
                     CasinoApplication.player.AddToBalance(Melon);
                 } else {
@@ -144,7 +144,7 @@ public class SlotsGameController implements Initializable {
                 }
             case 5: //this is 0
                 if ((ConFirst.equals(ConSecond.contains("0"))) && (ConFirst.equals(ConThird.contains("0"))) && (ConSecond.equals(ConThird.contains("0")))){
-                    Double Banana = 50.0;
+                    Double Banana = betAmount + 50;
                     bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Banana;
                     CasinoApplication.player.AddToBalance(Banana);
                 } else {
@@ -152,7 +152,7 @@ public class SlotsGameController implements Initializable {
                 }
             case 6: //this is 5
                 if ((ConFirst.equals(ConSecond.contains("5"))) && (ConFirst.equals(ConThird.contains("5"))) && (ConSecond.equals(ConThird.contains("5")))){
-                    Double Orange = 25.0;
+                    Double Orange = betAmount + 25;
                     bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Orange;
                     CasinoApplication.player.AddToBalance(Orange);
                 } else {
@@ -160,13 +160,13 @@ public class SlotsGameController implements Initializable {
                 }
             case 7: //this is 6
                 if ((ConFirst.equals(ConSecond.contains("6"))) && (ConFirst.equals(ConThird.contains("6"))) && (ConSecond.equals(ConThird.contains("6")))){
-                    Double Plum = 15.0;
+                    Double Plum = betAmount + 15;
                     bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Plum;
                     CasinoApplication.player.AddToBalance(Plum);
                 } else {
                     SlotMatches++;
                 }
-            case 8: //this is 7
+            case 8: //this is for two
                 if ((ConFirst.equals(ConSecond)) || (ConFirst.equals(ConThird)) || (ConSecond.equals(ConThird))){
                     Double Pairs = 50.0;
                     bannerMessage = CasinoApplication.player.GetName() + " won.\nBalance: " +  CasinoApplication.player.GetBalance().GetBalance() + "\nMoney earned: " + Pairs;
